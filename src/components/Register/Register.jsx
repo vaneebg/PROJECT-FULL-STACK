@@ -49,14 +49,42 @@ const Register=()=> {
             <Input prefix={<MailOutlined className="site-form-item-icon" />} />
           </Form.Item>
          
-
           <Form.Item
-            label="Password"
-            name="password"
-            rules={[{ required: true, message: "Introduce una contraseña" }]}
-          >
-            <Input.Password prefix={<LockOutlined className="site-form-item-icon" />} />
-          </Form.Item>
+        name="password"
+        label="Password"
+        rules={[
+          {
+            required: true,
+            message: 'Introduce una contraseña',
+          },
+        ]}
+        hasFeedback
+      >
+        <Input.Password prefix={<LockOutlined className="site-form-item-icon" />}/>
+      </Form.Item>
+
+      <Form.Item
+        name="confirm"
+        label="Confirm Password"
+        dependencies={['password']}
+        hasFeedback
+        rules={[
+          {
+            required: true,
+            message: 'Confirma tu contraseña',
+          },
+          ({ getFieldValue }) => ({
+            validator(_, value) {
+              if (!value || getFieldValue('password') === value) {
+                return Promise.resolve();
+              }
+              return Promise.reject(new Error('Las contraseñas no coinciden!'));
+            },
+          }),
+        ]}
+      >
+        <Input.Password  prefix={<LockOutlined className="site-form-item-icon" />}/>
+      </Form.Item>
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Button type="primary" htmlType="submit">
               Registrarse
