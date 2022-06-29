@@ -1,5 +1,5 @@
 
-import { Form, Input, Button, notification , Upload,InputNumber} from 'antd';
+import { Form, Input, Button, notification ,message, Upload,InputNumber} from 'antd';
 import { UserOutlined, MailOutlined, LockOutlined,  UploadOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux'
 import {register} from '../../features/auth/authSlice'
@@ -20,15 +20,26 @@ const Register=()=> {
   const onFinishFailed = (errorInfo) => {
     console.error("Failed:", errorInfo);
   };
-  const normFile = (e) => {
-    console.log('Foto subir:', e);
+ 
+  const props = {
+    name: 'image',
+    action: 'http://localhost:8080/users/',
+   
   
-    if (Array.isArray(e)) {
-      return e;
-    }
+    onChange(info) {
+      if (info.file.status !== 'uploading') {
+        console.log(info.file, info.fileList);
+      }
   
-    return e?.fileList;
+      if (info.file.status === 'done') {
+        message.success(`${info.file.name} file uploaded successfully`);
+      } else if (info.file.status === 'error') {
+        message.error(`${info.file.name} file upload failed.`);
+      }
+    },
   };
+
+
   return (
    
         <Form
@@ -99,16 +110,9 @@ const Register=()=> {
       >
         <Input.Password  prefix={<LockOutlined className="site-form-item-icon" />}/>
       </Form.Item>
-      <Form.Item
-        name="upload"
-        label="Foto perfil(opcional)"
-        valuePropName="fileList"
-        getValueFromEvent={normFile}
-      >
-        <Upload name="logo" action="/upload.do" listType="picture">
-          <Button icon={<UploadOutlined />}>Subir foto!</Button>
-        </Upload>
-      </Form.Item>
+      <Upload {...props}>
+    <Button icon={<UploadOutlined />}>Click to Upload</Button>
+  </Upload>
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Button type="primary" htmlType="submit">
               Registrarse
