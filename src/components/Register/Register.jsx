@@ -1,11 +1,16 @@
 
-import { Form, Input, Button, notification , InputNumber} from 'antd';
-import { UserOutlined, MailOutlined, LockOutlined } from '@ant-design/icons';
-
+import { Form, Input, Button, notification , Upload,InputNumber} from 'antd';
+import { UserOutlined, MailOutlined, LockOutlined,  UploadOutlined } from '@ant-design/icons';
+import { useDispatch } from 'react-redux'
+import {register} from '../../features/auth/authSlice'
 
 const Register=()=> {
+
+    const dispatch = useDispatch()
+
   const onFinish = (values) => {
     console.log('valores formulario',values)
+    dispatch(register(values))
     return notification.success({
       message: "Bienvenido!",
       description: "Usuario creado con éxito!",
@@ -14,6 +19,15 @@ const Register=()=> {
 
   const onFinishFailed = (errorInfo) => {
     console.error("Failed:", errorInfo);
+  };
+  const normFile = (e) => {
+    console.log('Foto subir:', e);
+  
+    if (Array.isArray(e)) {
+      return e;
+    }
+  
+    return e?.fileList;
   };
   return (
    
@@ -34,12 +48,12 @@ const Register=()=> {
             <Input prefix={<UserOutlined className="site-form-item-icon" />} />
           </Form.Item>
 
-          <Form.Item
+          <Form.Item 
             label="Edad"
             name="age"
             rules={[{ required: true, message: "Introduce tu edad" }]}
           >
-            <InputNumber />
+            <InputNumber  min={16} />
           </Form.Item>
           <Form.Item
             label="Email"
@@ -65,7 +79,7 @@ const Register=()=> {
 
       <Form.Item
         name="confirm"
-        label="Confirm Password"
+        label="Confirma Password"
         dependencies={['password']}
         hasFeedback
         rules={[
@@ -84,6 +98,16 @@ const Register=()=> {
         ]}
       >
         <Input.Password  prefix={<LockOutlined className="site-form-item-icon" />}/>
+      </Form.Item>
+      <Form.Item
+        name="upload"
+        label="Foto perfil(opcional)"
+        valuePropName="fileList"
+        getValueFromEvent={normFile}
+      >
+        <Upload name="logo" action="/upload.do" listType="picture">
+          <Button icon={<UploadOutlined />}>Subir foto!</Button>
+        </Upload>
       </Form.Item>
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Button type="primary" htmlType="submit">
