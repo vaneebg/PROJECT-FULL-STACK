@@ -1,8 +1,9 @@
 
 import { AndroidOutlined, AppleOutlined } from '@ant-design/icons';
 import { Tabs } from 'antd';
-
-
+import './TabsComp.scss'
+import Login from '../TabsComp/Login/Login';
+import Register from '../TabsComp/Register/Register'
 const { TabPane } = Tabs;
 
 
@@ -13,23 +14,24 @@ const TabsComp = () => {
       tab={
         <span>
           <AppleOutlined />
-        Holi
+        
         </span>
       }
       key="1"
     >
-      Tab 1
+        <Register/>
     </TabPane>
     <TabPane
       tab={
         <span>
           <AndroidOutlined />
-       Adios
+        
+
         </span>
       }
       key="2"
     >
-      Tab 2
+      <Login/>
     </TabPane>
   </Tabs>
 );

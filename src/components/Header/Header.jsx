@@ -1,12 +1,12 @@
-
+import './Header.scss'
 
 const Header = () => {
   
   
   return (
-    <nav>
-      <span>header</span>
-    </nav>
+  
+      <div className='header'>header</div>
+  
   );
 };
 

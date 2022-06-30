@@ -1,7 +1,13 @@
 
+import imgEj from '../../../assets/16.jpg'
+import './Carrousel.scss'
+
 const Carrousel = () => {
   return (
-    <div>Carrousel</div>
+    <div className='carrousel'>
+        <span>Carrousel</span>
+        <img src={imgEj} alt="" />
+    </div>
   )
 }
 
