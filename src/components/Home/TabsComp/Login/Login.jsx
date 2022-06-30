@@ -1,55 +1,42 @@
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import {login} from '../../../../features/auth/authSlice'
-import { Form, Input, Button } from 'antd'
+import { login } from '../../../../features/auth/authSlice'
+import {  Input } from 'antd'
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
 import './Login.scss'
+
 const Login = () => {
+  const initialState = {
+    email: "",
+    password: "",
+   
+  };
+  const [formData, setFormData] = useState(initialState);
+  const { email, password } = formData;
 
-    const onFinish = (values) => {
-        console.log('formulario',values)
-        dispatch(login(values))
-    
-      }
-    
-      const onFinishFailed = (errorInfo) => {
-        console.error('Failed:', errorInfo)
-      }
-
-const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+  const onSubmit = (e) => {
+    e.preventDefault()
+    dispatch(login(formData));
+    console.log('formData',formData)
+    }
 
 return (
   <div className="centerLog">
-    <Form className='formLog'
-    name="basic"
-    labelCol={{ span: 9 }}
-    wrapperCol={{ span: 20 }}
-    initialValues={{ remember: true }}
-    onFinish={onFinish}
-    onFinishFailed={onFinishFailed}
-    autoComplete="off"
-  >
-    <Form.Item
-      label="Email"
-      name="email"
-      rules={[{ required: true, message: "Pon tu email" }]}
-    >
-      <Input prefix={<MailOutlined className="site-form-item-icon" />} />
-    </Form.Item>
-
-    <Form.Item
-      label="Password"
-      name="password"
-      rules={[{ required: true, message: "Pon tu contraseña!" }]}
-    >
-      <Input.Password prefix={<LockOutlined className="site-form-item-icon" />} />
-    </Form.Item>
-
-    <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-      <Button className='logbtn' type="primary" htmlType="submit">
-        Enviar
-      </Button>
-    </Form.Item>
-  </Form>
+ 
+ <form className='formLog' onSubmit={onSubmit}>
+ <label htmlFor="email">Correo:</label> 
+ <Input prefix={<MailOutlined/>} type="email" name="email" value={email} onChange={onChange}/>
+ <label htmlFor="password">Contraseña:</label>
+ <Input prefix={<LockOutlined/>} type="password" name="password" value={password} onChange={onChange}/>
+ <button type="submit">Login</button>
+ </form>
   </div>
 )
 }
