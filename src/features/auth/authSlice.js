@@ -36,13 +36,16 @@ export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: { },
-extraReducers: (builder) => {
-builder
-.addCase(login.fulfilled, (state, action) => {
-state.user = action.payload;
+  extraReducers: (builder) => {
+    builder
+      .addCase(login.fulfilled, (state, action) => {
+        state.user = action.payload;
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.user = null;
+      });
+  },
 })
-},
-});
 
  
 
