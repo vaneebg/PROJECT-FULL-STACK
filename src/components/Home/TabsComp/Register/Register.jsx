@@ -1,7 +1,7 @@
 import { notification } from "antd";
 import {  useState } from "react";
 import { useDispatch} from "react-redux";
-import { register} from "../../features/auth/authSlice";
+import { register} from "../../../../features/auth/authSlice";
 import { UserOutlined, MailOutlined,ContactsOutlined, LockOutlined} from '@ant-design/icons';
 import { Input } from 'antd';
 import './Register.scss'

@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import {login} from '../../features/auth/authSlice'
+import {login} from '../../../../features/auth/authSlice'
 import { Form, Input, Button } from 'antd'
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
 import './Login.scss'
