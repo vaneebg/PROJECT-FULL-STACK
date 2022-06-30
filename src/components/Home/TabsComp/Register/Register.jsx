@@ -4,6 +4,7 @@ import { useDispatch, useSelector} from "react-redux";
 import { register,reset} from "../../../../features/auth/authSlice";
 import { UserOutlined, MailOutlined,ContactsOutlined, LockOutlined} from '@ant-design/icons';
 import { Input } from 'antd';
+
 import './Register.scss'
 
 const Register = () => {
@@ -64,17 +65,17 @@ const Register = () => {
     <div className="centerReg">
     <form className='formReg' onSubmit={onSubmit}>
         <label htmlFor="username">Nombre de usuario:</label> 
-      <Input prefix={<UserOutlined />} type="text" name="username" value={username} onChange={onChange} /> 
+      <Input prefix={<UserOutlined />} type="text" name="username" value={username} onChange={onChange} required/> 
       <label htmlFor="email">Correo: </label> 
-      <Input prefix={<MailOutlined/>} type="email" name="email" value={email} onChange={onChange} /> 
+      <Input prefix={<MailOutlined/>} type="email" name="email" value={email} onChange={onChange} required/> 
       <label htmlFor="age">Edad:</label> 
-      <Input prefix={<ContactsOutlined />}type="number" min="16" name="age" value={age} onChange={onChange} /> 
+      <Input prefix={<ContactsOutlined />}type="number" min="16" name="age" value={age} onChange={onChange} required/> 
 <label htmlFor="password">Introduce tu contraseña:</label> 
       <Input prefix={<LockOutlined/>}
         type="password"
         name="password"
         value={password}
-        onChange={onChange}
+        onChange={onChange} required
       /> 
       <label htmlFor="password2">Introduce de nuevo tu contraseña:</label> 
 
@@ -82,7 +83,7 @@ const Register = () => {
         type="password"
         name="password2"
         value={password2}
-        onChange={onChange}
+        onChange={onChange} required
       />
       <input 
        onChange={onChange}
