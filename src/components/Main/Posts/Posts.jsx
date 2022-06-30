@@ -10,8 +10,8 @@ const Posts = () => {
   const getPostsAndReset = async () => {
 
 
-    await dispatch(getAll()); //me trae los productos
-    dispatch(reset()) //resetear el estado isLoading = false
+    await dispatch(getAll()); 
+    dispatch(reset())
    };
 
    useEffect(() => {
