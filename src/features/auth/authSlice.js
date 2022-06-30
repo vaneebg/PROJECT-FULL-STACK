@@ -22,6 +22,13 @@ export const login = createAsyncThunk("auth/login", async (user) => {
   console.error(error);
   }
   });
+  export const logout = createAsyncThunk("auth/logout", async () => {
+    try {
+      return await authService.logout();
+    } catch (error) {
+      console.error(error);
+    }
+  });
 
 
 
