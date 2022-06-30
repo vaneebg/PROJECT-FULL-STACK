@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { login } from '../../../../features/auth/authSlice'
+import { useState,useEffect } from 'react'
+import { useDispatch,useSelector } from 'react-redux'
+import { login,reset } from '../../../../features/auth/authSlice'
 import {  Input, notification } from 'antd'
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
 import { useNavigate } from "react-router-dom";
@@ -19,6 +19,25 @@ const Login = () => {
   const { email, password } = formData;
 
   const dispatch = useDispatch();
+
+  
+  const { isError, isSuccess, message } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (isError) {
+      notification.error({ message: "Error: email/contraseña incorrectos", description: message });
+    }
+    if (isSuccess) {
+      notification.success({ message: "Holiii", description: message });
+      setTimeout(() => {
+        navigate("/main");
+      }, 2000);
+    }
+    dispatch(reset());
+  }, [isError, isSuccess, message]);
+
+
+
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -30,14 +49,7 @@ const Login = () => {
     console.log('login enviado',formData)
 
     dispatch(login(formData));
-    setTimeout(() => {
-      navigate("/main")
-      
-    }, 3000)
-    return notification.success({
-      message: "Bienvenidx!",
-      description: "Holiiis",
-    });
+   
     }
 
 return (

@@ -1,7 +1,7 @@
 import { notification } from "antd";
-import {  useState } from "react";
-import { useDispatch} from "react-redux";
-import { register} from "../../../../features/auth/authSlice";
+import {  useState,useEffect } from "react";
+import { useDispatch, useSelector} from "react-redux";
+import { register,reset} from "../../../../features/auth/authSlice";
 import { UserOutlined, MailOutlined,ContactsOutlined, LockOutlined} from '@ant-design/icons';
 import { Input } from 'antd';
 import './Register.scss'
@@ -19,6 +19,22 @@ const Register = () => {
   const { username, age, email, password, password2,image } = formData;
 
   const dispatch = useDispatch();
+
+
+  const { isSuccess, message, isError } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (isSuccess) {
+      notification.success({
+        message: "Success",
+        description: message,
+      });
+    }
+    if (isError) {
+      notification.error({ message: "Error", description: message });
+    }
+    dispatch(reset());
+  }, [isSuccess, isError, message]);
 
 
   const onChange = (e) => {
