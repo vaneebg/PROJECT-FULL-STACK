@@ -1,8 +1,32 @@
-import React from 'react'
+import { useEffect } from 'react';
+import Post from './Post/Post'
+import { useDispatch, useSelector } from "react-redux";
+import { getAll, reset } from "../../../features/posts/postsSlice";
 
 const Posts = () => {
+ const dispatch = useDispatch();
+ const { isLoading } = useSelector((state) => state.posts);
+
+  const getPostsAndReset = async () => {
+
+
+    await dispatch(getAll()); //me trae los productos
+    dispatch(reset()) //resetear el estado isLoading = false
+   };
+
+   useEffect(() => {
+     getPostsAndReset();
+   }, []);
+
+   if (isLoading) {
+    return <h1>Cargando posts..</h1>;
+  }
+
   return (
-    <div>Posts</div>
+    <div>
+        <h1>Posts</h1>
+        <Post/>
+    </div>
   )
 }
 
