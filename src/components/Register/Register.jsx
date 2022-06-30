@@ -2,6 +2,9 @@ import { notification } from "antd";
 import {  useState } from "react";
 import { useDispatch} from "react-redux";
 import { register} from "../../features/auth/authSlice";
+import { UserOutlined, MailOutlined,ContactsOutlined, LockOutlined} from '@ant-design/icons';
+import { Input } from 'antd';
+import './Register.scss'
 
 const Register = () => {
   const initialState = {
@@ -40,25 +43,26 @@ const Register = () => {
     
       dispatch(register(formData));
     }
-  };
+  }; 
   return (
-    <form onSubmit={onSubmit}>
-        <label htmlFor="username">Nombre de usuario:</label> <br />
-      <input type="text" name="username" value={username} onChange={onChange} /> <br />
-      <label htmlFor="email">Correo: </label> <br />
-      <input type="email" name="email" value={email} onChange={onChange} /> <br />
-      <label htmlFor="age">Edad:</label> <br />
-      <input type="number" name="age" value={age} onChange={onChange} /> <br />
-<label htmlFor="password">Introduce tu contraseña:</label> <br />
-      <input
+    <div className="centerReg">
+    <form className='formReg' onSubmit={onSubmit}>
+        <label htmlFor="username">Nombre de usuario:</label> 
+      <Input prefix={<UserOutlined />} type="text" name="username" value={username} onChange={onChange} /> 
+      <label htmlFor="email">Correo: </label> 
+      <Input prefix={<MailOutlined/>} type="email" name="email" value={email} onChange={onChange} /> 
+      <label htmlFor="age">Edad:</label> 
+      <Input prefix={<ContactsOutlined />}type="number" min="16" name="age" value={age} onChange={onChange} /> 
+<label htmlFor="password">Introduce tu contraseña:</label> 
+      <Input prefix={<LockOutlined/>}
         type="password"
         name="password"
         value={password}
         onChange={onChange}
-      /> <br />
-      <label htmlFor="password2">Introduce de nuevo tu contraseña:</label> <br />
+      /> 
+      <label htmlFor="password2">Introduce de nuevo tu contraseña:</label> 
 
-      <input
+      <Input prefix={<LockOutlined/>}
         type="password"
         name="password2"
         value={password2}
@@ -66,10 +70,10 @@ const Register = () => {
       />
       <input 
        onChange={onChange}
-       type="file" value={image} name='image'/>
-      <button>Subir foto</button>
+       type="file" value={image} name='upload'/>
       <input type="submit" />
     </form>
+    </div>
   );
 };
 

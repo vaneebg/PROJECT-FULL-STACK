@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux'
 import {login} from '../../features/auth/authSlice'
 import { Form, Input, Button } from 'antd'
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
-
+import './Login.scss'
 const Login = () => {
 
     const onFinish = (values) => {
@@ -18,7 +18,8 @@ const Login = () => {
 const dispatch = useDispatch()
 
 return (
-    <Form
+  <div className="centerLog">
+    <Form className='formLog'
     name="basic"
     labelCol={{ span: 9 }}
     wrapperCol={{ span: 20 }}
@@ -49,6 +50,7 @@ return (
       </Button>
     </Form.Item>
   </Form>
+  </div>
 )
 }
 export default Login
