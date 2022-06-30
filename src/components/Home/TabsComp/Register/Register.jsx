@@ -40,7 +40,7 @@ const Register = () => {
         formData.set('age', e.target.age.value)
         formData.set('email', e.target.email.value)
         formData.set('password', e.target.password.value)
-    
+    console.log('form enviado', formData)
       dispatch(register(formData));
     }
   }; 
@@ -70,7 +70,7 @@ const Register = () => {
       />
       <input 
        onChange={onChange}
-       type="file" value={image} name='upload'/>
+       type="file" value={image} name='image'/>
       <input type="submit" />
     </form>
     </div>

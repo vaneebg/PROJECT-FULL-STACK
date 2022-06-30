@@ -14,7 +14,6 @@ const TabsComp = () => {
       tab={
         <span>
           <AppleOutlined />
-        
         </span>
       }
       key="1"
@@ -25,8 +24,6 @@ const TabsComp = () => {
       tab={
         <span>
           <AndroidOutlined />
-        
-
         </span>
       }
       key="2"

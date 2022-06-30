@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { login } from '../../../../features/auth/authSlice'
-import {  Input } from 'antd'
+import {  Input, notification } from 'antd'
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
+import { useNavigate } from "react-router-dom";
+
 import './Login.scss'
 
 const Login = () => {
@@ -11,6 +13,8 @@ const Login = () => {
     password: "",
    
   };
+  const navigate = useNavigate()
+
   const [formData, setFormData] = useState(initialState);
   const { email, password } = formData;
 
@@ -23,8 +27,17 @@ const Login = () => {
   };
   const onSubmit = (e) => {
     e.preventDefault()
+    console.log('login enviado',formData)
+
     dispatch(login(formData));
-    console.log('formData',formData)
+    setTimeout(() => {
+      navigate("/main")
+      
+    }, 3000)
+    return notification.success({
+      message: "Bienvenidx!",
+      description: "Holiiis",
+    });
     }
 
 return (
