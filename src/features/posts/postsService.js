@@ -11,6 +11,15 @@ const getAll = async () => {
   });
   return res.data;
 };
+const getPostById = async (_id) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.get(API_URL + "/posts/id/" + _id, {
+    headers: {
+      authorization: user?.user.tokens[0],
+    },
+  });
+  return res.data;
+  };
 
 const like = async (_id) => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -47,7 +56,8 @@ const postsService = {
   getAll,
  like,
  dislike,
- addNewPost
+ addNewPost,
+ getPostById
 };
 
 export default postsService;
