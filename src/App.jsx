@@ -5,6 +5,7 @@ import "antd/dist/antd.css";
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Main from './components/Main/Main'
+import ProfileDetail from './components/Main/Profile/ProfileDetail/ProfileDetail';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
 <Routes>
   <Route path="/" element={<Home/>}/>
 <Route path="/main" element={<Main/>}/>
+<Route path="/profile" element={<ProfileDetail/>}/>
 </Routes>
 </BrowserRouter>
     </div>

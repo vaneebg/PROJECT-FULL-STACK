@@ -58,8 +58,6 @@ export const postsSlice = createSlice({
       })
       
       .addCase(like.fulfilled, (state, action) => {
-        console.log('like',action.payload)
-
         const posts = state.posts.posts.map((post) => {
           if (post._id === action.payload._id) {
             post = action.payload;
@@ -68,12 +66,13 @@ export const postsSlice = createSlice({
         });
         state.posts.posts = posts;
       })
+      
       .addCase(like.rejected, (state, action) => {
         state.isError = true;
         state.message = action.payload;
       })
+
       .addCase(dislike.fulfilled, (state, action) => {
-        console.log('dislike',action.payload)
         const posts = state.posts.posts.map((post) => {
           if (post._id === action.payload._id) {
             post = action.payload;
@@ -82,6 +81,7 @@ export const postsSlice = createSlice({
         });
         state.posts.posts = posts;
       })
+      
       .addCase(dislike.rejected, (state, action) => {
         state.isError = true;
         state.message = action.payload;
