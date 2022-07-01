@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { like,dislike } from "../../../../features/posts/postsSlice";
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import './Post.scss'
+import Comments from "./Comments/Comments";
 
 const Post = () => {
   const { posts } = useSelector((state) => state.posts);
@@ -21,7 +22,7 @@ const Post = () => {
       {el.userId.image ? <img className='imgUser'src={"http://localhost:8080/images/users/" + el.userId.image} alt=''/> : <img className='imgUser' src="http://localhost:8080/images/users/none.jpg" alt=''/>}
       <span> {el.userId.username}</span>
       </div>
-      {el.image ? <img className='imgPost' src={"http://localhost:8080/images/posts/" + el.image} alt=''/> : <img className='imgPost' src="http://localhost:8080/images/posts/1.jpg" alt=''/>}
+      {el.image ? <img className='imgPost' src={"http://localhost:8080/images/posts/" + el.image} alt=''/> : <img className='imgPost' src="http://localhost:8080/images/posts/16.jpg" alt=''/>}
       <div className="icons">
       {isAlreadyLiked ? (
 <HeartFilled onClick={ isAlreadyLiked ? () => dispatch(dislike(el._id)) : () => dispatch(like(el._id)) } />
@@ -35,10 +36,13 @@ const Post = () => {
        <span className='bold'>{el.title} &nbsp;</span> 
        <span className='italic'>{el.body}</span>
       </div>
+      <Comments/>
     </div>
   )})
-  return(
-   post
+  return(<>
+   {post}
+   
+   </>
   )
 };
 

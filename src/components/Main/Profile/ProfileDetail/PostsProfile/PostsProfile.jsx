@@ -12,9 +12,8 @@ const PostsProfile = () => {
       const post =user.user.postsId.map((el)=>{
     return(
         <><Link to={"/post/" + el._id}>
-        <p>{el.title}</p>
-        </Link>
      {el.image ? <img key={el._id} className='postsProfile' src={"http://localhost:8080/images/posts/" + el.image} alt=''/> : null}
+        </Link>
 
         </>
     )

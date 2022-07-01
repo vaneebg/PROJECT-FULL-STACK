@@ -6,18 +6,19 @@
     border:2px solid black;
     .contentText{
         display:flex;
-        .bold{
-            font-weight: bolder;
-
-        }
         
-        .italic{
-            font-style: italic;
-        }
+        
+       
     }
 }
 
+.bold{
+    font-weight: bolder;
 
+}
+.italic{
+    font-style: italic;
+}
 .imgUser{
     width:3em;
 }
