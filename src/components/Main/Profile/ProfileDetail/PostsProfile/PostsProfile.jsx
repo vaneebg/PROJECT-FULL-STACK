@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from "react-redux";
 
-
+import './PostsProfile.scss'
 
 const PostsProfile = () => {
 
@@ -11,7 +11,7 @@ const PostsProfile = () => {
         console.log(el.image)
     return(
         <>
-                {el.image ? <img src={"http://localhost:8080/images/posts/" + el.image} alt=''/> : null}
+     {el.image ? <img className='postsProfile' src={"http://localhost:8080/images/posts/" + el.image} alt=''/> : null}
 
         </>
     )

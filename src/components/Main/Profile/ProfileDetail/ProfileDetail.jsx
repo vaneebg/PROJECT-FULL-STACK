@@ -47,7 +47,7 @@ const ProfileDetail = () => {
         <Link to="/" onClick={onLogout}><PoweroffOutlined /></Link>
         {user.user.image ? <img className='imgUser'src={"http://localhost:8080/images/users/" + user.user.image} alt=''/> : <img className='imgUser' src="http://localhost:8080/images/users/none.jpg" alt=''/>}
 
-        <span>Perfil de  {user.user.username}</span>
+        <span className='bold'>{user.user.username}</span>
         <span>Número de posts {user.Number_of_posts}</span>
         <span>Número de followers {user.Followers}</span>
         <span>Número de following {user.Following}</span>
