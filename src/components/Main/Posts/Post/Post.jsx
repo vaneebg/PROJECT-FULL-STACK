@@ -3,6 +3,7 @@ import { like,dislike } from "../../../../features/posts/postsSlice";
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import './Post.scss'
 import Comments from "./Comments/Comments";
+import ModalAddComment from "../ModalAddComment/ModalAddComment";
 
 const Post = () => {
   const { posts } = useSelector((state) => state.posts);
@@ -38,6 +39,7 @@ const Post = () => {
        <span className='italic'>{el.body}</span>
       </div>
       <Comments/>
+      <ModalAddComment/>
     </div>
   )})
   return(<>
