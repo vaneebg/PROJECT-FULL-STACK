@@ -26,6 +26,15 @@ export const like = createAsyncThunk("posts/like", async (_id,thunkAPI) => {
     return thunkAPI.rejectWithValue(message);
   }
 });
+export const dislike = createAsyncThunk("posts/dislike", async (_id,thunkAPI) => {
+  try {
+    return await postsService.dislike(_id);
+  } catch (error) {
+    console.error(error);
+    const message = error.response.data;
+    return thunkAPI.rejectWithValue(message);
+  }
+});
 
 export const postsSlice = createSlice({
   name: "posts",
@@ -49,6 +58,8 @@ export const postsSlice = createSlice({
       })
       
       .addCase(like.fulfilled, (state, action) => {
+        console.log('like',action.payload)
+
         const posts = state.posts.posts.map((post) => {
           if (post._id === action.payload._id) {
             post = action.payload;
@@ -58,6 +69,20 @@ export const postsSlice = createSlice({
         state.posts.posts = posts;
       })
       .addCase(like.rejected, (state, action) => {
+        state.isError = true;
+        state.message = action.payload;
+      })
+      .addCase(dislike.fulfilled, (state, action) => {
+        console.log('dislike',action.payload)
+        const posts = state.posts.posts.map((post) => {
+          if (post._id === action.payload._id) {
+            post = action.payload;
+          }
+          return post;
+        });
+        state.posts.posts = posts;
+      })
+      .addCase(dislike.rejected, (state, action) => {
         state.isError = true;
         state.message = action.payload;
       })

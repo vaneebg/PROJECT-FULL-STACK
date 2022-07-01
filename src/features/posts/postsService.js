@@ -18,13 +18,22 @@ const like = async (_id) => {
         authorization: user?.user.tokens[0],
       },
     } );
-    console.log('resdata',res.data.post)
+  return res.data.post;
+};
+const dislike = async (_id) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.put(API_URL + "/posts/dislikes/"+_id,{}, {
+      headers: {
+        authorization: user?.user.tokens[0],
+      },
+    } );
   return res.data.post;
 };
 
 const postsService = {
   getAll,
- like
+ like,
+ dislike
 };
 
 export default postsService;
