@@ -14,11 +14,12 @@ const Post = () => {
       </div>
       {el.image ? <img className='imgPost' src={"http://localhost:8080/images/posts/" + el.image} alt=''/> : <img className='imgPost' src="http://localhost:8080/images/posts/1.jpg" alt=''/>}
       <div className="icons">
-       <span>Número de likes:{el.likes.length} </span> 
+        {/* aqui va el like o dislike */}
+       <span>{el.likes.length} Likes</span> 
       </div>
       <div className="contentText">
-       <span>Título:{el.title}</span> 
-       <span>Body:{el.body}</span>
+       <span className='bold'>{el.title} &nbsp;</span> 
+       <span className='italic'>{el.body}</span>
       </div>
     </div>
   )})
