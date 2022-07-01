@@ -18,7 +18,8 @@ const like = async (_id) => {
         authorization: user?.user.tokens[0],
       },
     } );
-  return res.data;
+    console.log('resdata',res.data.post)
+  return res.data.post;
 };
 
 const postsService = {

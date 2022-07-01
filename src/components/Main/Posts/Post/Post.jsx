@@ -11,10 +11,9 @@ const Post = () => {
 
   const {Number_of_posts:numberPosts,posts:postsEl}=posts
 
-  console.log(postsEl)
 
   const post= postsEl?.map(el=>{
-    const isAlreadyLiked = posts.likes?.includes(user?.user._id);
+    const isAlreadyLiked = el.likes?.includes(user?.user._id);
 
     return(
     <div className="postContent" key={el._id}>
