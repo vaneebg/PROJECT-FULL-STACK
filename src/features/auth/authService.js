@@ -30,13 +30,11 @@ const login = async(userData)=>{
   };
   const myInfo = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
-    console.log(user.user.tokens[0])
-    const res = await axios.delete(API_URL + "/users/myinfo", {
+    const res = await axios.get(API_URL + "/users/myinfo", {
       headers: {
         authorization: user?.user.tokens[0],
       },
     });
-    console.log('aquiii',res.data)  
     return res.data;
   };
 const authService = {
