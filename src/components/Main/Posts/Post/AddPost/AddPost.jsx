@@ -1,8 +1,6 @@
-import { notification } from "antd";
-import {  useState,useEffect } from "react";
-import { useDispatch, useSelector} from "react-redux";
-import { register,reset} from "../../../../features/auth/authSlice";
-import { UserOutlined, MailOutlined,ContactsOutlined, LockOutlined} from '@ant-design/icons';
+import {  useState } from "react";
+import { useDispatch} from "react-redux";
+import { addNewPost} from "../../../../../features/posts/postsSlice";
 import { Input } from 'antd';
 
 
@@ -28,10 +26,9 @@ const AddPost = () => {
     e.preventDefault(); 
         const formData = new FormData();
         if (e.target.image.files[0]) formData.set('image', e.target.image.files[0]);
-        formData.set('title', e.target.username.value)
-        formData.set('body', e.target.age.value)
-    console.log('form enviado', formData)
-      dispatch(addPost(formData));
+        formData.set('title', e.target.title.value)
+        formData.set('body', e.target.body.value)
+      dispatch(addNewPost(formData));
     
   }; 
   return (

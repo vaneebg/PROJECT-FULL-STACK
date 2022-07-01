@@ -9,8 +9,9 @@ const getAll = async () => {
       authorization: user?.user.tokens[0],
     },
   });
-  return res.data;//action.payload
+  return res.data;
 };
+
 const like = async (_id) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const res = await axios.put(API_URL + "/posts/likes/"+_id,{}, {
@@ -20,6 +21,7 @@ const like = async (_id) => {
     } );
   return res.data.post;
 };
+
 const dislike = async (_id) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const res = await axios.put(API_URL + "/posts/dislikes/"+_id,{}, {
@@ -30,10 +32,22 @@ const dislike = async (_id) => {
   return res.data.post;
 };
 
+const addNewPost = async (postData) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.post(API_URL + "/posts/",postData,{
+    headers: {
+      authorization: user?.user.tokens[0],
+    },
+  });
+  console.log(res.data)
+  return res.data;
+};
+
 const postsService = {
   getAll,
  like,
- dislike
+ dislike,
+ addNewPost
 };
 
 export default postsService;

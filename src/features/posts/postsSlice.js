@@ -3,6 +3,7 @@ import postsService from "./postsService";
 
 const initialState = {
   posts: [],
+  post:{},
   isLoading: false,
   isError: false,
   isSuccess: false,
@@ -35,6 +36,13 @@ export const dislike = createAsyncThunk("posts/dislike", async (_id,thunkAPI) =>
     return thunkAPI.rejectWithValue(message);
   }
 });
+export const addNewPost = createAsyncThunk("posts/addNewPost", async(post)=>{
+  try {
+    return await postsService.addNewPost(post)
+  } catch (error) {
+    console.error(error);
+  }
+})
 
 export const postsSlice = createSlice({
   name: "posts",
@@ -85,6 +93,13 @@ export const postsSlice = createSlice({
       .addCase(dislike.rejected, (state, action) => {
         state.isError = true;
         state.message = action.payload;
+      })
+
+      .addCase(addNewPost.fulfilled, (state, action) => {
+        state.post = action.payload;
+        state.isSuccess = true;
+        state.isLoading=false;
+  
       })
   },
 });
