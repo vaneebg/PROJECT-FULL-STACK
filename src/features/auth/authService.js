@@ -1,14 +1,15 @@
 import axios from "axios";
+const URL = process.env.REACT_APP_URL
 
-const API_URL = "http://localhost:8080";
+console.log(URL)
 
 const register = async (userData) => {
-  const res = await axios.post(API_URL + "/users/", userData);
+  const res = await axios.post(URL + "/users/", userData);
   return res.data;
 };
 
 const login = async(userData)=>{
-  const res = await axios.post(API_URL + '/users/login',userData)
+  const res = await axios.post(URL + '/users/login',userData)
   if (res.data) {
   localStorage.setItem("user", JSON.stringify(res.data));
   }
@@ -18,7 +19,7 @@ const login = async(userData)=>{
   const logout = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
     console.log(user.user.tokens[0])
-    const res = await axios.delete(API_URL + "/users/logout", {
+    const res = await axios.delete(URL + "/users/logout", {
       headers: {
         authorization: user?.user.tokens[0],
       },
@@ -30,7 +31,7 @@ const login = async(userData)=>{
   };
   const myInfo = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
-    const res = await axios.get(API_URL + "/users/myinfo", {
+    const res = await axios.get(URL + "/users/myinfo", {
       headers: {
         authorization: user?.user.tokens[0],
       },

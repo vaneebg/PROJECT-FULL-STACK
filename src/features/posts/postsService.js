@@ -1,10 +1,12 @@
 import axios from "axios";
+const URL = process.env.REACT_APP_URL
 
-const API_URL = "http://localhost:8080";
+
+
 
 const getAll = async () => {
   const user = JSON.parse(localStorage.getItem("user"));
-  const res = await axios.get(API_URL + "/posts/",{
+  const res = await axios.get(URL + "/posts/",{
     headers: {
       authorization: user?.user.tokens[0],
     },
@@ -13,7 +15,7 @@ const getAll = async () => {
 };
 const getPostById = async (_id) => {
   const user = JSON.parse(localStorage.getItem("user"));
-  const res = await axios.get(API_URL + "/posts/id/" + _id, {
+  const res = await axios.get(URL + "/posts/id/" + _id, {
     headers: {
       authorization: user?.user.tokens[0],
     },
@@ -23,7 +25,7 @@ const getPostById = async (_id) => {
 
 const like = async (_id) => {
   const user = JSON.parse(localStorage.getItem("user"));
-  const res = await axios.put(API_URL + "/posts/likes/"+_id,{}, {
+  const res = await axios.put(URL + "/posts/likes/"+_id,{}, {
       headers: {
         authorization: user?.user.tokens[0],
       },
@@ -33,7 +35,7 @@ const like = async (_id) => {
 
 const dislike = async (_id) => {
   const user = JSON.parse(localStorage.getItem("user"));
-  const res = await axios.put(API_URL + "/posts/dislikes/"+_id,{}, {
+  const res = await axios.put(URL + "/posts/dislikes/"+_id,{}, {
       headers: {
         authorization: user?.user.tokens[0],
       },
@@ -43,7 +45,7 @@ const dislike = async (_id) => {
 
 const addNewPost = async (postData) => {
   const user = JSON.parse(localStorage.getItem("user"));
-  const res = await axios.post(API_URL + "/posts/",postData,{
+  const res = await axios.post(URL + "/posts/",postData,{
     headers: {
       authorization: user?.user.tokens[0],
     },

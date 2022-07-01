@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^14.2.1",
     "antd": "^4.21.4",
     "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-draggable": "^4.4.5",
