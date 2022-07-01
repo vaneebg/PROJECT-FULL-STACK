@@ -3,7 +3,8 @@ import { useRef, useState } from 'react';
 import Draggable from 'react-draggable';
 import AddComment from '../Post/Comments/AddComment/AddComment';
 
-const ModalAddComment = () => {
+const ModalAddComment = ({postId}) => {
+
   const [visible, setVisible] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [bounds, setBounds] = useState({
@@ -81,7 +82,7 @@ const ModalAddComment = () => {
           </Draggable>
         )}
       >
-       <AddComment/>
+       <AddComment postId={postId}/>
       </Modal>
     </>
   );

@@ -4,7 +4,7 @@ import { addNewComment} from "../../../../../../features/comments/commentsSlice"
 import { Input } from 'antd';
 
 
-const AddComment = () => {
+const AddComment = ({postId}) => {
   const initialState = {
     title:"",
     body:"",
@@ -28,7 +28,7 @@ const AddComment = () => {
         if (e.target.image.files[0]) formData.set('image', e.target.image.files[0]);
         formData.set('title', e.target.title.value)
         formData.set('body', e.target.body.value)
-      dispatch(addNewComment(formData));
+      dispatch(addNewComment(formData,postId));
     
   }; 
   return (

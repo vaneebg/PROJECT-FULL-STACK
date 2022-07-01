@@ -11,9 +11,9 @@ const initialState = {
 
 
 
-export const addNewComment = createAsyncThunk("comments/addNewComment", async(comment,_id)=>{
+export const addNewComment = createAsyncThunk("comments/addNewComment", async(comment)=>{
   try {
-    return await commentsService.addNewComment(comment,_id)
+    return await commentsService.addNewComment(comment)
   } catch (error) {
     console.error(error);
   }

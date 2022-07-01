@@ -39,7 +39,8 @@ const Post = () => {
        <span className='italic'>{el.body}</span>
       </div>
       <Comments/>
-      <ModalAddComment/>
+
+      <ModalAddComment postId={el._id}/>
     </div>
   )})
   return(<>

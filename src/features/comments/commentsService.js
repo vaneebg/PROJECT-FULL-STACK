@@ -3,9 +3,10 @@ const URL = process.env.REACT_APP_URL
 
 
 
-const addNewComment = async (commentData, _id) => {
+const addNewComment = async (commentData, id) => {
+  console.log(id)
   const user = JSON.parse(localStorage.getItem("user"));
-  const res = await axios.post(URL + "/idpost/"+_id,commentData,{
+  const res = await axios.post(URL + "/comments/idpost/"+id,commentData,{
     headers: {
       authorization: user?.user.tokens[0],
     },
