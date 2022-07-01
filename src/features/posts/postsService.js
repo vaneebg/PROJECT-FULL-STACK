@@ -11,11 +11,19 @@ const getAll = async () => {
   });
   return res.data;//action.payload
 };
-
+const like = async (_id) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.put(API_URL + "/posts/likes/"+_id,{}, {
+      headers: {
+        authorization: user?.user.tokens[0],
+      },
+    } );
+  return res.data;
+};
 
 const postsService = {
   getAll,
- 
+ like
 };
 
 export default postsService;

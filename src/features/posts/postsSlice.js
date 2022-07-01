@@ -14,7 +14,13 @@ export const getAll = createAsyncThunk("posts/getAll", async () => {
   }
 });
 
-
+export const like = createAsyncThunk("posts/like", async (_id) => {
+  try {
+    return await postsService.like(_id);
+  } catch (error) {
+    console.error(error);
+  }
+});
 
 export const postsSlice = createSlice({
   name: "posts",
@@ -32,7 +38,15 @@ export const postsSlice = createSlice({
       .addCase(getAll.pending, (state) => {
         state.isLoading = true;
       })
-      
+      .addCase(like.fulfilled, (state, action) => {
+        const posts = state.posts.map((post) => {
+          if (post._id === action.payload._id) {
+            post = action.payload;
+          }
+          return post;
+        });
+        state.posts = posts;
+      });
   },
 });
 
