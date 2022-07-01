@@ -21,6 +21,7 @@ const Post = () => {
       <div className="headerPost">
       {el.userId.image ? <img className='imgUser'src={"http://localhost:8080/images/users/" + el.userId.image} alt=''/> : <img className='imgUser' src="http://localhost:8080/images/users/none.jpg" alt=''/>}
       <span> {el.userId.username}</span>
+      <span>{el.createdAt}</span>
       </div>
       {el.image ? <img className='imgPost' src={"http://localhost:8080/images/posts/" + el.image} alt=''/> : <img className='imgPost' src="http://localhost:8080/images/posts/16.jpg" alt=''/>}
       <div className="icons">

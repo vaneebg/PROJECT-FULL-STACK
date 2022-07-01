@@ -18,6 +18,7 @@ const PostProfileDetail = () => {
 <span>Número de likes: {post.likes?.length}</span>
         <h2>{post.title}</h2>
         <p>{post.body}</p>
+        <span>{post.createdAt}</span>
       </div>
     );
 };
