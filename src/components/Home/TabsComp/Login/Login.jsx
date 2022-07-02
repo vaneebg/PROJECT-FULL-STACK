@@ -25,10 +25,10 @@ const Login = () => {
 
   useEffect(() => {
     if (isError) {
-      notification.error({ message: "Error: email/contraseña incorrectos", description: message });
+      notification.error({ message: "Error", description: message });
     }
     if (isSuccess) {
-      notification.success({ message: "Holiii", description: message });
+      notification.success({ message: "Éxito", description: message });
       setTimeout(() => {
         navigate("/main");
       }, 2000);

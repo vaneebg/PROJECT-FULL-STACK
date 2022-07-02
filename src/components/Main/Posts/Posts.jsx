@@ -17,7 +17,7 @@ const Posts = () => {
 
    useEffect(() => {
      getPostsAndReset();
-   }, []);
+   }, [getAll]);
 
    if (isLoading) {
     return <h1>Cargando posts..</h1>;

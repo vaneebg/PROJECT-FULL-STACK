@@ -53,6 +53,8 @@ const addNewPost = async (postData) => {
   return res.data;
 };
 
+
+
 const postsService = {
   getAll,
  like,

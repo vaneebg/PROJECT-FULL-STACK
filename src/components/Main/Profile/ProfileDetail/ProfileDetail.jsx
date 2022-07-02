@@ -29,13 +29,14 @@ const ProfileDetail = () => {
      getInfo();
    }, []);
 
-    const onLogout = (e) => {
-      e.preventDefault();
-      dispatch(logout());
+    const onLogout = async() => {
+     await  dispatch(logout());
+
+
       setTimeout(() => {
         navigate("/");
-      }, 100);
-      return notification.success({
+      }, 2000);
+       notification.success({
         message: "Hasta pronto!",
         description: "byee",
       });

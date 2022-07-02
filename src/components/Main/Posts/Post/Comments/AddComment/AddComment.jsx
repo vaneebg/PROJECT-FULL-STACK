@@ -28,7 +28,9 @@ const AddComment = ({postId}) => {
         if (e.target.image.files[0]) formData.set('image', e.target.image.files[0]);
         formData.set('title', e.target.title.value)
         formData.set('body', e.target.body.value)
-      dispatch(addNewComment(formData,postId));
+        const patata ={formData,postId}
+        
+      dispatch(addNewComment(patata));
     
   }; 
   return (
