@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { like,dislike } from "../../../../features/posts/postsSlice";
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import './Post.scss'
-import Comments from "./Comments/Comments";
 import ModalAddComment from "../ModalAddComment/ModalAddComment";
 
 const Post = () => {
@@ -15,6 +14,21 @@ const Post = () => {
 
 
   const post= postsEl?.map(el=>{
+    console.log(el)
+    const comments=el.commentsId?.map(comment=>{return(
+      <div className="comments">
+        <div className="userC">
+      {comment.userId.image ? <img className='imgUserC'src={"http://localhost:8080/images/users/" + comment.userId.image} alt=''/> : null}
+ <span>{comment.userId.username}</span>
+ <span>{comment.createdAt}</span>
+ </div>
+ <div className="textC">
+       <span className='bold'>{comment.title}&nbsp;</span>  
+       <span className='italic'>{comment.body}</span> <br />
+       {comment.image ? <img className='gifComment'src={"http://localhost:8080/images/comments/" + comment.image} alt=''/> : null}
+       </div>
+      </div>
+    )})
     const isAlreadyLiked = el.likes?.includes(user?.user._id);
 
     return(
@@ -38,7 +52,7 @@ const Post = () => {
        <span className='bold'>{el.title} &nbsp;</span> 
        <span className='italic'>{el.body}</span>
       </div>
-      <Comments/>
+     {comments}
 
       <ModalAddComment postId={el._id}/>
     </div>

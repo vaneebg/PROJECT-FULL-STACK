@@ -25,3 +25,20 @@
 .imgPost{
     width:40em;
 }
+
+.comments{
+    display:flex;
+flex-direction: column;
+border:1px solid black;
+margin:1em;
+}
+
+
+.gifComment{
+    width:8em;
+    height: 8em;
+}
+.imgUserC{
+    width:2em;
+    height:2em;
+}

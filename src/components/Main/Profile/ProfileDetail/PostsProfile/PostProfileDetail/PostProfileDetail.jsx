@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getPostById } from "../../../../../../features/posts/postsSlice";
-import Comments from "../../../../Posts/Post/Comments/Comments";
 import './PostProfileDetail.scss'
 
 const PostProfileDetail = () => {
