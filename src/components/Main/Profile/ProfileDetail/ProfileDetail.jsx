@@ -34,7 +34,7 @@ const ProfileDetail = () => {
       dispatch(logout());
       setTimeout(() => {
         navigate("/");
-      }, 2000);
+      }, 100);
       return notification.success({
         message: "Hasta pronto!",
         description: "byee",

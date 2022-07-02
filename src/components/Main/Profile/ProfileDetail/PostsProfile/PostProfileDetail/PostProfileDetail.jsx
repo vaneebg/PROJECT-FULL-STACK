@@ -11,7 +11,6 @@ const PostProfileDetail = () => {
     useEffect(() => {
       dispatch(getPostById(_id));
     }, []);
-    console.log(post)
     const comments=post.commentsId?.map((el,i)=>{return(
       <div key={i}className="comments">
           <div className="userC">

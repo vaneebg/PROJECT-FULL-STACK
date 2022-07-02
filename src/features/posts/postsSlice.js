@@ -10,19 +10,25 @@ const initialState = {
   message: "",
 };
 
-export const getAll = createAsyncThunk("posts/getAll", async () => {
+export const getAll = createAsyncThunk("posts/getAll", async (thunkAPI) => {
   try {
     return await postsService.getAll();
   } catch (error) {
     console.error(error);
+    const message = error.response.data;
+    return thunkAPI.rejectWithValue(message);
+
   }
 });
 
-export const getPostById = createAsyncThunk("posts/getPostById", async (_id) => {
+export const getPostById = createAsyncThunk("posts/getPostById", async (_id,thunkAPI) => {
   try {
   return await postsService.getPostById(_id);
   } catch (error) {
   console.error(error);
+  const message = error.response.data;
+  return thunkAPI.rejectWithValue(message);
+
   }
   });
   
@@ -45,11 +51,14 @@ export const dislike = createAsyncThunk("posts/dislike", async (_id,thunkAPI) =>
     return thunkAPI.rejectWithValue(message);
   }
 });
-export const addNewPost = createAsyncThunk("posts/addNewPost", async(post)=>{
+export const addNewPost = createAsyncThunk("posts/addNewPost", async(post,thunkAPI)=>{
   try {
     return await postsService.addNewPost(post)
   } catch (error) {
     console.error(error);
+    const message = error.response.data;
+    return thunkAPI.rejectWithValue(message);
+
   }
 })
 
@@ -59,6 +68,8 @@ export const postsSlice = createSlice({
   reducers: {
     reset: (state) => {
       state.isLoading = false;
+      state.isSuccess = false;
+      state.message = "";
     },
   },
   extraReducers: (builder) => {
@@ -73,10 +84,22 @@ export const postsSlice = createSlice({
       .addCase(getAll.pending, (state) => {
         state.isLoading = true;
       })
+      .addCase(getAll.rejected, (state, action) => {
+        state.isError = true;
+        state.message = action.payload;
+      })
       builder.addCase(getPostById.fulfilled, (state, action) => {
         state.post = action.payload;
+        state.isSuccess = true;
+        state.isLoading=false;
         })
-      
+        .addCase(getPostById.pending, (state) => {
+          state.isLoading = true;
+        })
+        .addCase(getPostById.rejected, (state, action) => {
+          state.isError = true;
+          state.message = action.payload;
+        })
       .addCase(like.fulfilled, (state, action) => {
         const posts = state.posts.posts.map((post) => {
           if (post._id === action.payload._id) {
@@ -112,6 +135,13 @@ export const postsSlice = createSlice({
         state.isSuccess = true;
         state.isLoading=false;
   
+      })
+      .addCase(addNewPost.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(addNewPost.rejected, (state, action) => {
+        state.isError = true;
+        state.message = action.payload;
       })
   },
 });

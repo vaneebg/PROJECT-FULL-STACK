@@ -14,9 +14,8 @@ const Post = () => {
 
 
   const post= postsEl?.map(el=>{
-    console.log(el)
-    const comments=el.commentsId?.map(comment=>{return(
-      <div className="comments">
+    const comments=el.commentsId?.map((comment,i)=>{return(
+      <div className="comments" key={i}>
         <div className="userC">
       {comment.userId.image ? <img className='imgUserC'src={"http://localhost:8080/images/users/" + comment.userId.image} alt=''/> : null}
  <span>{comment.userId.username}</span>
@@ -29,6 +28,7 @@ const Post = () => {
        </div>
       </div>
     )})
+    
     const isAlreadyLiked = el.likes?.includes(user?.user._id);
 
     return(

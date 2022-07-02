@@ -7,6 +7,7 @@ const initialState = {
   user: user ? user : null,
   isError: false,
   isSuccess: false,
+  isLoading: false,
   message: "",
 };
 
@@ -84,7 +85,11 @@ export const authSlice = createSlice({
       .addCase(myInfo.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isSuccess = true;
+        state.isLoading=false;
         state.message = action.payload.message;
+      })
+      .addCase(myInfo.pending, (state) => {
+        state.isLoading = true;
       })
       .addCase(myInfo.rejected, (state, action) => {
         state.isError = true;

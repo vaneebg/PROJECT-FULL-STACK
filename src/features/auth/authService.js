@@ -1,7 +1,6 @@
 import axios from "axios";
 const URL = process.env.REACT_APP_URL
 
-console.log(URL)
 
 const register = async (userData) => {
   const res = await axios.post(URL + "/users/", userData);
@@ -18,7 +17,6 @@ const login = async(userData)=>{
 
   const logout = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
-    console.log(user.user.tokens[0])
     const res = await axios.delete(URL + "/users/logout", {
       headers: {
         authorization: user?.user.tokens[0],

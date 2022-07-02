@@ -4,7 +4,7 @@ import Draggable from 'react-draggable';
 import AddComment from '../Post/Comments/AddComment/AddComment';
 
 const ModalAddComment = ({postId}) => {
-
+// console.log(postId)
   const [visible, setVisible] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [bounds, setBounds] = useState({

@@ -7,8 +7,11 @@ import './PostsProfile.scss'
 
 const PostsProfile = () => {
 
-  const { user } = useSelector((state) => state.auth);
+  const { user, isLoading } = useSelector((state) => state.auth);
 
+  if (isLoading) {
+    return <h1>Cargando posts..</h1>;
+  }
       const post =user.user.postsId.map((el)=>{
     return(
         <><Link to={"/post/" + el._id}>
