@@ -4,6 +4,7 @@ import { useDispatch, useSelector} from "react-redux";
 import { reset} from "../../../../../features/posts/postsSlice";
 import { addNewPost} from "../../../../../features/posts/postsSlice";
 import { Input } from 'antd';
+import { SmileOutlined } from '@ant-design/icons';
 
 
 const AddPost = () => {
@@ -13,24 +14,12 @@ const AddPost = () => {
     image:""
   };
   const [formData, setFormData] = useState(initialState);
+  
   const { title,body,image } = formData;
 
   const dispatch = useDispatch();
 
-   const { isError, isSuccess, isLoading } = useSelector((state) => state.posts);
 
-  useEffect(() => {
-    if (isError) {
-      notification.error({ message: "Error" });
-    }
-    if (isSuccess) {
-      notification.success({ message: "Éxito" });
-    }
-    if (isLoading) {
-      return <h1>Cargando posts..</h1>;
-    }
-    dispatch(reset());
-  }, [isError, isSuccess, isLoading]);
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -39,6 +28,8 @@ const AddPost = () => {
     }));
   };
 
+
+
   const onSubmit = (e) => {
     e.preventDefault(); 
         const formData = new FormData();
@@ -46,6 +37,18 @@ const AddPost = () => {
         formData.set('title', e.target.title.value)
         formData.set('body', e.target.body.value)
       dispatch(addNewPost(formData));
+
+      return notification.success({
+        message: "Perfecto!",
+        description: "Post añadido con éxito!",
+        icon: (
+          <SmileOutlined
+            style={{
+              color: '#108ee9',
+            }}
+          />
+        ),
+      });
     
   }; 
   return (
@@ -57,8 +60,8 @@ const AddPost = () => {
       <Input  type="text" name="body" value={body} onChange={onChange} required/> 
       <input 
        onChange={onChange}
-       type="file" value={image} name='image'/>
-      <input type="submit" />
+       type="file" value={image} name='image'/> <br />
+      <input type="submit" value='Publicar post'/>
     </form>
     </div>
   );

@@ -101,16 +101,10 @@ export const postsSlice = createSlice({
       })
       .addCase(addNewPost.fulfilled, (state, action) => {
         state.posts =[action.payload,...state.posts]
-        state.isSuccess = true;
-        state.isLoading=false;
+     
   
       })
-      .addCase(addNewPost.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(addNewPost.rejected, (state, action) => {
-        state.isError = true;
-      })
+    
   },
 });
 
