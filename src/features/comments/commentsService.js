@@ -12,8 +12,7 @@ const addNewComment = async (commentData) => {
       authorization: user?.user.tokens[0],
     },
   });
-  console.log(res.data)
-  return res.data;
+  return res.data.comment;
 };
 
 const commentsService = {

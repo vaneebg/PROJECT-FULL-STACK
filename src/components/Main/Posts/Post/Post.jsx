@@ -10,10 +10,9 @@ const Post = () => {
 
   const dispatch = useDispatch();
 
-  const {Number_of_posts:numberPosts,posts:postsEl}=posts
 
 
-  const post= postsEl?.map(el=>{
+  const post= posts?.map(el=>{
     const comments=el.commentsId?.map((comment,i)=>{return(
       <div className="comments" key={i}>
         <div className="userC">

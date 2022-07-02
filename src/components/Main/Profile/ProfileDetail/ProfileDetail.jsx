@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from 'react';
 
-import { logout } from "../../../../features/auth/authSlice";
+import { logout,reset } from "../../../../features/auth/authSlice";
 import { Link } from 'react-router-dom'
 import { PoweroffOutlined } from "@ant-design/icons";
 
@@ -18,8 +18,23 @@ const ProfileDetail = () => {
   const { user } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
+  const { isError, isSuccess, message } = useSelector((state) => state.auth);
+
 
     const navigate = useNavigate()
+    
+    useEffect(() => {
+      if (isError) {
+        notification.error({ message: "Error", description: message });
+      }
+      if (isSuccess) {
+        notification.success({ message: "Éxito", description: message });
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+      }
+      dispatch(reset());
+    }, [isError, isSuccess, message]);
 
  const getInfo = async () => {
     await dispatch(myInfo()); 
@@ -29,19 +44,13 @@ const ProfileDetail = () => {
      getInfo();
    }, []);
 
+
     const onLogout = async() => {
      await  dispatch(logout());
 
 
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
-       notification.success({
-        message: "Hasta pronto!",
-        description: "byee",
-      });
-      };
 
+  }
   return (
     <div className='profileDetail'>
         <div className="headerProfile">

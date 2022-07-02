@@ -22,20 +22,18 @@ const Register = () => {
   const dispatch = useDispatch();
 
 
-  const { isSuccess, message, isError } = useSelector((state) => state.auth);
+  const { isError, isSuccess, message } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    if (isSuccess) {
-      notification.success({
-        message: "Success",
-        description: message,
-      });
-    }
     if (isError) {
       notification.error({ message: "Error", description: message });
     }
+    if (isSuccess) {
+      notification.success({ message: "Éxito", description: message });
+    
+    }
     dispatch(reset());
-  }, [isSuccess, isError, message]);
+  }, [isError, isSuccess, message]);
 
 
   const onChange = (e) => {

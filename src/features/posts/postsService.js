@@ -11,7 +11,7 @@ const getAll = async () => {
       authorization: user?.user.tokens[0],
     },
   });
-  return res.data;
+  return res.data.posts;
 };
 const getPostById = async (_id) => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -30,6 +30,7 @@ const like = async (_id) => {
         authorization: user?.user.tokens[0],
       },
     } );
+    console.log("aquiiii",res.data)
   return res.data.post;
 };
 
@@ -50,7 +51,8 @@ const addNewPost = async (postData) => {
       authorization: user?.user.tokens[0],
     },
   });
-  return res.data;
+  console.log(res.data)
+  return res.data.post;
 };
 
 

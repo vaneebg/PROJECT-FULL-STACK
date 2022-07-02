@@ -32,7 +32,7 @@ export const login = createAsyncThunk("auth/login", async (user,thunkAPI) => {
     try {
       return await authService.logout();
     } catch (error) {
-      const message = error.response.data.message;
+      const message = error.response.data;
       return thunkAPI.rejectWithValue(message);
     }
   });
@@ -66,15 +66,16 @@ export const authSlice = createSlice({
         state.message = action.payload.message;
       })
       .addCase(login.rejected, (state, action) => {
-        console.log(action.payload)
         state.isError = true;
         state.message = action.payload;
       })
       .addCase(logout.fulfilled, (state,action) => {
+        console.log(action.payload)
         state.user = null;
         state.message =action.payload.message;
       })
       .addCase(register.fulfilled, (state, action) => {
+        console.log(action.payload)
         state.isSuccess = true;
         state.message = action.payload.message;
       })
@@ -85,15 +86,11 @@ export const authSlice = createSlice({
       .addCase(myInfo.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isLoading=false;
-        state.message = action.payload.message;
       })
       .addCase(myInfo.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(myInfo.rejected, (state, action) => {
-        state.isError = true;
-        state.message = action.payload;
-      })
+      
   },
 })
 

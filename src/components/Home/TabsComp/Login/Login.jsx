@@ -28,7 +28,7 @@ const Login = () => {
       notification.error({ message: "Error", description: message });
     }
     if (isSuccess) {
-      notification.success({ message: "Éxito", description: message });
+      notification.success({ message: "Éxito, holii", description: message });
       setTimeout(() => {
         navigate("/main");
       }, 2000);
