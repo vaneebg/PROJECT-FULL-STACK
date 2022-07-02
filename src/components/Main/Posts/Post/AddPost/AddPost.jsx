@@ -1,5 +1,7 @@
-import {  useState } from "react";
-import { useDispatch} from "react-redux";
+import { notification } from "antd";
+import {  useState,useEffect } from "react";
+import { useDispatch, useSelector} from "react-redux";
+import { reset} from "../../../../../features/posts/postsSlice";
 import { addNewPost} from "../../../../../features/posts/postsSlice";
 import { Input } from 'antd';
 
@@ -14,6 +16,21 @@ const AddPost = () => {
   const { title,body,image } = formData;
 
   const dispatch = useDispatch();
+
+   const { isError, isSuccess, isLoading } = useSelector((state) => state.posts);
+
+  useEffect(() => {
+    if (isError) {
+      notification.error({ message: "Error" });
+    }
+    if (isSuccess) {
+      notification.success({ message: "Éxito" });
+    }
+    if (isLoading) {
+      return <h1>Cargando posts..</h1>;
+    }
+    dispatch(reset());
+  }, [isError, isSuccess, isLoading]);
 
   const onChange = (e) => {
     setFormData((prevState) => ({

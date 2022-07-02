@@ -30,7 +30,6 @@ const like = async (_id) => {
         authorization: user?.user.tokens[0],
       },
     } );
-    console.log("aquiiii",res.data)
   return res.data.post;
 };
 
@@ -51,7 +50,6 @@ const addNewPost = async (postData) => {
       authorization: user?.user.tokens[0],
     },
   });
-  console.log(res.data)
   return res.data.post;
 };
 
