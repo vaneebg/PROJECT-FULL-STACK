@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { like,dislike } from "../../../../features/posts/postsSlice";
+import { likeComment } from "../../../../features/comments/commentsSlice";
+
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import './Post.scss'
 import ModalAddComment from "../ModalAddComment/ModalAddComment";
@@ -19,9 +21,9 @@ const Post = () => {
       <div className="comments" key={i}>
           <div className="icons">
       {isAlreadyLikedComment ? (
-<HeartFilled onClick={ isAlreadyLikedComment ? () => dispatch(dislike(comment._id)) : () => dispatch(like(comment._id)) } />
+<HeartFilled onClick={ isAlreadyLikedComment ? () => console.log('dislike') : () => dispatch(likeComment(comment._id)) } />
 ) : (
-<HeartOutlined onClick={ isAlreadyLikedComment ? () => dispatch(dislike(comment._id)) : () => dispatch(like(comment._id)) } />
+<HeartOutlined onClick={ isAlreadyLikedComment ? () => console.log('dislike') : () => dispatch(likeComment(comment._id)) } />
 )}
 
        <span>{comment.likes.length} Likes comentario</span> 

@@ -14,9 +14,19 @@ const addNewComment = async (commentData) => {
   });
   return res.data.comment;
 };
+const likeComment = async (_id) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.put(URL + "/comments/likesComment/"+_id,{}, {
+      headers: {
+        authorization: user?.user.tokens[0],
+      },
+    } );
+  return res.data.comment;
+};
 
 const commentsService = {
-  addNewComment
+  addNewComment,
+  likeComment
 };
 
 export default commentsService;
