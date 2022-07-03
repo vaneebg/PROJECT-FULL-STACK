@@ -62,7 +62,17 @@ const editPost = async (data) => {
   });
   return res.data.post;
 };
+const getPostByName = async (postTitle) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(user.user.tokens[0])
 
+  const res = await axios.get(URL + "/posts/title/" + postTitle,{
+    headers: {
+      authorization: user?.user.tokens[0],
+    },
+  });
+  return res.data;
+  };
 
 
 const postsService = {
@@ -71,7 +81,8 @@ const postsService = {
  dislike,
  addNewPost,
  getPostById,
- editPost
+ editPost,
+ getPostByName
 };
 
 export default postsService;
