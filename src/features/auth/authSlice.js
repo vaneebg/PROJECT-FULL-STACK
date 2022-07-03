@@ -9,6 +9,7 @@ const initialState = {
   isSuccess: false,
   isLoading: false,
   message: "",
+  users:[]
 };
 
 
@@ -16,6 +17,7 @@ export const register = createAsyncThunk("auth/register", async (user,thunkAPI) 
   try {
     return await authService.register(user);
   } catch (error) {
+    console.error(error);
     const message = error.response.data;
     return thunkAPI.rejectWithValue(message);
   }
@@ -24,6 +26,7 @@ export const login = createAsyncThunk("auth/login", async (user,thunkAPI) => {
   try {
   return await authService.login(user);
   } catch (error) {
+    console.error(error);
     const message = error.response.data;
   return thunkAPI.rejectWithValue(message);
   }
@@ -32,6 +35,7 @@ export const login = createAsyncThunk("auth/login", async (user,thunkAPI) => {
     try {
       return await authService.logout();
     } catch (error) {
+      console.error(error);
       const message = error.response.data;
       return thunkAPI.rejectWithValue(message);
     }
@@ -41,8 +45,17 @@ export const login = createAsyncThunk("auth/login", async (user,thunkAPI) => {
     try {
       return await authService.myInfo(user);
     } catch (error) {
+      console.error(error);
       const message = error.response.data.message;
       return thunkAPI.rejectWithValue(message);
+    }
+  });
+  export const allUsers = createAsyncThunk("auth/allUsers", async () => {
+console.log('entro aqui')
+    try {
+      return await authService.allUsers(user);
+    } catch (error) {
+      console.error(error);
     }
   });
 
@@ -89,6 +102,9 @@ export const authSlice = createSlice({
       })
       .addCase(myInfo.pending, (state) => {
         state.isLoading = true;
+      })
+      .addCase(allUsers.fulfilled, (state, action) => {
+        state.users = action.payload;
       })
       
   },

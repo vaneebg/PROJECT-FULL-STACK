@@ -36,11 +36,22 @@ const login = async(userData)=>{
     });
     return res.data;
   };
+  const allUsers = async () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const res = await axios.get(URL + "/users/", {
+      headers: {
+        authorization: user?.user.tokens[0],
+      },
+    });
+    console.log('aqui',res.data)
+    return res.data;
+  };
 const authService = {
   register,
   login,
   logout,
-  myInfo
+  myInfo,
+  allUsers
   
 };
 
