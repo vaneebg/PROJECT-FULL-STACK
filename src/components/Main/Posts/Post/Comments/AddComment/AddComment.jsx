@@ -2,6 +2,9 @@ import {  useState } from "react";
 import { useDispatch} from "react-redux";
 import { addNewComment} from "../../../../../../features/comments/commentsSlice";
 import { Input } from 'antd';
+import { SmileOutlined } from '@ant-design/icons';
+import { notification } from "antd";
+
 
 
 const AddComment = ({postId}) => {
@@ -32,6 +35,17 @@ const AddComment = ({postId}) => {
         
       dispatch(addNewComment(data));
       setFormData(initialState)
+      return notification.success({
+        message: "Perfecto!",
+        description: "Comentario añadido con éxito!",
+        icon: (
+          <SmileOutlined
+            style={{
+              color: '#108ee9',
+            }}
+          />
+        ),
+      });
     
   }; 
   return (
