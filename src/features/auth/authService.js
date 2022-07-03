@@ -43,7 +43,6 @@ const login = async(userData)=>{
         authorization: user?.user.tokens[0],
       },
     });
-    console.log('aqui',res.data)
     return res.data;
   };
 const authService = {

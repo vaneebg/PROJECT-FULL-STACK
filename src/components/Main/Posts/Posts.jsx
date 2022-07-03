@@ -3,12 +3,9 @@ import Post from './Post/Post'
 import { useDispatch, useSelector } from "react-redux";
 import { getAll, reset } from "../../../features/posts/postsSlice";
 
-
 const Posts = () => {
  const dispatch = useDispatch();
- const { isLoading } = useSelector((state) => state.posts);
-
-
+ const { comment } = useSelector((state) => state.comments);
   const getPostsAndReset = async () => {
 
     await dispatch(getAll()); 
@@ -17,11 +14,9 @@ const Posts = () => {
 
    useEffect(() => {
      getPostsAndReset();
-   }, [getAll]);
+   }, [getAll, comment]);
 
-   if (isLoading) {
-    return <h1>Cargando posts..</h1>;
-  }
+ 
 
   return (
     <div>

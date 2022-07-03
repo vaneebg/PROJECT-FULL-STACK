@@ -122,7 +122,6 @@ export const postsSlice = createSlice({
         state.post =action.payload
       })
       .addCase(getPostByName.fulfilled, (state, action) => {
-        console.log(action.payload)
         state.posts = action.payload;
         });
     

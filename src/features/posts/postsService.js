@@ -64,7 +64,6 @@ const editPost = async (data) => {
 };
 const getPostByName = async (postTitle) => {
   const user = JSON.parse(localStorage.getItem("user"));
-  console.log(user.user.tokens[0])
 
   const res = await axios.get(URL + "/posts/title/" + postTitle,{
     headers: {

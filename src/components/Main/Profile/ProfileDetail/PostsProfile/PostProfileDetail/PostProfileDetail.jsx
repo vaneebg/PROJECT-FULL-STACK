@@ -14,6 +14,10 @@ const PostProfileDetail = () => {
     }, []);
     const comments=post.commentsId?.map((el,i)=>{return(
       <div key={i}className="comments">
+        <div className="icons">
+
+       <span>{el.likes.length} Likes comentario</span> 
+      </div>
           <div className="userC">
   {el.userId.image ? <img className='imgUserC'src={"http://localhost:8080/images/users/" + el.userId.image} alt=''/> : null}
   <span>{el.userId.username}</span>

@@ -51,7 +51,6 @@ export const login = createAsyncThunk("auth/login", async (user,thunkAPI) => {
     }
   });
   export const allUsers = createAsyncThunk("auth/allUsers", async () => {
-console.log('entro aqui')
     try {
       return await authService.allUsers(user);
     } catch (error) {
@@ -83,12 +82,10 @@ export const authSlice = createSlice({
         state.message = action.payload;
       })
       .addCase(logout.fulfilled, (state,action) => {
-        console.log(action.payload)
         state.user = null;
         state.message =action.payload.message;
       })
       .addCase(register.fulfilled, (state, action) => {
-        console.log(action.payload)
         state.isSuccess = true;
         state.message = action.payload.message;
       })
