@@ -15,8 +15,8 @@ const Login = () => {
   };
   const navigate = useNavigate()
 
-  const [formData, setFormData] = useState(initialState);
-  const { email, password } = formData;
+  const [formDataLogin, setFormDataLogin] = useState(initialState);
+  const { email, password } = formDataLogin;
 
   const dispatch = useDispatch();
 
@@ -39,16 +39,16 @@ const Login = () => {
 
 
   const onChange = (e) => {
-    setFormData((prevState) => ({
+    setFormDataLogin((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
   const onSubmit = (e) => {
     e.preventDefault()
-    console.log('login enviado',formData)
+    console.log('login enviado',formDataLogin)
 
-    dispatch(login(formData));
+    dispatch(login(formDataLogin));
    
     }
 

@@ -1,9 +1,8 @@
-import { notification } from "antd";
+import { notification, Input } from "antd";
 import {  useState,useEffect } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { register,reset} from "../../../../features/auth/authSlice";
 import { UserOutlined, MailOutlined,ContactsOutlined, LockOutlined} from '@ant-design/icons';
-import { Input } from 'antd';
 
 import './Register.scss'
 
@@ -16,8 +15,8 @@ const Register = () => {
     password2: "",
     image:""
   };
-  const [formData, setFormData] = useState(initialState);
-  const { username, age, email, password, password2,image } = formData;
+  const [formDataReg, setFormDataReg] = useState(initialState);
+  const { username, age, email, password, password2,image } = formDataReg;
 
   const dispatch = useDispatch();
 
@@ -25,19 +24,19 @@ const Register = () => {
   const { isError, isSuccess, message } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    if (isError) {
-      notification.error({ message: "Error", description: message });
-    }
     if (isSuccess) {
-      notification.success({ message: "Éxito", description: message });
+      notification.success({ message: "Éxito register", description: message });
     
     }
-    dispatch(reset());
-  }, [isError, isSuccess, message]);
+    if (isError) {
+      notification.error({ message: "Error register", description: message });
+    }
+    dispatch(reset())
+  }, [isSuccess, isError, message]);
 
 
   const onChange = (e) => {
-    setFormData((prevState) => ({
+    setFormDataReg((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
@@ -55,8 +54,8 @@ const Register = () => {
         formData.set('age', e.target.age.value)
         formData.set('email', e.target.email.value)
         formData.set('password', e.target.password.value)
-    console.log('form enviado', formData)
-      dispatch(register(formData));
+    console.log('form enviado', formDataReg)
+      dispatch(register(formDataReg));
     }
   }; 
   return (

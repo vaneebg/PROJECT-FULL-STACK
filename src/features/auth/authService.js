@@ -2,8 +2,8 @@ import axios from "axios";
 const URL = process.env.REACT_APP_URL
 
 
-const register = async (userData) => {
-  const res = await axios.post(URL + "/users/", userData);
+const register = async (userDataReg) => {
+  const res = await axios.post(URL + "/users/", userDataReg);
   return res.data;
 };
 

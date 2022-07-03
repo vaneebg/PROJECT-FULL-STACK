@@ -9,7 +9,7 @@ const { TabPane } = Tabs;
 
 const TabsComp = () => {
   return (
-    <Tabs defaultActiveKey="2">
+    <Tabs defaultActiveKey="2" destroyInactiveTabPane={true}>
     <TabPane
       tab={
         <span>
@@ -18,6 +18,7 @@ const TabsComp = () => {
       }
       key="1"
     >
+
         <Register/>
     </TabPane>
     <TabPane
@@ -28,6 +29,7 @@ const TabsComp = () => {
       }
       key="2"
     >
+
       <Login/>
     </TabPane>
   </Tabs>
