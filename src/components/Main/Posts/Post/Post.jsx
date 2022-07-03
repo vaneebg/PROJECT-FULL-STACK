@@ -13,8 +13,19 @@ const Post = () => {
 
 
   const post= posts?.map(el=>{
-    const comments=el.commentsId?.map((comment,i)=>{return(
+    const comments=el.commentsId?.map((comment,i)=>{
+      const isAlreadyLikedComment = comment.likes?.includes(user?.user._id);
+      return(
       <div className="comments" key={i}>
+          <div className="icons">
+      {isAlreadyLikedComment ? (
+<HeartFilled onClick={ isAlreadyLikedComment ? () => dispatch(dislike(comment._id)) : () => dispatch(like(comment._id)) } />
+) : (
+<HeartOutlined onClick={ isAlreadyLikedComment ? () => dispatch(dislike(comment._id)) : () => dispatch(like(comment._id)) } />
+)}
+
+       <span>{comment.likes.length} Likes comentario</span> 
+      </div>
         <div className="userC">
       {comment.userId.image ? <img className='imgUserC'src={"http://localhost:8080/images/users/" + comment.userId.image} alt=''/> : null}
  <span>{comment.userId.username}</span>
