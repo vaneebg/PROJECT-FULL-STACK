@@ -7,6 +7,7 @@ const initialState = {
   user: user ? user : null,
   isError: false,
   isSuccess: false,
+  isSuccessLogout:false,
   isLoading: false,
   message: "",
   users:[]
@@ -33,6 +34,7 @@ export const login = createAsyncThunk("auth/login", async (user,thunkAPI) => {
   });
   export const logout = createAsyncThunk("auth/logout", async (thunkAPI) => {
     try {
+      console.log('2')
       return await authService.logout();
     } catch (error) {
       console.error(error);
@@ -67,6 +69,7 @@ export const authSlice = createSlice({
     reset: (state) => {
       state.isError = false;
       state.isSuccess = false;
+      state.isSuccessLogout=false;
       state.message = "";
     },
    },
@@ -82,7 +85,10 @@ export const authSlice = createSlice({
         state.message = action.payload;
       })
       .addCase(logout.fulfilled, (state,action) => {
+        console.log('4')
+
         state.user = null;
+        state.isSuccessLogout=true;
         state.message =action.payload.message;
       })
       .addCase(register.fulfilled, (state, action) => {

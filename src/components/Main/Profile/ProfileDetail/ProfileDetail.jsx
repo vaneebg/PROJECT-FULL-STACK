@@ -14,43 +14,38 @@ import { myInfo } from '../../../../features/auth/authSlice';
 import PostsProfile from './PostsProfile/PostsProfile'
 
 const ProfileDetail = () => {
+  const { user,isSuccessLogout, message } = useSelector((state) => state.auth);
 
-  const { user } = useSelector((state) => state.auth);
-
+  const navigate = useNavigate()
+  
   const dispatch = useDispatch();
-  const { isError, isSuccess, message } = useSelector((state) => state.auth);
+  
+    const onLogout = () => {
+      console.log('1')
 
+       dispatch(logout()); 
+    }
+  
+    const getInfo = async () => {
+      await dispatch(myInfo()); 
+    };
 
-    const navigate = useNavigate()
+  useEffect(() => {
+    
+    if (isSuccessLogout) {
+      notification.success({ message: "Éxito", description: message });
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    }
+    dispatch(reset());
+  }, [isSuccessLogout]);
+
     
     useEffect(() => {
-      if (isError) {
-        notification.error({ message: "Error", description: message });
-      }
-      if (isSuccess) {
-        notification.success({ message: "Éxito", description: message });
-        setTimeout(() => {
-          navigate("/");
-        }, 2000);
-      }
-      dispatch(reset());
-    }, [isError, isSuccess, message]);
-
- const getInfo = async () => {
-    await dispatch(myInfo()); 
-   };
-
-   useEffect(() => {
-     getInfo();
-   }, []);
-
-
-    const onLogout = async() => {
-     await  dispatch(logout());
-
-
-
-  }
+      getInfo();
+    }, []);
+    
   return (
     <div className='profileDetail'>
         <div className="headerProfile">

@@ -25,6 +25,8 @@ const login = async(userData)=>{
     if (res.data) {
       localStorage.removeItem("user");
     }
+    console.log('3')
+
     return res.data;
   };
   const myInfo = async () => {
