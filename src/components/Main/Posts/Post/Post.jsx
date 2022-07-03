@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { like,dislike } from "../../../../features/posts/postsSlice";
-import { likeComment } from "../../../../features/comments/commentsSlice";
+import { likeComment,dislikeComment } from "../../../../features/comments/commentsSlice";
 
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import './Post.scss'
@@ -21,9 +21,9 @@ const Post = () => {
       <div className="comments" key={i}>
           <div className="icons">
       {isAlreadyLikedComment ? (
-<HeartFilled onClick={ isAlreadyLikedComment ? () => console.log('dislike') : () => dispatch(likeComment(comment._id)) } />
+<HeartFilled onClick={ isAlreadyLikedComment ? () => dispatch(dislikeComment(comment._id)) : () => dispatch(likeComment(comment._id)) } />
 ) : (
-<HeartOutlined onClick={ isAlreadyLikedComment ? () => console.log('dislike') : () => dispatch(likeComment(comment._id)) } />
+<HeartOutlined onClick={ isAlreadyLikedComment ? () => dispatch(dislikeComment(comment._id)) : () => dispatch(likeComment(comment._id)) } />
 )}
 
        <span>{comment.likes.length} Likes comentario</span> 

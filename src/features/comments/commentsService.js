@@ -23,10 +23,20 @@ const likeComment = async (_id) => {
     } );
   return res.data.comment;
 };
+const dislikeComment = async (_id) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.put(URL + "/comments/dislikesComment/"+_id,{}, {
+      headers: {
+        authorization: user?.user.tokens[0],
+      },
+    } );
+  return res.data.comment;
+};
 
 const commentsService = {
   addNewComment,
-  likeComment
+  likeComment,
+  dislikeComment
 };
 
 export default commentsService;
