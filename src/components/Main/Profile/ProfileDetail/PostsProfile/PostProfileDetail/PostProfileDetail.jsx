@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getPostById } from "../../../../../../features/posts/postsSlice";
 import './PostProfileDetail.scss'
+import ModalEditPost from './ModalEditPost/ModalEditPost'
 
 const PostProfileDetail = () => {
     const { _id } = useParams();
@@ -29,6 +30,7 @@ const PostProfileDetail = () => {
   )})
     return (
       <div className='postProfileDetail'>
+        <ModalEditPost/>   
     {post.image ? <img key={post._id} className='imageProfileDetail' src={"http://localhost:8080/images/posts/" + post.image} alt=''/> : null}
 <span>Número de likes: {post.likes?.length}</span>
         <h2>{post.title}</h2>
