@@ -52,7 +52,16 @@ const addNewPost = async (postData) => {
   });
   return res.data.post;
 };
-
+const editPost = async (data) => {
+  const {formData, _id}=data
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.put(URL + "/posts/id/"+_id,formData,{
+    headers: {
+      authorization: user?.user.tokens[0],
+    },
+  });
+  return res.data.post;
+};
 
 
 
@@ -61,7 +70,8 @@ const postsService = {
  like,
  dislike,
  addNewPost,
- getPostById
+ getPostById,
+ editPost
 };
 
 export default postsService;
