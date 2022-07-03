@@ -43,6 +43,7 @@ const EditPost = () => {
 
 
       dispatch(editPost(data));
+      setFormData(initialState)
 
       return notification.success({
         message: "Perfecto!",

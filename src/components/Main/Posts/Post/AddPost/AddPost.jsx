@@ -37,6 +37,7 @@ const AddPost = () => {
         formData.set('title', e.target.title.value)
         formData.set('body', e.target.body.value)
       dispatch(addNewPost(formData));
+      setFormData(initialState)
 
       return notification.success({
         message: "Perfecto!",

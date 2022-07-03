@@ -31,6 +31,7 @@ const AddComment = ({postId}) => {
         const data ={formData,postId}
         
       dispatch(addNewComment(data));
+      setFormData(initialState)
     
   }; 
   return (
