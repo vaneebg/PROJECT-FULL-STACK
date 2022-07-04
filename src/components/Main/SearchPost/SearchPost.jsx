@@ -28,13 +28,9 @@ useEffect(() => {
     notification.error({ message: "Error", description: message });
     navigate("/main")
   }
-  if (isSuccess) {
-    notification.success({ message: "Éxito", description:'Estos son resultados de tu búsqueda:'});
-    
-    
-  }
+  
   dispatch(reset());
-}, [isError, isSuccess, message]);
+}, [isError, message]);
 
 return(
     <>
