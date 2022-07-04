@@ -14,6 +14,9 @@ import ModalEditUser from './ModalEditUser/ModalEditUser';
 import { Tooltip } from 'antd';
 import Followers from './Followers/Followers';
 import Following from './Following/Following';
+import { Tabs } from 'antd';
+import FavPosts from './FavPosts/FavPosts';
+const { TabPane } = Tabs;
 
 const URL = process.env.REACT_APP_URL
 
@@ -50,15 +53,22 @@ const ProfileDetail = () => {
         <span>Número de followers {user.Followers}</span> <br /> 
         </Tooltip>
         <Tooltip title={<Following/>}color='blue' key='blue'> 
-
         <span>Número de following {user.Following}</span> <br />
         </Tooltip>
 
 
         </div>
    <ModalEditUser/>
-        <PostsProfile/>
-  
+      
+        <Tabs defaultActiveKey="1" centered destroyInactiveTabPane={true}>
+    <TabPane tab="Posts" key="1">
+    <PostsProfile/>
+    </TabPane>
+    <TabPane tab="Posts con likes" key="2">
+      <FavPosts/>
+    </TabPane>
+   
+  </Tabs>
      
    
            
