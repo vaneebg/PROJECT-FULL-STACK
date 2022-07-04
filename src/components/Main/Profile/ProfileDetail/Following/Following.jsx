@@ -4,18 +4,17 @@ import {  useSelector } from "react-redux";
 const URL = process.env.REACT_APP_URL
 
 
-const Followers = () => {
+const Following = () => {
     const { user} = useSelector((state) => state.auth);
 
-    console.log(user.user.followers)
-    const followers=user.user.followers?.map(follow=>{return(
+    const following=user.user.following?.map(follow=>{return(
     <div key={follow._id}>
  {follow.username}
  {follow.image ? <img className='imgUserC'src={URL+"/images/users/" + follow?.image} alt=''/> : null}
     </div>)})
   return (
-   <>{followers}</>
+   <>{following}</>
   )
 }
 
-export default Followers
+export default Following

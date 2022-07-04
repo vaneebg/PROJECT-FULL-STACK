@@ -13,6 +13,7 @@ import PostsProfile from './PostsProfile/PostsProfile'
 import ModalEditUser from './ModalEditUser/ModalEditUser';
 import { Tooltip } from 'antd';
 import Followers from './Followers/Followers';
+import Following from './Following/Following';
 
 const URL = process.env.REACT_APP_URL
 
@@ -48,9 +49,11 @@ const ProfileDetail = () => {
         <Tooltip title={<Followers/>}color='purple' key='purple'> 
         <span>Número de followers {user.Followers}</span> <br /> 
         </Tooltip>
-       
+        <Tooltip title={<Following/>}color='blue' key='blue'> 
+
         <span>Número de following {user.Following}</span> <br />
-       
+        </Tooltip>
+
 
         </div>
    <ModalEditUser/>
