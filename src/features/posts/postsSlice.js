@@ -133,7 +133,6 @@ export const postsSlice = createSlice({
         });
         
         builder.addCase(deletePost.fulfilled, (state,action) => {
-          console.log(action.payload)
           state.isSuccess = true;
           state.message = action.payload.message;
           state.post.post = action.payload.post

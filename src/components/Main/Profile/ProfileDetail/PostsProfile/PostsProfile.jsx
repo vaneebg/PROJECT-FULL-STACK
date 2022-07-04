@@ -13,16 +13,19 @@ const PostsProfile = () => {
   if (isLoading) {
     return <h1>Cargando posts..</h1>;
   }
-      const post =user.user.postsId.map((el)=>{
-    return(<>
+      const post =user.user.postsId.map((el,i)=>{
+    return(  <div key={i}  className="postContentProfile">
       <Tooltip title="Click para más info"color='purple' key='purple'>
   <Link to={"/post/" + el._id}>
-     {el.image ? <img key={el._id} className='postsProfile' src={"http://localhost:8080/images/posts/" + el.image} alt=''/> : null}
+  
+     {el.image ? <img className='postsProfile' src={"http://localhost:8080/images/posts/" + el.image} alt=''/> : null}
+    {el.title}
         </Link>  
         </Tooltip>
+     </div>
       
 
-        </>
+        
     )
     })
 
