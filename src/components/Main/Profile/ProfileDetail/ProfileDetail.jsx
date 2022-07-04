@@ -30,17 +30,6 @@ const ProfileDetail = () => {
       await dispatch(myInfo()); 
     };
 
-  useEffect(() => {
-    
-    if (isSuccessLogout) {
-      notification.success({ message: "Éxito", description: message });
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
-    }
-    dispatch(reset());
-  }, [isSuccessLogout]);
-
     
     useEffect(() => {
       getInfo();

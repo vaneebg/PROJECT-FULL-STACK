@@ -21,9 +21,13 @@ const Login = () => {
   const dispatch = useDispatch();
 
   
-  const { isError, isSuccess, message } = useSelector((state) => state.auth);
+  const { isError, isSuccess, message, messageLogout } = useSelector((state) => state.auth);
 
   useEffect(() => {
+    if(messageLogout){
+      notification.success({ message: "Éxito", description: messageLogout });
+
+    }
     if (isError) {
       notification.error({ message: "Error", description: message });
     }
@@ -34,7 +38,7 @@ const Login = () => {
       }, 2000);
     }
     dispatch(reset());
-  }, [isError, isSuccess, message]);
+  }, [isError, isSuccess, message, messageLogout]);
 
 
 

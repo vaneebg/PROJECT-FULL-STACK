@@ -7,7 +7,7 @@ const initialState = {
   user: user ? user : null,
   isError: false,
   isSuccess: false,
-  isSuccessLogout:false,
+  messageLogout:"",
   isLoading: false,
   message: "",
   users:[]
@@ -68,6 +68,7 @@ export const authSlice = createSlice({
   reducers: {
     reset: (state) => {
       state.isError = false;
+      state.messageLogout="";
       state.isSuccess = false;
       state.isSuccessLogout=false;
       state.message = "";
@@ -85,11 +86,8 @@ export const authSlice = createSlice({
         state.message = action.payload;
       })
       .addCase(logout.fulfilled, (state,action) => {
-        console.log('4')
-
         state.user = null;
-        state.isSuccessLogout=true;
-        state.message =action.payload.message;
+        state.messageLogout =action.payload.message;
       })
       .addCase(register.fulfilled, (state, action) => {
         state.isSuccess = true;
