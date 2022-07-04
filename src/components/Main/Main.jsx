@@ -20,7 +20,7 @@ if (e.key === "Enter") {
 };
   return (<div className='main'>
     <div className="buttonsheader">
-    <input onKeyUp={handleChange} placeholder="search post" name="text" />
+    <input onKeyUp={handleChange} placeholder="buscar post..." name="text" />
     </div>
        
 

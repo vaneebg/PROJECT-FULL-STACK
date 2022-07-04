@@ -27,9 +27,9 @@ const user=users.map(el=>{
     {el.username}
     <div className="icons">
       // {isAlreadyFollowing ? (
-        <button onClick={ isAlreadyFollowing? () => console.log("dejar seguir") : () => console.log("seguir") }>Unfollow</button>
+        <button onClick={ isAlreadyFollowing? () => console.log("dejar seguir") : () => console.log("seguir") }>Dejar de seguir</button>
         ) : (
-        <button onClick={ isAlreadyFollowing? () =>  console.log("dejar seguir") : () => console.log("seguir") } >Follow</button>
+        <button onClick={ isAlreadyFollowing? () =>  console.log("dejar seguir") : () => console.log("seguir") } >Seguir</button>
         )}
         
               </div>

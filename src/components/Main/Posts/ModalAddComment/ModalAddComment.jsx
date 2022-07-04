@@ -71,6 +71,11 @@ const ModalAddComment = ({postId}) => {
         visible={visible}
         onOk={handleOk}
         onCancel={handleCancel}
+        footer={[
+          <Button key="back" onClick={handleCancel}>
+            Volver
+          </Button>
+        ]}
         modalRender={(modal) => (
           <Draggable
             disabled={disabled}

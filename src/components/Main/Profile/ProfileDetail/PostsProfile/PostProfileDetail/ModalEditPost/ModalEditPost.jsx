@@ -73,7 +73,7 @@ const ModalEditPost = () => {
         footer={[
           <Button key="back" onClick={handleCancel}>
             Volver
-          </Button>,
+          </Button>
         ]}
         modalRender={(modal) => (
           <Draggable

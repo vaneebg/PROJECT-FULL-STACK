@@ -44,7 +44,6 @@ const dislike = async (_id) => {
 };
 
 const addNewPost = async (postData) => {
-  console.log("patata",postData)
   const user = JSON.parse(localStorage.getItem("user"));
   const res = await axios.post(URL + "/posts/",postData,{
     headers: {
@@ -71,7 +70,6 @@ const getPostByName = async (postTitle) => {
       authorization: user?.user.tokens[0],
     },
   });
-  console.log(res.data)
   return res.data;
   };
 
