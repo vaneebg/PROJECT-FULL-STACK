@@ -56,13 +56,23 @@ const login = async(userData)=>{
     });
     return res.data;
   };
+  const follow = async (_id) => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const res = await axios.put(URL + "/users/followUser/"+_id,{}, {
+        headers: {
+          authorization: user?.user.tokens[0],
+        },
+      } );
+    return res.data;
+  };
 const authService = {
   register,
   login,
   logout,
   myInfo,
   allUsers,
-  editUser
+  editUser,
+  follow
   
 };
 

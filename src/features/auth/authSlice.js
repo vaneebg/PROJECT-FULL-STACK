@@ -67,6 +67,13 @@ export const login = createAsyncThunk("auth/login", async (user,thunkAPI) => {
       return thunkAPI.rejectWithValue(message);
     }
   });
+  export const follow=createAsyncThunk("auth/follow", async(_id)=>{
+    try {
+      return await authService.follow(_id);
+    } catch (error) {
+      console.error(error);
+    }
+  })
 
 
 export const authSlice = createSlice({
@@ -118,6 +125,12 @@ export const authSlice = createSlice({
         state.user=action.payload;
         state.isSuccess = true;
         state.message = action.payload.message;
+      })
+      
+      .addCase(follow.fulfilled, (state, action) => {
+        console.log(action.payload)
+        state.users = [action.payload.user,...state.users]
+
       })
       
   },

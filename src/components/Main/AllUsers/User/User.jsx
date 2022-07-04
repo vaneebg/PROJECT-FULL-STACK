@@ -1,12 +1,14 @@
-
-import {  useSelector } from "react-redux";
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
+
+import {  useSelector, useDispatch } from "react-redux";
+import { follow } from "../../../../features/auth/authSlice";
 
 const URL = process.env.REACT_APP_URL
 
 const User = () => {
     const { users } = useSelector((state) => state.auth);
     const userLocal = JSON.parse(localStorage.getItem("user"));
+    const dispatch = useDispatch();
 
 //         const isAlreadyLiked = el.likes?.includes(user?.user._id);
 
@@ -20,16 +22,16 @@ const User = () => {
       //          <span>{el.likes.length} Likes</span> 
       //         </div>
 
-const user=users.map(el=>{
+const user=users.map((el,i)=>{
   const isAlreadyFollowing=el.followers?.includes(userLocal.user._id)
-  return(<div className='connects' key={el._id}>
+  return(<div className='connects' key={i}>
          {el.image ? <img className='imgUserC'src={URL+"/images/users/" + el.image} alt=''/> : null}
     {el.username}
     <div className="icons">
       // {isAlreadyFollowing ? (
-        <button onClick={ isAlreadyFollowing? () => console.log("dejar seguir") : () => console.log("seguir") }>Dejar de seguir</button>
+        <HeartFilled onClick={ isAlreadyFollowing? () => console.log("dejar seguir") : () => dispatch(follow(el._id)) }/>
         ) : (
-        <button onClick={ isAlreadyFollowing? () =>  console.log("dejar seguir") : () => console.log("seguir") } >Seguir</button>
+        <HeartOutlined onClick={ isAlreadyFollowing? () =>  console.log("dejar seguir") : () => dispatch(follow(el._id)) }/>
         )}
         
               </div>
