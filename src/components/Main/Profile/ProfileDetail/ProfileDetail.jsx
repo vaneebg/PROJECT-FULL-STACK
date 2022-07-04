@@ -2,27 +2,26 @@ import React from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from 'react';
 
-import { logout,reset } from "../../../../features/auth/authSlice";
+import { logout } from "../../../../features/auth/authSlice";
 import { Link } from 'react-router-dom'
 import { PoweroffOutlined } from "@ant-design/icons";
 
-import {  notification } from 'antd'
 import { useNavigate } from 'react-router-dom'
 import { myInfo } from '../../../../features/auth/authSlice';
 
 import PostsProfile from './PostsProfile/PostsProfile'
+import ModalEditUser from './ModalEditUser/ModalEditUser';
 const URL = process.env.REACT_APP_URL
 
 
 const ProfileDetail = () => {
-  const { user,isSuccessLogout, message } = useSelector((state) => state.auth);
+  const { user} = useSelector((state) => state.auth);
 
   const navigate = useNavigate()
   
   const dispatch = useDispatch();
   
     const onLogout = () => {
-      console.log('1')
 
        dispatch(logout()); 
     }
@@ -48,7 +47,7 @@ const ProfileDetail = () => {
         <span>Número de following {user.Following}</span>
 
         </div>
-   
+   <ModalEditUser/>
         <PostsProfile/>
   
      
