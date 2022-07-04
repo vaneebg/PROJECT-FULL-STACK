@@ -67,18 +67,22 @@ export const login = createAsyncThunk("auth/login", async (user,thunkAPI) => {
       return thunkAPI.rejectWithValue(message);
     }
   });
-  export const follow=createAsyncThunk("auth/follow", async(_id)=>{
+  export const follow=createAsyncThunk("auth/follow", async(_id,thunkAPI)=>{
     try {
       return await authService.follow(_id);
     } catch (error) {
       console.error(error);
+      const message = error.response.data;
+      return thunkAPI.rejectWithValue(message);
     }
   });
-  export const unfollow=createAsyncThunk("auth/unfollow", async(_id)=>{
+  export const unfollow=createAsyncThunk("auth/unfollow", async(_id,thunkAPI)=>{
     try {
       return await authService.unfollow(_id);
     } catch (error) {
       console.error(error);
+      const message = error.response.data;
+      return thunkAPI.rejectWithValue(message);
     }
   })
 
@@ -136,10 +140,23 @@ export const authSlice = createSlice({
       
       .addCase(follow.fulfilled, (state, action) => {
         state.users = [action.payload.user,...state.users]
+        state.isSuccess = true;
+        state.message = action.payload.message;
+
+      })
+      .addCase(follow.rejected, (state, action) => {
+        state.isError = true;
+        state.message = action.payload.message;
 
       })
       .addCase(unfollow.fulfilled, (state, action) => {
         state.users = [action.payload.user,...state.users]
+        state.isSuccess = true;
+        state.message = action.payload.message;
+      })
+      .addCase(unfollow.rejected, (state, action) => {
+        state.isError = true;
+        state.message = action.payload.message;
 
       })
       

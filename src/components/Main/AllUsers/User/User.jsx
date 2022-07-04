@@ -1,7 +1,9 @@
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
+import { useEffect } from 'react'
+import {  notification } from 'antd'
 
 import {  useSelector, useDispatch } from "react-redux";
-import { follow,unfollow } from "../../../../features/auth/authSlice";
+import { follow,unfollow,reset } from "../../../../features/auth/authSlice";
 
 const URL = process.env.REACT_APP_URL
 
@@ -9,6 +11,21 @@ const User = () => {
     const { users } = useSelector((state) => state.auth);
     const userLocal = JSON.parse(localStorage.getItem("user"));
     const dispatch = useDispatch();
+
+    const { isError, isSuccess, message } = useSelector((state) => state.auth);
+
+    useEffect(() => {
+     
+      if (isError) {
+        notification.error({ message: "Error", description: message });
+      }
+      if (isSuccess) {
+        notification.success({ message: "Éxito", description: message });
+        
+      }
+      dispatch(reset());
+    }, [isError, isSuccess, message]);
+
 
 
 const user=users.map((el,i)=>{
