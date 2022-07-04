@@ -58,7 +58,16 @@ export const login = createAsyncThunk("auth/login", async (user,thunkAPI) => {
       console.error(error);
     }
   });
-
+  export const editUser = createAsyncThunk("auth/editUser", async (userDataEdit,thunkAPI) => {
+    try {
+      console.log("2")
+      return await authService.editUser(userDataEdit);
+    } catch (error) {
+      console.error(error);
+      const message = error.response.data;
+      return thunkAPI.rejectWithValue(message);
+    }
+  });
 
 
 export const authSlice = createSlice({
@@ -105,6 +114,11 @@ export const authSlice = createSlice({
       })
       .addCase(allUsers.fulfilled, (state, action) => {
         state.users = action.payload;
+      })
+      .addCase(editUser.fulfilled, (state, action) => {
+        state.user=action.payload;
+        state.isSuccess = true;
+        state.message = action.payload.message;
       })
       
   },

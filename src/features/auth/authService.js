@@ -3,6 +3,8 @@ const URL = process.env.REACT_APP_URL
 
 
 const register = async (userDataReg) => {
+  console.log("patata")
+
   const res = await axios.post(URL + "/users/", userDataReg);
   return res.data;
 };
@@ -38,6 +40,7 @@ const login = async(userData)=>{
     return res.data;
   };
   const allUsers = async () => {
+
     const user = JSON.parse(localStorage.getItem("user"));
     const res = await axios.get(URL + "/users/", {
       headers: {
@@ -46,12 +49,23 @@ const login = async(userData)=>{
     });
     return res.data;
   };
+  const editUser = async (userDataEdit) => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const res = await axios.put(URL + "/users/modifyUser", userDataEdit, {
+      headers: {
+        authorization: user?.user.tokens[0],
+      },
+    });
+    console.log('usereditado',res.data)
+    return res.data;
+  };
 const authService = {
   register,
   login,
   logout,
   myInfo,
-  allUsers
+  allUsers,
+  editUser
   
 };
 
