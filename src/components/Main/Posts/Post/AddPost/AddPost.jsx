@@ -1,8 +1,7 @@
 import { notification } from "antd";
 import {  useState,useEffect } from "react";
 import { useDispatch, useSelector} from "react-redux";
-import { reset} from "../../../../../features/posts/postsSlice";
-import { addNewPost} from "../../../../../features/posts/postsSlice";
+import { addNewPost,reset} from "../../../../../features/posts/postsSlice";
 import { Input } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
 
@@ -18,7 +17,23 @@ const AddPost = () => {
   const { title,body,image } = formData;
 
   const dispatch = useDispatch();
+  const { isError, isSuccess, message } = useSelector((state) => state.posts);
 
+  useEffect(() => {
+    if (isError) {
+      notification.error({ message: "Error", description: message });
+    }
+    if (isSuccess) {
+      notification.success({ message: "Perfecto!", description: message, icon: (
+        <SmileOutlined
+          style={{
+            color: '#108ee9',
+          }}
+        />
+      ), });
+    }
+    dispatch(reset());
+  }, [isError, isSuccess, message]);
 
 
   const onChange = (e) => {
@@ -38,18 +53,6 @@ const AddPost = () => {
         formData.set('body', e.target.body.value)
       dispatch(addNewPost(formData));
       setFormData(initialState)
-
-      return notification.success({
-        message: "Perfecto!",
-        description: "Post añadido con éxito!",
-        icon: (
-          <SmileOutlined
-            style={{
-              color: '#108ee9',
-            }}
-          />
-        ),
-      });
     
   }; 
   return (

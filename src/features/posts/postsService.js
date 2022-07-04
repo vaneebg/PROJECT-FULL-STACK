@@ -50,7 +50,7 @@ const addNewPost = async (postData) => {
       authorization: user?.user.tokens[0],
     },
   });
-  return res.data.post;
+  return res.data;
 };
 const editPost = async (data) => {
   const {formData, _id}=data
