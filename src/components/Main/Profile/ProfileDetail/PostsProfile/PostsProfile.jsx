@@ -10,7 +10,6 @@ const URL = process.env.REACT_APP_URL
 const PostsProfile = () => {
 
   const { user, isLoading } = useSelector((state) => state.auth);
-
   if (isLoading) {
     return <h1>Cargando posts..</h1>;
   }

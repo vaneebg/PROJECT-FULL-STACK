@@ -30,16 +30,16 @@ const ProfileDetail = () => {
       await dispatch(myInfo()); 
     };
 
-    
     useEffect(() => {
       getInfo();
     }, []);
+    
     
   return (
     <div className='profileDetail'>
         <div className="headerProfile">
         <Link to="/" onClick={onLogout}><PoweroffOutlined /></Link>
-        {user.user.image ? <img className='imgUser'src={URL+"/images/users/" + user.user.image} alt=''/> : <img className='imgUser' src={URL+"/images/users/none.jpg"} alt=''/>}
+        {user.user.image ? <img className='imgUser'src={URL+"/images/users/" + user.user?.image} alt=''/> : <img className='imgUser' src={URL+"/images/users/none.jpg"} alt=''/>}
 
         <span className='bold'>{user.user.username}</span>
         <span>Número de posts {user.Number_of_posts}</span>
