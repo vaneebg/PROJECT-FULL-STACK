@@ -60,7 +60,6 @@ export const login = createAsyncThunk("auth/login", async (user,thunkAPI) => {
   });
   export const editUser = createAsyncThunk("auth/editUser", async (userDataEdit,thunkAPI) => {
     try {
-      console.log("2")
       return await authService.editUser(userDataEdit);
     } catch (error) {
       console.error(error);

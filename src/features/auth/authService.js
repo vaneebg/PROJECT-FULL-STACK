@@ -3,8 +3,6 @@ const URL = process.env.REACT_APP_URL
 
 
 const register = async (userDataReg) => {
-  console.log("patata")
-
   const res = await axios.post(URL + "/users/", userDataReg);
   return res.data;
 };
@@ -56,7 +54,6 @@ const login = async(userData)=>{
         authorization: user?.user.tokens[0],
       },
     });
-    console.log('usereditado',res.data)
     return res.data;
   };
 const authService = {
