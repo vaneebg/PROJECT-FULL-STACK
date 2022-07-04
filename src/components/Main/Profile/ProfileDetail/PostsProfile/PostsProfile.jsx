@@ -15,11 +15,10 @@ const PostsProfile = () => {
   }
       const post =user.user.postsId.map((el,i)=>{
     return(  <div key={i}  className="postContentProfile">
-      <Tooltip title="Click para más info"color='purple' key='purple'>
+      <Tooltip title={"Click para más info sobre: "+el.title}color='purple' key='purple'>
   <Link to={"/post/" + el._id}>
   
      {el.image ? <img className='postsProfile' src={URL+"/images/posts/" + el.image} alt=''/> : null}
-    {el.title}
         </Link>  
         </Tooltip>
      </div>

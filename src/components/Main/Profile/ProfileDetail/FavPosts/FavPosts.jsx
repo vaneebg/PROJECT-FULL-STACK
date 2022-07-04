@@ -1,7 +1,29 @@
+import { useSelector } from "react-redux";
+import { Link } from 'react-router-dom'
+import { Tooltip } from 'antd';
+const URL = process.env.REACT_APP_URL
+
 
 const FavPosts = () => {
-  return (
-    <div>FavPosts</div>
+    const { user} = useSelector((state) => state.auth);
+
+  
+
+const postFav=user.user.favList?.map(post=>{return(
+    <div key={post._id}  className="postContentProfile">
+    <Tooltip title={"Click para más info sobre: "+post.title}color='purple' key='purple'>
+<Link to={"/post/" + post._id}>
+
+   {post.image ? <img className='postsProfile' src={URL+"/images/posts/" + post.image} alt=''/> : null}
+      </Link>  
+      </Tooltip>
+   </div>
+)}
+  )
+  return(
+    <div className='postsUser'>
+    {postFav}
+    </div>
   )
 }
 

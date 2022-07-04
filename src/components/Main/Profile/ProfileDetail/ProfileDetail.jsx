@@ -6,7 +6,6 @@ import { logout } from "../../../../features/auth/authSlice";
 import { Link } from 'react-router-dom'
 import { PoweroffOutlined } from "@ant-design/icons";
 
-import { useNavigate } from 'react-router-dom'
 import { myInfo } from '../../../../features/auth/authSlice';
 
 import PostsProfile from './PostsProfile/PostsProfile'
@@ -24,7 +23,6 @@ const URL = process.env.REACT_APP_URL
 const ProfileDetail = () => {
   const { user} = useSelector((state) => state.auth);
 
-  const navigate = useNavigate()
   
   const dispatch = useDispatch();
   
