@@ -66,11 +66,14 @@ export const editPost = createAsyncThunk("posts/editPost", async(post)=>{
 
   }
 })
-export const getPostByName = createAsyncThunk("posts/getPostByName", async (postName) => {
+export const getPostByName = createAsyncThunk("posts/getPostByName", async (postName,thunkAPI) => {
   try {
   return await postsService.getPostByName(postName);
   } catch (error) {
-  console.error(error);
+    console.error(error);
+    const message = error.response.data;
+    return thunkAPI.rejectWithValue(message);
+
   }
   });
 export const deletePost = createAsyncThunk("posts/deletePost", async (_id) => {
@@ -86,6 +89,7 @@ export const postsSlice = createSlice({
   initialState,
   reducers: {
     reset: (state) => {
+      state.isError = false;
       state.isLoading = false;
       state.isSuccess = false;
       state.message = "";
@@ -131,10 +135,15 @@ export const postsSlice = createSlice({
         state.post =action.payload
       })
       .addCase(getPostByName.fulfilled, (state, action) => {
+        state.isSuccess = true;
         state.posts = action.payload;
-        });
+        })
+      .addCase(getPostByName.rejected, (state, action) => {
+        state.isError = true;
+        state.message = action.payload;
+          })
         
-        builder.addCase(deletePost.fulfilled, (state,action) => {
+      .addCase(deletePost.fulfilled, (state,action) => {
           state.isSuccess = true;
           state.message = action.payload.message;
           state.post.post = action.payload.post
