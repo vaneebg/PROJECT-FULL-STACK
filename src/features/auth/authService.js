@@ -65,6 +65,15 @@ const login = async(userData)=>{
       } );
     return res.data;
   };
+  const unfollow = async (_id) => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const res = await axios.put(URL + "/users/unfollowUser/"+_id,{}, {
+        headers: {
+          authorization: user?.user.tokens[0],
+        },
+      } );
+    return res.data;
+  };
 const authService = {
   register,
   login,
@@ -72,7 +81,8 @@ const authService = {
   myInfo,
   allUsers,
   editUser,
-  follow
+  follow,
+  unfollow
   
 };
 

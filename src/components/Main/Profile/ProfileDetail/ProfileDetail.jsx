@@ -6,7 +6,7 @@ import { logout } from "../../../../features/auth/authSlice";
 import { Link } from 'react-router-dom'
 import { PoweroffOutlined } from "@ant-design/icons";
 
-import { myInfo } from '../../../../features/auth/authSlice';
+import { myInfo,follow } from '../../../../features/auth/authSlice';
 
 import PostsProfile from './PostsProfile/PostsProfile'
 import ModalEditUser from './ModalEditUser/ModalEditUser';

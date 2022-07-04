@@ -73,6 +73,13 @@ export const login = createAsyncThunk("auth/login", async (user,thunkAPI) => {
     } catch (error) {
       console.error(error);
     }
+  });
+  export const unfollow=createAsyncThunk("auth/unfollow", async(_id)=>{
+    try {
+      return await authService.unfollow(_id);
+    } catch (error) {
+      console.error(error);
+    }
   })
 
 
@@ -128,7 +135,10 @@ export const authSlice = createSlice({
       })
       
       .addCase(follow.fulfilled, (state, action) => {
-        console.log(action.payload)
+        state.users = [action.payload.user,...state.users]
+
+      })
+      .addCase(unfollow.fulfilled, (state, action) => {
         state.users = [action.payload.user,...state.users]
 
       })
