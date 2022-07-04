@@ -58,7 +58,7 @@ const ProfileDetail = () => {
         </div>
    <ModalEditUser/>
       
-        <Tabs defaultActiveKey="1" centered destroyInactiveTabPane={true}>
+        <Tabs defaultActiveKey="1" centered >
     <TabPane tab="Posts" key="1">
     <PostsProfile/>
     </TabPane>

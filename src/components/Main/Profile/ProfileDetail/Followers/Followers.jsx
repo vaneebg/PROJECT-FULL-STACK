@@ -8,8 +8,8 @@ const Followers = () => {
     const { user} = useSelector((state) => state.auth);
 
     console.log(user.user.followers)
-    const followers=user.user.followers?.map(follow=>{return(
-    <div key={follow._id}>
+    const followers=user.user.followers?.map((follow,i)=>{return(
+    <div key={i}>
  {follow.username}
  {follow.image ? <img className='imgUserC'src={URL+"/images/users/" + follow?.image} alt=''/> : null}
     </div>)})

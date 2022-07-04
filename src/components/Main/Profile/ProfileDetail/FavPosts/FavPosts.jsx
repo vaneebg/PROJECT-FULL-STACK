@@ -9,8 +9,8 @@ const FavPosts = () => {
 
   
 
-const postFav=user.user.favList?.map(post=>{return(
-    <div key={post._id}  className="postContentProfile">
+const postFav=user.user.favList?.map((post,i)=>{return(
+    <div key={i}  className="postContentProfile">
     <Tooltip title={"Click para más info sobre: "+post.title}color='purple' key='purple'>
 <Link to={"/post/" + post._id}>
 
