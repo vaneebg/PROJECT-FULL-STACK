@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from 'react-router-dom'
 import { Tooltip } from 'antd';
 
+const URL = process.env.REACT_APP_URL
 
 import './PostsProfile.scss'
 
@@ -18,7 +19,7 @@ const PostsProfile = () => {
       <Tooltip title="Click para más info"color='purple' key='purple'>
   <Link to={"/post/" + el._id}>
   
-     {el.image ? <img className='postsProfile' src={"http://localhost:8080/images/posts/" + el.image} alt=''/> : null}
+     {el.image ? <img className='postsProfile' src={URL+"/images/posts/" + el.image} alt=''/> : null}
     {el.title}
         </Link>  
         </Tooltip>

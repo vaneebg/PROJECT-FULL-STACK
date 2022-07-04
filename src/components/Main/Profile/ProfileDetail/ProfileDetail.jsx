@@ -8,6 +8,7 @@ import { PoweroffOutlined } from "@ant-design/icons";
 
 import {  notification } from 'antd'
 import { useNavigate } from 'react-router-dom'
+const URL = process.env.REACT_APP_URL
 
 import { myInfo } from '../../../../features/auth/authSlice';
 
@@ -39,7 +40,7 @@ const ProfileDetail = () => {
     <div className='profileDetail'>
         <div className="headerProfile">
         <Link to="/" onClick={onLogout}><PoweroffOutlined /></Link>
-        {user.user.image ? <img className='imgUser'src={"http://localhost:8080/images/users/" + user.user.image} alt=''/> : <img className='imgUser' src="http://localhost:8080/images/users/none.jpg" alt=''/>}
+        {user.user.image ? <img className='imgUser'src={URL+"/images/users/" + user.user.image} alt=''/> : <img className='imgUser' src={URL+"/images/users/none.jpg"} alt=''/>}
 
         <span className='bold'>{user.user.username}</span>
         <span>Número de posts {user.Number_of_posts}</span>

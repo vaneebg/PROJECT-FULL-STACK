@@ -5,6 +5,9 @@ import { likeComment,dislikeComment } from "../../../../features/comments/commen
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import './Post.scss'
 import ModalAddComment from "../ModalAddComment/ModalAddComment";
+const URL = process.env.REACT_APP_URL
+
+
 
 const Post = () => {
   const { posts } = useSelector((state) => state.posts);
@@ -29,14 +32,14 @@ const Post = () => {
        <span>{comment.likes.length} Likes comentario</span> 
       </div>
         <div className="userC">
-      {comment.userId.image ? <img className='imgUserC'src={"http://localhost:8080/images/users/" + comment.userId.image} alt=''/> : null}
+      {comment.userId.image ? <img className='imgUserC'src={URL+"/images/users/" + comment.userId.image} alt=''/> : null}
  <span>{comment.userId.username}</span>
  <span>{comment.createdAt}</span>
  </div>
  <div className="textC">
        <span className='bold'>{comment.title}&nbsp;</span>  
        <span className='italic'>{comment.body}</span> <br />
-       {comment.image ? <img className='gifComment'src={"http://localhost:8080/images/comments/" + comment.image} alt=''/> : null}
+       {comment.image ? <img className='gifComment'src={URL+"/images/comments/" + comment.image} alt=''/> : null}
        </div>
       </div>
     )})
@@ -46,11 +49,11 @@ const Post = () => {
     return(
     <div className="postContent" key={el._id}>
       <div className="headerPost">
-      {el.userId.image ? <img className='imgUser'src={"http://localhost:8080/images/users/" + el.userId.image} alt=''/> : <img className='imgUser' src="http://localhost:8080/images/users/none.jpg" alt=''/>}
+      {el.userId.image ? <img className='imgUser'src={URL+"/images/users/" + el.userId.image} alt=''/> : <img className='imgUser' src={URL+"/images/users/none.jpg"} alt=''/>}
       <span> {el.userId.username}</span>
       <span>{el.createdAt}</span>
       </div>
-      {el.image ? <img className='imgPost' src={"http://localhost:8080/images/posts/" + el.image} alt=''/> : <img className='imgPost' src="http://localhost:8080/images/posts/16.jpg" alt=''/>}
+      {el.image ? <img className='imgPost' src={URL+"/images/posts/" + el.image} alt=''/> : <img className='imgPost' src={URL+"/images/posts/16.jpg"} alt=''/>}
       <div className="icons">
       {isAlreadyLiked ? (
 <HeartFilled onClick={ isAlreadyLiked ? () => dispatch(dislike(el._id)) : () => dispatch(like(el._id)) } />

@@ -5,6 +5,9 @@ import { getPostById,deletePost,reset } from "../../../../../../features/posts/p
 import './PostProfileDetail.scss'
 import { notification } from 'antd'
 import ModalEditPost from './ModalEditPost/ModalEditPost'
+const URL = process.env.REACT_APP_URL
+
+
 
 const PostProfileDetail = () => {
     const { _id } = useParams();
@@ -35,14 +38,14 @@ const PostProfileDetail = () => {
        <span>{el.likes.length} Likes comentario</span> 
       </div>
           <div className="userC">
-  {el.userId.image ? <img className='imgUserC'src={"http://localhost:8080/images/users/" + el.userId.image} alt=''/> : null}
+  {el.userId.image ? <img className='imgUserC'src={URL+"/images/users/" + el.userId.image} alt=''/> : null}
   <span>{el.userId.username}</span>
   <span>{el.createdAt}</span>
   </div>
   <div className="textC">
         <span className='bold'>{el.title}&nbsp;</span>  
         <span className='italic'>{el.body}</span> <br />
-        {el.image ? <img className='gifComment'src={"http://localhost:8080/images/comments/" + el.image} alt=''/> : null}
+        {el.image ? <img className='gifComment'src={URL+"/images/comments/" + el.image} alt=''/> : null}
         </div>
         <div className="userComment">
   </div>
@@ -53,7 +56,7 @@ const PostProfileDetail = () => {
         <ModalEditPost/>   
         <button onClick={() => dispatch(deletePost(post._id))}>X</button>
 
-    {post.image ? <img key={post._id} className='imageProfileDetail' src={"http://localhost:8080/images/posts/" + post.image} alt=''/> : null}
+    {post.image ? <img key={post._id} className='imageProfileDetail' src={URL+"/images/posts/" + post.image} alt=''/> : null}
 <span>Número de likes: {post.likes?.length}</span>
         <h2>{post.title}</h2>
         <p>{post.body}</p>
