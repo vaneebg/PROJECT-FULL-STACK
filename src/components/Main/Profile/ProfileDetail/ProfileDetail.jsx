@@ -8,11 +8,11 @@ import { PoweroffOutlined } from "@ant-design/icons";
 
 import {  notification } from 'antd'
 import { useNavigate } from 'react-router-dom'
-const URL = process.env.REACT_APP_URL
-
 import { myInfo } from '../../../../features/auth/authSlice';
 
 import PostsProfile from './PostsProfile/PostsProfile'
+const URL = process.env.REACT_APP_URL
+
 
 const ProfileDetail = () => {
   const { user,isSuccessLogout, message } = useSelector((state) => state.auth);

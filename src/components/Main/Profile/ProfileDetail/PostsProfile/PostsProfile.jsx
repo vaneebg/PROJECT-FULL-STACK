@@ -2,10 +2,10 @@ import React from 'react'
 import { useSelector } from "react-redux";
 import { Link } from 'react-router-dom'
 import { Tooltip } from 'antd';
+import './PostsProfile.scss'
 
 const URL = process.env.REACT_APP_URL
 
-import './PostsProfile.scss'
 
 const PostsProfile = () => {
 
