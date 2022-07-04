@@ -5,6 +5,9 @@ import { getPostById,deletePost,reset } from "../../../../../../features/posts/p
 import './PostProfileDetail.scss'
 import { notification } from 'antd'
 import ModalEditPost from './ModalEditPost/ModalEditPost'
+import { useNavigate } from "react-router-dom";
+
+
 const URL = process.env.REACT_APP_URL
 
 
@@ -13,6 +16,8 @@ const PostProfileDetail = () => {
     const { _id } = useParams();
     const dispatch = useDispatch();
     const { post } = useSelector((state) => state.posts);
+    const navigate = useNavigate()
+
     useEffect(() => {
       dispatch(getPostById(_id));
     }, [post]);
@@ -25,6 +30,8 @@ const PostProfileDetail = () => {
       }
       if (isSuccess) {
         notification.success({ message: "Éxito", description: message });
+          navigate("/profile");
+   
       }
       dispatch(reset());
     }, [isError, isSuccess, message]);
