@@ -38,7 +38,7 @@ const Post = () => {
       {comment.userId.image ? <img className='imgUserC'src={URL+"/images/users/" + comment.userId.image} alt=''/> : null}
  <span>{comment.userId.username}</span>
  <span>{comment.createdAt}</span>
- { comment.userId._id===userLocal.user._id ? <> <ModalEditComment postId={el._id}/> </>: null}
+ { comment.userId._id===userLocal.user._id ? <> <ModalEditComment commentId={comment._id}/> </>: null}
 
  </div>
  <div className="textC">

@@ -35,17 +35,7 @@ const AddComment = ({postId}) => {
         
       dispatch(addNewComment(data));
       setFormData(initialState)
-      return notification.success({
-        message: "Perfecto!",
-        description: "Comentario añadido con éxito!",
-        icon: (
-          <SmileOutlined
-            style={{
-              color: '#108ee9',
-            }}
-          />
-        ),
-      });
+    
     
   }; 
   return (

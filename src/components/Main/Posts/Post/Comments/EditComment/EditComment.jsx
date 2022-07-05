@@ -1,13 +1,14 @@
 import {  useState } from "react";
-import { useDispatch} from "react-redux";
-// import { editComment} from "../../../../../../features/comments/commentsSlice";
+import { editComment,reset} from "../../../../../../features/comments/commentsSlice";
 import { Input } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
 import { notification } from "antd";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 
 
 
-const EditComment = ({postId}) => {
+const EditComment = ({commentId}) => {
   const initialState = {
     title:"",
     body:"",
@@ -17,6 +18,8 @@ const EditComment = ({postId}) => {
   const { title,body,image } = formData;
 
   const dispatch = useDispatch();
+
+ 
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -31,21 +34,11 @@ const EditComment = ({postId}) => {
         if (e.target.image.files[0]) formData.set('image', e.target.image.files[0]);
         formData.set('title', e.target.title.value)
         formData.set('body', e.target.body.value)
-        const data ={formData,postId}
+        const data ={formData,commentId}
         
-      // dispatch(editComment(data));
+      dispatch(editComment(data));
       setFormData(initialState)
-      return notification.success({
-        message: "Perfecto!",
-        description: "Comentario cambiado con éxito!",
-        icon: (
-          <SmileOutlined
-            style={{
-              color: '#108ee9',
-            }}
-          />
-        ),
-      });
+   
     
   }; 
   return (

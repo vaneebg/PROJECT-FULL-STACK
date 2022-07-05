@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import Draggable from 'react-draggable';
 import EditComment from '../Post/Comments/EditComment/EditComment';
 
-const ModalEditComment = ({postId}) => {
+const ModalEditComment = ({commentId}) => {
   const [visible, setVisible] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [bounds, setBounds] = useState({
@@ -86,7 +86,7 @@ const ModalEditComment = ({postId}) => {
           </Draggable>
         )}
       >
-       <EditComment postId={postId}/>
+       <EditComment commentId={commentId}/>
       </Modal>
     </>
   );
