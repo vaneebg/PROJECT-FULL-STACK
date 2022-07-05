@@ -17,6 +17,7 @@ const PostProfileDetail = () => {
     const dispatch = useDispatch();
     const { post } = useSelector((state) => state.posts);
     const navigate = useNavigate()
+    const userLocal = JSON.parse(localStorage.getItem("user"));
 
     useEffect(() => {
       dispatch(getPostById(_id));
@@ -35,7 +36,6 @@ const PostProfileDetail = () => {
       }
       dispatch(reset());
     }, [isError, isSuccess, message]);
-
 
     const comments=post.commentsId?.map((el,i)=>{return(
       <div key={i}className="comments">
@@ -60,8 +60,8 @@ const PostProfileDetail = () => {
   )})
     return (
       <div className='postProfileDetail'>
-        <ModalEditPost/>   
-        <button onClick={() => dispatch(deletePost(post._id))}>X</button>
+    { post.userId===userLocal.user._id ? <><ModalEditPost/><button onClick={() => dispatch(deletePost(post._id))}>X</button> </>: null}
+       
 
     {post.image ? <img key={post._id} className='imageProfileDetail' src={URL+"/images/posts/" + post.image} alt=''/> : null}
 <span>Número de likes: {post.likes?.length}</span>
