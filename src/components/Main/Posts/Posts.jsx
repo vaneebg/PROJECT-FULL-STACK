@@ -3,6 +3,8 @@ import Post from './Post/Post'
 import { notification } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { getAll, reset } from "../../../features/posts/postsSlice";
+import {  resetC } from "../../../features/comments/commentsSlice";
+
 
 const Posts = () => {
  const dispatch = useDispatch();
@@ -27,7 +29,7 @@ const Posts = () => {
        notification.success({ message: "Éxito", description: message });
   
      }
-     dispatch(reset());
+     dispatch(resetC());
    }, [isError, isSuccess, message]);
  
 

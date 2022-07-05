@@ -49,7 +49,7 @@ export const commentsSlice = createSlice({
   name: "comments",
   initialState,
   reducers: {
-    reset: (state) => {
+    resetC: (state) => {
       state.isError = false;
       state.isLoading = false;
       state.isSuccess = false;
@@ -87,6 +87,6 @@ export const commentsSlice = createSlice({
   },
 });
 
-export const { reset } = commentsSlice.actions;
+export const { resetC } = commentsSlice.actions;
 
 export default commentsSlice.reducer;
