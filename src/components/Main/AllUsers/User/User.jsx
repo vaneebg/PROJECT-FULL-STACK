@@ -1,6 +1,7 @@
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import { useEffect } from 'react'
 import {  notification } from 'antd'
+import { Link } from 'react-router-dom'
 
 import {  useSelector, useDispatch } from "react-redux";
 import { follow,unfollow,reset } from "../../../../features/auth/authSlice";
@@ -42,7 +43,7 @@ const user=users.map((el,i)=>{
         )}
         
               </div>
-    
+              <Link to={"/user/" + el._id}>Ver perfil</Link>
     </div>
     )}})
   return (<>

@@ -84,7 +84,16 @@ export const login = createAsyncThunk("auth/login", async (user,thunkAPI) => {
       const message = error.response.data;
       return thunkAPI.rejectWithValue(message);
     }
-  })
+  });
+  export const getUserById = createAsyncThunk("auth/getUserById", async (_id) => {
+    try {
+    return await authService.getUserById(_id);
+    } catch (error) {
+    console.error(error);
+   
+  
+    }
+    });
 
 
 export const authSlice = createSlice({
@@ -173,6 +182,14 @@ export const authSlice = createSlice({
         state.message = action.payload.message;
 
       })
+      .addCase(getUserById.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoading=false;
+
+        })
+        .addCase(getUserById.pending, (state) => {
+          state.isLoading = true;
+        })
       
   },
 })

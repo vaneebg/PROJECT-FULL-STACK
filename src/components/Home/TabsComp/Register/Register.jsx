@@ -3,6 +3,9 @@ import {  useState,useEffect } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { register,reset} from "../../../../features/auth/authSlice";
 import { UserOutlined, MailOutlined,ContactsOutlined, LockOutlined} from '@ant-design/icons';
+import { useNavigate } from "react-router-dom";
+
+
 
 import './Register.scss'
 
@@ -19,6 +22,8 @@ const Register = () => {
   const { username, age, email, password, password2,image } = formDataReg;
 
   const dispatch = useDispatch();
+  
+  // const navigate = useNavigate()
 
 
   const { isError, isSuccess, message } = useSelector((state) => state.auth);
@@ -26,7 +31,7 @@ const Register = () => {
   useEffect(() => {
     if (isSuccess) {
       notification.success({ message: "Éxito register", description: message });
-    
+    // changeTab(2)
     }
     if (isError) {
       notification.error({ message: "Error register", description: message });
