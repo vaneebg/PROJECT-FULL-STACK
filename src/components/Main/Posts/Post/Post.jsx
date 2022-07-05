@@ -5,6 +5,8 @@ import { likeComment,dislikeComment } from "../../../../features/comments/commen
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import './Post.scss'
 import ModalAddComment from "../ModalAddComment/ModalAddComment";
+import ModalEditComment from "../ModalEditComment/ModalEditComment";
+
 const URL = process.env.REACT_APP_URL
 
 
@@ -36,7 +38,7 @@ const Post = () => {
       {comment.userId.image ? <img className='imgUserC'src={URL+"/images/users/" + comment.userId.image} alt=''/> : null}
  <span>{comment.userId.username}</span>
  <span>{comment.createdAt}</span>
- { comment.userId._id===userLocal.user._id ? <><button onClick={() => console.log("editar")}>Editar</button> </>: null}
+ { comment.userId._id===userLocal.user._id ? <> <ModalEditComment postId={el._id}/> </>: null}
 
  </div>
  <div className="textC">
