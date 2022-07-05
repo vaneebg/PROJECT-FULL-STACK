@@ -8,6 +8,8 @@ import Main from './components/Main/Main'
 import ProfileDetail from './components/Main/Profile/ProfileDetail/ProfileDetail';
 import PostProfileDetail from "./components/Main/Profile/ProfileDetail/PostsProfile/PostProfileDetail/PostProfileDetail";
 import SearchPost from './components/Main/SearchPost/SearchPost';
+import PrivateZone from "./guards/PrivateZone";
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
   return (
@@ -16,10 +18,11 @@ function App() {
     <Header/>
 <Routes>
   <Route path="/" element={<Home/>}/>
-<Route path="/main" element={<Main/>}/>
-<Route path="/profile" element={<ProfileDetail/>}/>
-<Route path="/post/:_id" element={<PostProfileDetail />} />
-<Route path="/search/titlePost/:postName" element={<SearchPost />} />
+<Route path="/main" element={<PrivateZone><Main/></PrivateZone>}/>
+<Route path="/profile" element={<PrivateZone><ProfileDetail/></PrivateZone>}/>
+<Route path="/post/:_id" element={<PrivateZone><PostProfileDetail /></PrivateZone>} />
+<Route path="/search/titlePost/:postName" element={<PrivateZone><SearchPost/></PrivateZone>} />
+<Route path="*" element={<NotFound />} />
 </Routes>
 </BrowserRouter>
     </div>
