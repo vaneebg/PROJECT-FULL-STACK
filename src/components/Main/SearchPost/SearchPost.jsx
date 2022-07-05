@@ -5,6 +5,7 @@ import Post from "../Posts/Post/Post"
 import { notification } from 'antd'
 import { useDispatch,useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
 
 const SearchPost = () => {
@@ -35,8 +36,12 @@ useEffect(() => {
 }, [isError, message]);
 
 
-if(posts.length==0){
-  return <h1>No se ha encontrado ningún post</h1>
+if(posts.length===0){
+  return(
+    <> <h1>No se ha encontrado ningún post</h1>
+  <Link to="/main">Volver a principal</Link>
+  </>
+  )
 }
 
 return(
