@@ -44,6 +44,15 @@ export const editComment = createAsyncThunk("comments/editComment", async(commen
     const message = error.response.data;
     return thunkAPI.rejectWithValue(message);
   }
+});
+export const deleteComment = createAsyncThunk("comments/deleteComment", async(_id,thunkAPI)=>{
+  try {
+    return await commentsService.deleteComment(_id)
+  } catch (error) {
+    console.error(error);
+    const message = error.response.data;
+    return thunkAPI.rejectWithValue(message);
+  }
 })
 export const commentsSlice = createSlice({
   name: "comments",
@@ -81,6 +90,15 @@ export const commentsSlice = createSlice({
 
       })
       .addCase(editComment.rejected, (state, action) => {
+        state.isError = true;
+        state.message = action.payload.message;
+      })
+      .addCase(deleteComment.fulfilled, (state, action) => {
+        state.isSuccess = true;
+        state.comment  = action.payload.comment;
+        state.message = action.payload.message;
+      })
+      .addCase(deleteComment.rejected, (state, action) => {
         state.isError = true;
         state.message = action.payload.message;
       })

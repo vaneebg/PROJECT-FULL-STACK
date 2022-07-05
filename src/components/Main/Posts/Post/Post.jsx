@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { like,dislike } from "../../../../features/posts/postsSlice";
-import { likeComment,dislikeComment } from "../../../../features/comments/commentsSlice";
+import { likeComment,dislikeComment,deleteComment } from "../../../../features/comments/commentsSlice";
 
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import './Post.scss'
@@ -38,7 +38,7 @@ const Post = () => {
       {comment.userId.image ? <img className='imgUserC'src={URL+"/images/users/" + comment.userId.image} alt=''/> : null}
  <span>{comment.userId.username}</span>
  <span>{comment.createdAt}</span>
- { comment.userId._id===userLocal.user._id ? <> <ModalEditComment commentId={comment._id}/> </>: null}
+ { comment.userId._id===userLocal.user._id ? <> <ModalEditComment commentId={comment._id}/> <button onClick={() => dispatch(deleteComment(comment._id))}>X</button> </>: null}
 
  </div>
  <div className="textC">

@@ -41,12 +41,22 @@ const editComment = async (commentDataE) => {
   });
   return res.data;
 };
+const deleteComment=async(_id)=>{
+  const user = JSON.parse(localStorage.getItem("user"));
+    const res = await axios.delete(URL + "/comments/id/" + _id, {
+    headers: {
+      authorization: user?.user.tokens[0],
+    },
+    });
+    return res.data;
+    };
 
 const commentsService = {
   addNewComment,
   likeComment,
   dislikeComment,
-  editComment
+  editComment,
+  deleteComment
 
 };
 
