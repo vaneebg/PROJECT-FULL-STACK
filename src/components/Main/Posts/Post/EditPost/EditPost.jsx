@@ -1,7 +1,7 @@
 import { notification } from "antd";
-import {  useState } from "react";
-import { useDispatch} from "react-redux";
-import { editPost} from "../../../../../features/posts/postsSlice";
+import { useDispatch, useSelector} from "react-redux";
+import {  useState,useEffect } from "react";
+import { editPost,reset} from "../../../../../features/posts/postsSlice";
 import { Input } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
 import { useParams } from "react-router-dom";
@@ -20,9 +20,6 @@ const EditPost = () => {
   const [formData, setFormData] = useState(initialState);
   
   const { title,body,image } = formData;
-
-
-
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -44,18 +41,9 @@ const EditPost = () => {
 
       dispatch(editPost(data));
       setFormData(initialState)
+      
 
-      return notification.success({
-        message: "Perfecto!",
-        description: "Post cambiado!",
-        icon: (
-          <SmileOutlined
-            style={{
-              color: '#108ee9',
-            }}
-          />
-        ),
-      });
+    
     
   }; 
   return (

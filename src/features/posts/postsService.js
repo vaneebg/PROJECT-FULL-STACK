@@ -60,7 +60,7 @@ const editPost = async (data) => {
       authorization: user?.user.tokens[0],
     },
   });
-  return res.data.post;
+  return res.data;
 };
 const getPostByName = async (postTitle) => {
   const user = JSON.parse(localStorage.getItem("user"));

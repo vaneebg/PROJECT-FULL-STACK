@@ -20,7 +20,7 @@ const PostProfileDetail = () => {
 
     useEffect(() => {
       dispatch(getPostById(_id));
-    }, [post]);
+    }, []);
 
     const { isError, isSuccess, message } = useSelector((state) => state.posts);
 

@@ -57,11 +57,13 @@ export const addNewPost = createAsyncThunk("posts/addNewPost", async(post,thunkA
 
   }
 })
-export const editPost = createAsyncThunk("posts/editPost", async(post)=>{
+export const editPost = createAsyncThunk("posts/editPost", async(post,thunkAPI)=>{
   try {
     return await postsService.editPost(post)
   } catch (error) {
     console.error(error);
+    const message = error.response.data;
+    return thunkAPI.rejectWithValue(message);
    
 
   }
@@ -76,11 +78,13 @@ export const getPostByName = createAsyncThunk("posts/getPostByName", async (post
 
   }
   });
-export const deletePost = createAsyncThunk("posts/deletePost", async (_id) => {
+export const deletePost = createAsyncThunk("posts/deletePost", async (_id,thunkAPI) => {
     try {
     return await postsService.deletePost(_id);
     } catch (error) {
     console.error(error);
+    const message = error.response.data;
+    return thunkAPI.rejectWithValue(message);
     }
     });
 
@@ -132,7 +136,13 @@ export const postsSlice = createSlice({
         state.message = action.payload.message;
       })
       .addCase(editPost.fulfilled, (state, action) => {
-        state.post =action.payload
+        state.post =action.payload.post
+        state.isSuccess = true;
+        state.message = action.payload.message;
+      })
+      .addCase(editPost.rejected, (state, action) => {
+        state.isError = true;
+        state.message = action.payload.message;
       })
       .addCase(getPostByName.fulfilled, (state, action) => {
         state.isSuccess = true;
@@ -149,6 +159,10 @@ export const postsSlice = createSlice({
           state.message = action.payload.message;
           state.post.post = action.payload.post
           })
+      .addCase(deletePost.rejected, (state,action) => {
+            state.isError = true;
+            state.message = action.payload.message;
+            })
           
       
     
