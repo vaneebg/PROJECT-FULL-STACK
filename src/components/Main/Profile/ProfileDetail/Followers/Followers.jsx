@@ -7,7 +7,6 @@ const URL = process.env.REACT_APP_URL
 const Followers = () => {
     const { user} = useSelector((state) => state.auth);
 
-    console.log(user.user.followers)
     const followers=user.user.followers?.map((follow,i)=>{return(
     <div key={i}>
  {follow.username}

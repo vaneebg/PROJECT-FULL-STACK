@@ -49,7 +49,6 @@ const Register = () => {
       
     } else {
         const formData = new FormData();
-        console.log('aquii',e.target.image.files)
         if (e.target.image.files[0]) formData.set('image', e.target.image.files[0]);
         formData.set('username', e.target.username.value)
         formData.set('age', e.target.age.value)
