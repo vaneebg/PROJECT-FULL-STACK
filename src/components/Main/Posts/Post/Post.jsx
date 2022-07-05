@@ -27,9 +27,13 @@ const Post = () => {
       <div className="comments" key={i}>
           <div className="icons">
       {isAlreadyLikedComment ? (
-<HeartFilled onClick={ isAlreadyLikedComment ? () => dispatch(dislikeComment(comment._id)) : () => dispatch(likeComment(comment._id)) } />
+<HeartFilled  style={{
+        color: '#6F0B8A',
+      }} onClick={ isAlreadyLikedComment ? () => dispatch(dislikeComment(comment._id)) : () => dispatch(likeComment(comment._id)) } />
 ) : (
-<HeartOutlined onClick={ isAlreadyLikedComment ? () => dispatch(dislikeComment(comment._id)) : () => dispatch(likeComment(comment._id)) } />
+<HeartOutlined style={{
+        color: '#6F0B8A',
+      }}  onClick={ isAlreadyLikedComment ? () => dispatch(dislikeComment(comment._id)) : () => dispatch(likeComment(comment._id)) } />
 )}
 
        <span>{comment.likes.length} Likes comentario</span> 

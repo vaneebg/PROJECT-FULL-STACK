@@ -75,7 +75,6 @@ const login = async(userData)=>{
     return res.data;
   };
   const getUserById = async (_id) => {
-    console.log("aquiii",_id)
     const user = JSON.parse(localStorage.getItem("user"));
     const res = await axios.get(URL + "/users/id/" + _id, {
       headers: {

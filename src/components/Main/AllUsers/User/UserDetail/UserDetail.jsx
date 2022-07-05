@@ -13,7 +13,6 @@ const { TabPane } = Tabs;
 
 const UserDetail = () => {
     const {user,isLoading}=useSelector((state) => state.auth);
-    console.log(user)
     const { _id } = useParams();
     
     const dispatch = useDispatch();
