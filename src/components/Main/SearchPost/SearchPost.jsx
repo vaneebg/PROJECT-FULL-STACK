@@ -11,6 +11,8 @@ const SearchPost = () => {
 
 const { postName } = useParams();
 const { comment } = useSelector((state) => state.comments);
+const { posts} = useSelector((state) => state.posts);
+
 
 const dispatch = useDispatch()
 const navigate = useNavigate()
@@ -21,16 +23,21 @@ dispatch(getPostByName(postName))
 }, [postName,comment]);
 
 
-const { isError, isSuccess, message } = useSelector((state) => state.posts);
+const { isError, message } = useSelector((state) => state.posts);
 
 useEffect(() => {
+  
   if (isError) {
     notification.error({ message: "Error", description: message });
-    navigate("/main")
   }
   
   dispatch(reset());
 }, [isError, message]);
+
+
+if(posts.length==0){
+  return <h1>No se ha encontrado ningún post</h1>
+}
 
 return(
     <>
