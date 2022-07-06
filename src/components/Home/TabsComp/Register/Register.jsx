@@ -28,7 +28,6 @@ const Register = () => {
   useEffect(() => {
     if (isSuccess) {
       notification.success({ message: "Éxito register", description: message });
-      window.location.href = window.location.href;
     }
     if (isError) {
       notification.error({ message: "Error register", description: message });
