@@ -13,7 +13,7 @@ const URL = process.env.REACT_APP_URL
 
 
 const UserDetail = () => {
-    const {user,userProfile,isLoading}=useSelector((state) => state.auth);
+    const {userProfile,isLoading}=useSelector((state) => state.auth);
     const { _id } = useParams();
     
     const dispatch = useDispatch();
@@ -29,8 +29,7 @@ const UserDetail = () => {
     if (isLoading) {
         return <h1>Cargando posts..</h1>;
       }
-    console.log("aquii userprofile",userProfile)
-    console.log("aquii user",user)
+  
   return (
     <div className='profileDetail'>
         <div className="headerProfile">
