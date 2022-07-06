@@ -13,12 +13,9 @@ const Profile = () => {
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
-  const getInfo = async () => {
-    await dispatch(myInfo()); 
-  };
 
   useEffect(() => {
-    getInfo();
+    dispatch(myInfo()); 
   }, []);
   return (
     <div className='profileIcon'>

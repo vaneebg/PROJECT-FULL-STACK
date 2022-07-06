@@ -8,13 +8,11 @@ import User from "./User/User";
 const AllUsers = () => {
   const dispatch = useDispatch();
 
-    const getUsers = async () => {
-  await dispatch(allUsers()); 
-     };
+  
 
     useEffect(() => {
-      getUsers();
-    }, [allUsers]);
+      dispatch(allUsers()); 
+        }, [allUsers]);
 
   return (
     <div>Usuarios:

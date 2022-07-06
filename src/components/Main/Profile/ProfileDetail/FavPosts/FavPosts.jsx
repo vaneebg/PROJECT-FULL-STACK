@@ -15,13 +15,11 @@ const FavPosts = () => {
     const dispatch = useDispatch();
     const { posts } = useSelector((state) => state.posts);
 
-  const getInfo = async () => {
-      await dispatch(myInfo()); 
-    };
+ 
 
     useEffect(() => {
-      getInfo();
-    }, [myInfo,posts]);
+      dispatch(myInfo()); 
+        }, [myInfo,posts]);
 
 
 

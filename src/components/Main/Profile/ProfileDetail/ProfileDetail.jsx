@@ -31,13 +31,11 @@ const ProfileDetail = () => {
        dispatch(logout()); 
     }
   
-    const getInfo = async () => {
-      await dispatch(myInfo()); 
-    };
+  
 
     useEffect(() => {
-      getInfo();
-    }, []);
+      dispatch(myInfo())
+        }, []);
     
   return (
     <div className='profileDetail'>
