@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import { useParams } from "react-router-dom";
 
 const { TabPane } = Tabs;
+const URL = process.env.REACT_APP_URL
 
 
 const UserDetail = () => {
@@ -30,10 +31,11 @@ const UserDetail = () => {
     if (isLoading) {
         return <h1>Cargando posts..</h1>;
       }
+    
   return (
     <div className='profileDetail'>
         <div className="headerProfile">
-        {user.user.image ? <img className='imgUser'src={URL+"/images/users/" + user.user?.image} alt=''/> : <img className='imgUser' src={URL+"/images/users/none.jpg"} alt=''/>}
+        {user.user.image ? <img className='imgUserC' src={URL+"/images/users/" + user.user?.image} alt=''/> : <img className='imgUser' src={URL+"/images/users/none.jpg"} alt=''/>}
 
         <span className='bold'>{user.user.username}</span>
         <span>Número de posts {user.Number_of_posts}</span> <br />
