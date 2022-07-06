@@ -4,14 +4,14 @@ const URL = process.env.REACT_APP_URL
 
 
 
-const getAll = async () => {
+const getAll = async (page) => {
   const user = JSON.parse(localStorage.getItem("user"));
-  const res = await axios.get(URL + "/posts/",{
+  const res = await axios.get(URL + "/posts?page="+page,{
     headers: {
       authorization: user?.user.tokens[0],
     },
   });
-  return res.data.posts;
+  return res.data;
 };
 const getPostById = async (_id) => {
   const user = JSON.parse(localStorage.getItem("user"));

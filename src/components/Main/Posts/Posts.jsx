@@ -29,6 +29,7 @@ const Posts = () => {
        notification.success({ message: "Éxito", description: message });
   
      }
+    
      dispatch(resetC());
    }, [isError, isSuccess, message]);
  

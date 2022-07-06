@@ -3,6 +3,7 @@ import postsService from "./postsService";
 
 const initialState = {
   posts: [],
+  numberPosts:0,
   post:{},
   isLoading: false,
   isError: false,
@@ -10,9 +11,9 @@ const initialState = {
   message: "",
 };
 
-export const getAll = createAsyncThunk("posts/getAll", async () => {
+export const getAll = createAsyncThunk("posts/getAll", async (page=1) => {
   try {
-    return await postsService.getAll();
+    return await postsService.getAll(page);
   } catch (error) {
     console.error(error);
    
@@ -102,7 +103,10 @@ export const postsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getAll.fulfilled, (state, action) => {
-      state.posts = action.payload;
+      state.numberPosts=action.payload.numberPosts;
+      state.isSuccess = true;
+      state.posts = action.payload.posts;
+      state.isLoading=false
     })
       .addCase(getAll.pending, (state) => {
         state.isLoading = true;

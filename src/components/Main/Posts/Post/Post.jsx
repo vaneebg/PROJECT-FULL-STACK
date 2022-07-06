@@ -1,23 +1,44 @@
 import { useDispatch, useSelector } from "react-redux";
 import { like,dislike } from "../../../../features/posts/postsSlice";
 import { likeComment,dislikeComment,deleteComment } from "../../../../features/comments/commentsSlice";
-
+import { useState } from "react";
+import { getAll,reset } from "../../../../features/posts/postsSlice";
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import './Post.scss'
 import ModalAddComment from "../ModalAddComment/ModalAddComment";
 import ModalEditComment from "../ModalEditComment/ModalEditComment";
+import { Pagination } from 'antd';
+import { useEffect } from 'react';
 
 const URL = process.env.REACT_APP_URL
 
 
 
 const Post = () => {
-  const { posts } = useSelector((state) => state.posts);
+  const { posts,numberPosts } = useSelector((state) => state.posts);
   const { user } = useSelector((state) => state.auth);
   const userLocal = JSON.parse(localStorage.getItem("user"));
 
   const dispatch = useDispatch();
 
+
+  const [current, setCurrent] = useState(1);
+
+  const onChange = (page) => {
+    console.log(page);
+    setCurrent(page+1);
+    dispatch(getAll(page))
+  };
+  
+  const { isLoading } = useSelector((state) => state.posts);
+
+  useEffect(() => {
+   
+    if(isLoading){
+     <h1>Cargando...</h1>
+    }
+    dispatch(reset());
+  }, [isLoading]);
 
 
   const post= posts?.map(el=>{
@@ -87,9 +108,22 @@ const Post = () => {
     </div>
   )})
   return(<>
+    <Pagination
+      total={numberPosts}
+      onChange={onChange}
+      showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
+      defaultPageSize={10}
+      defaultCurrent={1}
+    />
   
    {post}
-   
+   <Pagination
+      total={numberPosts}
+      onChange={onChange}
+      showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
+      defaultPageSize={10}
+      defaultCurrent={1}
+    />
    </>
   )
 };
