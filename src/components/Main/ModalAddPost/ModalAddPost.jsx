@@ -86,7 +86,7 @@ const ModalAddPost = () => {
           </Draggable>
         )}
       >
-       <AddPost/>
+       <AddPost />
       </Modal>
     </>
   );

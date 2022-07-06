@@ -55,6 +55,11 @@ const Post = () => {
     
     const isAlreadyLiked = el.likes?.includes(user?.user._id);
 
+
+
+
+
+    
     return(
     <div className="postContent" key={el._id}>
       <div className="headerPost">
@@ -82,6 +87,7 @@ const Post = () => {
     </div>
   )})
   return(<>
+  
    {post}
    
    </>

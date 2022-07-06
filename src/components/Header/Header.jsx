@@ -6,7 +6,7 @@ const Header = () => {
   return (
   <>
       <div className='header'>header</div>
-      <i class="fa-solid fa-circle-plus fa-beat"></i>
+      <i className="fa-solid fa-circle-plus fa-beat"></i>
       </>
   );
 };

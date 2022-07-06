@@ -13,37 +13,36 @@ const URL = process.env.REACT_APP_URL
 
 
 const UserDetail = () => {
-    const {user,isLoading}=useSelector((state) => state.auth);
+    const {user,userProfile,isLoading}=useSelector((state) => state.auth);
     const { _id } = useParams();
     
     const dispatch = useDispatch();
     
     
-    const getInfoUser = async () => {
-        await dispatch(getUserById(_id)); 
-    };
     
     useEffect(() => {
-        getInfoUser();
+      console.log("patata")
+      dispatch(getUserById(_id));    
     }, []);
-    
+
     
     if (isLoading) {
         return <h1>Cargando posts..</h1>;
       }
-    
+    console.log("aquii userprofile",userProfile)
+    console.log("aquii user",user)
   return (
     <div className='profileDetail'>
         <div className="headerProfile">
-        {user.user.image ? <img className='imgUserC' src={URL+"/images/users/" + user.user?.image} alt=''/> : <img className='imgUser' src={URL+"/images/users/none.jpg"} alt=''/>}
+        {userProfile?.user.image ? <img className='imgUserC' src={URL+"/images/users/" + userProfile?.user?.image} alt=''/> : <img className='imgUser' src={URL+"/images/users/none.jpg"} alt=''/>}
 
-        <span className='bold'>{user.user.username}</span>
-        <span>Número de posts {user.Number_of_posts}</span> <br />
+        <span className='bold'>{userProfile?.user.username}</span>
+        <span>Número de posts {userProfile?.Number_of_posts}</span> <br />
         <Tooltip title={<Followers/>}color='purple' key='purple'> 
-        <span>Número de followers {user.Followers}</span> <br /> 
+        <span>Número de followers {userProfile?.Followers}</span> <br /> 
         </Tooltip>
         <Tooltip title={<Following/>}color='blue' key='blue'> 
-        <span>Número de following {user.Following}</span> <br />
+        <span>Número de following {userProfile?.Following}</span> <br />
         </Tooltip>
 
 

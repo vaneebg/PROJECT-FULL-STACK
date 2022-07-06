@@ -5,6 +5,7 @@ const user = JSON.parse(localStorage.getItem("user"));
 
 const initialState = {
   user: user ? user : null,
+  userProfile: user ? user : null,
   isError: false,
   isSuccess: false,
   messageLogout:"",
@@ -107,6 +108,7 @@ export const authSlice = createSlice({
       state.isSuccessLogout=false;
       state.message = "";
     },
+   
    },
   extraReducers: (builder) => {
     builder
@@ -183,7 +185,7 @@ export const authSlice = createSlice({
 
       })
       .addCase(getUserById.fulfilled, (state, action) => {
-        state.user = action.payload;
+        state.userProfile = action.payload;
         state.isLoading=false;
 
         })
@@ -196,6 +198,7 @@ export const authSlice = createSlice({
 
  
 export const { reset } = authSlice.actions;
+
 
 
 export default authSlice.reducer;
