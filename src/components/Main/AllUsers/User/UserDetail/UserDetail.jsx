@@ -30,7 +30,6 @@ const UserDetail = () => {
     if (isLoading) {
         return <h1>Cargando posts..</h1>;
       }
-console.log(user.user.image)
   return (
     <div className='profileDetail'>
         <div className="headerProfile">
