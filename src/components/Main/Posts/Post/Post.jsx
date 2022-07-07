@@ -24,9 +24,9 @@ const Post = () => {
 
   const [current, setCurrent] = useState(1);
 
-  const onChange = (page) => {
-    console.log(page);
-    setCurrent(page+1);
+  const onChange = (page) => {  
+    setCurrent(page);
+    
     dispatch(getAll(page))
   };
   
@@ -40,6 +40,7 @@ const Post = () => {
     dispatch(reset());
   }, [isLoading]);
 
+  
 
   const post= posts?.map(el=>{
     const comments=el.commentsId?.map((comment,i)=>{
@@ -110,6 +111,7 @@ const Post = () => {
   return(<>
     <Pagination
       total={numberPosts}
+      current={current}
       onChange={onChange}
       showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
       defaultPageSize={10}
@@ -118,6 +120,7 @@ const Post = () => {
   
    {post}
    <Pagination
+   current={current}
       total={numberPosts}
       onChange={onChange}
       showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}

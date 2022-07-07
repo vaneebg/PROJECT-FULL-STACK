@@ -11,7 +11,7 @@ const initialState = {
   message: "",
 };
 
-export const getAll = createAsyncThunk("posts/getAll", async (page=1) => {
+export const getAll = createAsyncThunk("posts/getAll", async (page) => {
   try {
     return await postsService.getAll(page);
   } catch (error) {
