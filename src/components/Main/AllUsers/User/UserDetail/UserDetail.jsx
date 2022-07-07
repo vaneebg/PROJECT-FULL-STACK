@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import Followers from '../../../Profile/ProfileDetail/Followers/Followers';
 import Following from '../../../Profile/ProfileDetail/Following/Following';
-import PostsProfile from '../../../Profile/ProfileDetail/PostsProfile/PostsProfile';
 import { getUserById } from '../../../../../features/auth/authSlice';
+import PostsProfileUser from "./PostsProfileUser/PostsProfileUser";
 import { Tooltip, Tabs} from 'antd';
 
 const { TabPane } = Tabs;
@@ -49,7 +49,7 @@ const UserDetail = () => {
       
         <Tabs defaultActiveKey="1" centered >
     <TabPane tab="Posts" key="1">
-    <PostsProfile/>
+    <PostsProfileUser/>
     </TabPane>
    
    
