@@ -6,6 +6,7 @@ import './PostProfileDetail.scss'
 import { notification } from 'antd'
 import ModalEditPost from './ModalEditPost/ModalEditPost'
 import { useNavigate } from "react-router-dom";
+import { Button, message, Popconfirm } from 'antd';
 
 
 const URL = process.env.REACT_APP_URL
@@ -60,8 +61,20 @@ const PostProfileDetail = () => {
   )})
     return (
       <div className='postProfileDetail'>
-    { post.userId===userLocal.user._id ? <><ModalEditPost/><button onClick={() => dispatch(deletePost(post._id))}>X</button> </>: null}
+    { post.userId===userLocal.user._id ? <><ModalEditPost/><Popconfirm
+        placement="rightTop"
+        title="Seguro que quieres borrar este post?"
+        onConfirm={() => dispatch(deletePost(post._id))}
+        okText="Yes"
+        cancelText="No"
+      >
+        <button>X</button>
+      </Popconfirm> </>: null}
        
+
+   
+
+
 
     {post.image ? <img key={post._id} className='imageProfileDetail' src={URL+"/images/posts/" + post.image} alt=''/> : null}
 <span>Número de likes: {post.likes?.length}</span>
