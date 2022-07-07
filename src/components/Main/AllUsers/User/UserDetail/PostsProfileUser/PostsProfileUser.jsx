@@ -12,7 +12,7 @@ const PostsProfileUser = () => {
     return <h1>Cargando posts..</h1>;
   }
 
-      const post =userProfile.user.postsId.map((el,i)=>{
+      const post =userProfile?.user.postsId.map((el,i)=>{
     return(  <div key={i}  className="postContentProfile">
       <Tooltip title={"Click para más info sobre: "+el.title}color='purple' key='purple'>
   <Link to={"/post/" + el._id}>

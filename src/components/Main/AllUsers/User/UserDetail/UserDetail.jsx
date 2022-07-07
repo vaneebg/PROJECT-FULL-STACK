@@ -21,7 +21,6 @@ const UserDetail = () => {
     
     
     useEffect(() => {
-      console.log("patata")
       dispatch(getUserById(_id));    
     }, []);
 
