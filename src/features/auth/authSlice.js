@@ -11,7 +11,8 @@ const initialState = {
   messageLogout:"",
   isLoading: false,
   message: "",
-  users:[]
+  users:[],
+  usersOnline:[]
 };
 
 
@@ -54,7 +55,7 @@ export const login = createAsyncThunk("auth/login", async (user,thunkAPI) => {
   });
   export const allUsers = createAsyncThunk("auth/allUsers", async () => {
     try {
-      return await authService.allUsers(user);
+      return await authService.allUsers();
     } catch (error) {
       console.error(error);
     }
@@ -94,6 +95,13 @@ export const login = createAsyncThunk("auth/login", async (user,thunkAPI) => {
    
   
     }
+    });
+    export const allConnects = createAsyncThunk("auth/allConnects", async () => {
+      try {
+        return await authService.allConnects();
+      } catch (error) {
+        console.error(error);
+      }
     });
 
 
@@ -191,6 +199,9 @@ export const authSlice = createSlice({
         })
         .addCase(getUserById.pending, (state) => {
           state.isLoading = true;
+        })
+        .addCase(allConnects.fulfilled, (state, action) => {
+          state.usersOnline = action.payload;
         })
       
   },

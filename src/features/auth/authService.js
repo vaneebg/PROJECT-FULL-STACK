@@ -83,6 +83,16 @@ const login = async(userData)=>{
     });
     return res.data;
     };
+    const allConnects = async () => {
+
+      const user = JSON.parse(localStorage.getItem("user"));
+      const res = await axios.get(URL + "/users/allconnects", {
+        headers: {
+          authorization: user?.user.tokens[0],
+        },
+      });
+      return res.data;
+    };
 const authService = {
   register,
   login,
@@ -92,7 +102,8 @@ const authService = {
   editUser,
   follow,
   unfollow,
-  getUserById
+  getUserById,
+  allConnects
   
 };
 

@@ -5,6 +5,7 @@ import Posts from './Posts/Posts'
 import ModalAddPost from './ModalAddPost/ModalAddPost'
 import AllUsers from './AllUsers/AllUsers'
 import './Main.scss'
+import UsersOnline from "./UsersOnline/UsersOnline";
 
 const Main = () => {
   const navigate = useNavigate();
@@ -20,10 +21,10 @@ if (e.key === "Enter") {
 };
   return (<div className='main'>
     <div className="buttonsheader">
+<UsersOnline/>
     <input onKeyUp={handleChange} placeholder="buscar post..." name="text" />
     </div>
        
-
     <Posts/>
     <div className="right">
     <Profile/>
