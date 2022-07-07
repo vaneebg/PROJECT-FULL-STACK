@@ -100,6 +100,10 @@ export const postsSlice = createSlice({
       state.message = "";
 
     },
+    resetPost: (state) => {
+     state.post={}
+
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getAll.fulfilled, (state, action) => {
@@ -173,6 +177,6 @@ export const postsSlice = createSlice({
   },
 });
 
-export const { reset } = postsSlice.actions;
+export const { reset,resetPost } = postsSlice.actions;
 
 export default postsSlice.reducer;

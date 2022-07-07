@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { getPostById,deletePost,reset } from "../../../../../../features/posts/postsSlice";
+import { getPostById,deletePost,reset,resetPost } from "../../../../../../features/posts/postsSlice";
 import ModalEditPost from './ModalEditPost/ModalEditPost'
 import { Popconfirm, notification } from 'antd';
 import './PostProfileDetail.scss'
@@ -21,7 +21,13 @@ const PostProfileDetail = () => {
 
     useEffect(() => {
       dispatch(getPostById(_id));
-    }, []);
+     
+  return () => {
+    dispatch(resetPost())
+  }
+}, [])
+
+
 
     const { isError, isSuccess, message } = useSelector((state) => state.posts);
 
