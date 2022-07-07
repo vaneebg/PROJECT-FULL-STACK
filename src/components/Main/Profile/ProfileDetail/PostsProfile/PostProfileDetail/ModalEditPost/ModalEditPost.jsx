@@ -1,7 +1,9 @@
-import { Button, Modal } from 'antd';
 import { useRef, useState } from 'react';
 import Draggable from 'react-draggable';
 import EditPost from '../../../../../Posts/Post/EditPost/EditPost';
+import { Button, Modal } from 'antd';
+
+
 const ModalEditPost = () => {
   const [visible, setVisible] = useState(false);
   const [disabled, setDisabled] = useState(false);

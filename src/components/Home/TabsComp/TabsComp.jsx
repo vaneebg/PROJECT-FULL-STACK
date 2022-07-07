@@ -1,9 +1,10 @@
 
+import Login from '../TabsComp/Login/Login';
+import Register from '../TabsComp/Register/Register'
 import { AndroidOutlined, AppleOutlined } from '@ant-design/icons';
 import { Tabs } from 'antd';
 import './TabsComp.scss'
-import Login from '../TabsComp/Login/Login';
-import Register from '../TabsComp/Register/Register'
+
 const { TabPane } = Tabs;
 
 

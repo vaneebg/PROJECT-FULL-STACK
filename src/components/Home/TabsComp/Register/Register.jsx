@@ -4,9 +4,9 @@ import { useDispatch, useSelector} from "react-redux";
 import { register,reset} from "../../../../features/auth/authSlice";
 import { UserOutlined, MailOutlined,ContactsOutlined, LockOutlined} from '@ant-design/icons';
 
-
-
 import './Register.scss'
+
+
 
 const Register = () => {
   const initialState = {

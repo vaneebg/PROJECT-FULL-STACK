@@ -1,7 +1,7 @@
-import { Button, Modal } from 'antd';
 import { useRef, useState } from 'react';
 import Draggable from 'react-draggable';
 import EditUser from '../EditUser/EditUser';
+import { Button, Modal } from 'antd';
 
 const ModalEditUser = () => {
   const [visible, setVisible] = useState(false);

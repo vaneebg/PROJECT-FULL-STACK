@@ -1,10 +1,8 @@
-import { notification } from "antd";
-import { useDispatch, useSelector} from "react-redux";
-import {  useState,useEffect } from "react";
-import { editPost,reset} from "../../../../../features/posts/postsSlice";
-import { Input } from 'antd';
-import { SmileOutlined } from '@ant-design/icons';
+import { useDispatch} from "react-redux";
+import {  useState} from "react";
+import { editPost} from "../../../../../features/posts/postsSlice";
 import { useParams } from "react-router-dom";
+import {Input } from "antd";
 
 
 

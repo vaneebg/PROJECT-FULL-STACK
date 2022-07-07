@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getPostById,deletePost,reset } from "../../../../../../features/posts/postsSlice";
-import './PostProfileDetail.scss'
-import { notification } from 'antd'
-import ModalEditPost from './ModalEditPost/ModalEditPost'
 import { useNavigate } from "react-router-dom";
-import { Button, message, Popconfirm } from 'antd';
+import { getPostById,deletePost,reset } from "../../../../../../features/posts/postsSlice";
+import ModalEditPost from './ModalEditPost/ModalEditPost'
+import { Popconfirm, notification } from 'antd';
+import './PostProfileDetail.scss'
 
 
 const URL = process.env.REACT_APP_URL

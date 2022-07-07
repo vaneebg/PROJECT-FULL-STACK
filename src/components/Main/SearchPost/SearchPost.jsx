@@ -1,11 +1,9 @@
 import { useEffect } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { useDispatch,useSelector } from 'react-redux'
+import { useNavigate,Link,useParams } from "react-router-dom";
 import { getPostByName,reset } from "../../../features/posts/postsSlice"
 import Post from "../Posts/Post/Post"
 import { notification } from 'antd'
-import { useDispatch,useSelector } from 'react-redux'
-import { useNavigate } from "react-router-dom";
-import { Link } from 'react-router-dom'
 
 
 const SearchPost = () => {

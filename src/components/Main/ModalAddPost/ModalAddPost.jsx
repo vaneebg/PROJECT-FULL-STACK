@@ -1,7 +1,7 @@
-import { Button, Modal } from 'antd';
 import { useRef, useState } from 'react';
 import Draggable from 'react-draggable';
 import AddPost from '../Posts/Post/AddPost/AddPost';
+import { Button, Modal } from 'antd';
 
 const ModalAddPost = () => {
   const [visible, setVisible] = useState(false);

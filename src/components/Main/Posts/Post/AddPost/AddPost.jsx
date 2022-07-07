@@ -1,9 +1,8 @@
-import { notification } from "antd";
 import {  useState,useEffect } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { addNewPost,reset} from "../../../../../features/posts/postsSlice";
-import { Input } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
+import { notification,Input } from "antd";
 
 
 const AddPost = () => {

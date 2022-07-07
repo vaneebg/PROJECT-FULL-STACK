@@ -10,12 +10,12 @@ import { myInfo,follow } from '../../../../features/auth/authSlice';
 
 import PostsProfile from './PostsProfile/PostsProfile'
 import ModalEditUser from './ModalEditUser/ModalEditUser';
-import { Tooltip } from 'antd';
 import Followers from './Followers/Followers';
 import Following from './Following/Following';
-import { Tabs } from 'antd';
 import FavPosts from './FavPosts/FavPosts';
+import { Tooltip,Tabs } from 'antd';
 const { TabPane } = Tabs;
+
 
 const URL = process.env.REACT_APP_URL
 

@@ -1,15 +1,15 @@
-import React from 'react'
-import Followers from '../../../Profile/ProfileDetail/Followers/Followers';
-import Following from '../../../Profile/ProfileDetail/Following/Following';
-import PostsProfile from '../../../Profile/ProfileDetail/PostsProfile/PostsProfile';
-import { Tooltip, Tabs} from 'antd';
-import { getUserById } from '../../../../../features/auth/authSlice';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from 'react';
 import { useParams } from "react-router-dom";
+import Followers from '../../../Profile/ProfileDetail/Followers/Followers';
+import Following from '../../../Profile/ProfileDetail/Following/Following';
+import PostsProfile from '../../../Profile/ProfileDetail/PostsProfile/PostsProfile';
+import { getUserById } from '../../../../../features/auth/authSlice';
+import { Tooltip, Tabs} from 'antd';
 
 const { TabPane } = Tabs;
 const URL = process.env.REACT_APP_URL
+
 
 
 const UserDetail = () => {

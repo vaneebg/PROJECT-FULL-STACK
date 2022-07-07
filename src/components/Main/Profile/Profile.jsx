@@ -1,8 +1,7 @@
-import React from 'react'
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom'
 import { myInfo } from '../../../features/auth/authSlice';
-import { useEffect } from 'react';
 
 
 const URL = process.env.REACT_APP_URL

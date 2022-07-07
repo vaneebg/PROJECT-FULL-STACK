@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
-import { Tooltip } from 'antd';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { like,dislike } from "../../../../../features/posts/postsSlice";
-import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import { myInfo } from '../../../../../features/auth/authSlice';
+import { HeartOutlined, HeartFilled } from "@ant-design/icons";
+import { Tooltip } from 'antd';
 
 
 const URL = process.env.REACT_APP_URL

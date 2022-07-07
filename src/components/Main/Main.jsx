@@ -1,11 +1,10 @@
-import React from 'react'
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Profile from './Profile/Profile'
 import Posts from './Posts/Posts'
 import ModalAddPost from './ModalAddPost/ModalAddPost'
-import './Main.scss'
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import AllUsers from './AllUsers/AllUsers'
+import './Main.scss'
 
 const Main = () => {
   const navigate = useNavigate();

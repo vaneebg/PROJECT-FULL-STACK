@@ -1,12 +1,13 @@
-import { HeartOutlined, HeartFilled } from "@ant-design/icons";
+import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
 import {  notification } from 'antd'
-import { Link } from 'react-router-dom'
-
 import {  useSelector, useDispatch } from "react-redux";
 import { follow,unfollow,reset } from "../../../../features/auth/authSlice";
+import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 
 const URL = process.env.REACT_APP_URL
+
+
 
 const User = () => {
     const { users } = useSelector((state) => state.auth);

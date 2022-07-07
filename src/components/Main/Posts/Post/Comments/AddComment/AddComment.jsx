@@ -2,8 +2,6 @@ import {  useState } from "react";
 import { useDispatch} from "react-redux";
 import { addNewComment} from "../../../../../../features/comments/commentsSlice";
 import { Input } from 'antd';
-import { SmileOutlined } from '@ant-design/icons';
-import { notification } from "antd";
 
 
 

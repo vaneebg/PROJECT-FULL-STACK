@@ -1,8 +1,8 @@
-import { notification, Input } from "antd";
 import {  useState,useEffect } from "react";
 import { useDispatch, useSelector} from "react-redux";
-import { UserOutlined, LockOutlined} from '@ant-design/icons';
 import { editUser,reset } from '../../../../../features/auth/authSlice'
+import { UserOutlined, LockOutlined} from '@ant-design/icons';
+import { notification, Input } from "antd";
 
 
 const EditUser = () => {

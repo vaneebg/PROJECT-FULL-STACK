@@ -1,7 +1,5 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter,Routes, Route } from "react-router-dom";
-import "antd/dist/antd.css";
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Main from './components/Main/Main'
@@ -11,6 +9,9 @@ import SearchPost from './components/Main/SearchPost/SearchPost';
 import PrivateZone from "./guards/PrivateZone";
 import NotFound from './components/NotFound/NotFound';
 import UserDetail from './components/Main/AllUsers/User/UserDetail/UserDetail';
+import "antd/dist/antd.css";
+import './App.css';
+
 
 function App() {
   return (

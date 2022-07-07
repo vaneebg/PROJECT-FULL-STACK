@@ -1,16 +1,14 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { like,dislike } from "../../../../features/posts/postsSlice";
 import { likeComment,dislikeComment,deleteComment } from "../../../../features/comments/commentsSlice";
-import { useState } from "react";
 import { getAll,reset } from "../../../../features/posts/postsSlice";
-import { HeartOutlined, HeartFilled } from "@ant-design/icons";
-import './Post.scss'
-import { Button, message, Popconfirm } from 'antd';
-
 import ModalAddComment from "../ModalAddComment/ModalAddComment";
 import ModalEditComment from "../ModalEditComment/ModalEditComment";
-import { Pagination } from 'antd';
-import { useEffect } from 'react';
+import { HeartOutlined, HeartFilled } from "@ant-design/icons";
+import {message, Popconfirm, Pagination } from 'antd';
+import './Post.scss'
+
 
 const URL = process.env.REACT_APP_URL
 

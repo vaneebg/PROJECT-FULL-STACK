@@ -1,7 +1,7 @@
-import { Button, Modal } from 'antd';
 import { useRef, useState } from 'react';
 import Draggable from 'react-draggable';
 import EditComment from '../Post/Comments/EditComment/EditComment';
+import { Button, Modal } from 'antd';
 
 const ModalEditComment = ({commentId}) => {
   const [visible, setVisible] = useState(false);

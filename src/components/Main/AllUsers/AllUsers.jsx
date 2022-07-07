@@ -1,8 +1,7 @@
 
-import { allUsers } from "../../../features/auth/authSlice";
-import { useDispatch, useSelector } from "react-redux";
-
+import { useDispatch} from "react-redux";
 import { useEffect } from 'react';
+import { allUsers } from "../../../features/auth/authSlice";
 import User from "./User/User";
 
 const AllUsers = () => {
