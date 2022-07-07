@@ -7,6 +7,7 @@ const initialState = {
   isError: false,
   isSuccess: false,
   message: "",
+  page:1,
 };
 
 
@@ -63,6 +64,11 @@ export const commentsSlice = createSlice({
       state.isLoading = false;
       state.isSuccess = false;
       state.message = "";
+
+    },
+    choosePage: (state) => {
+      state.page= false;
+     
 
     },
   },

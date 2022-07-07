@@ -6,6 +6,7 @@ const URL = process.env.REACT_APP_URL
 
 const getAll = async (page) => {
   const user = JSON.parse(localStorage.getItem("user"));
+  console.log(page)
   const res = await axios.get(URL + "/posts?page="+page,{
     headers: {
       authorization: user?.user.tokens[0],

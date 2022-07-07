@@ -5,6 +5,8 @@ import { useState } from "react";
 import { getAll,reset } from "../../../../features/posts/postsSlice";
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import './Post.scss'
+import { Button, message, Popconfirm } from 'antd';
+
 import ModalAddComment from "../ModalAddComment/ModalAddComment";
 import ModalEditComment from "../ModalEditComment/ModalEditComment";
 import { Pagination } from 'antd';
@@ -14,7 +16,8 @@ const URL = process.env.REACT_APP_URL
 
 
 
-const Post = () => {
+const Post = ({pageC, functionPage}) => {
+  
   const { posts,numberPosts } = useSelector((state) => state.posts);
   const { user } = useSelector((state) => state.auth);
   const userLocal = JSON.parse(localStorage.getItem("user"));
@@ -22,10 +25,10 @@ const Post = () => {
   const dispatch = useDispatch();
 
 
-  const [current, setCurrent] = useState(1);
+ 
 
   const onChange = (page) => {  
-    setCurrent(page);
+    functionPage(page);
     
     dispatch(getAll(page))
   };
@@ -40,7 +43,9 @@ const Post = () => {
     dispatch(reset());
   }, [isLoading]);
 
-  
+  const confirm = () => {
+    message.info('Clicked on Yes.');
+  };
 
   const post= posts?.map(el=>{
     const comments=el.commentsId?.map((comment,i)=>{
@@ -64,7 +69,17 @@ const Post = () => {
       {comment.userId.image ? <img className='imgUserC'src={URL+"/images/users/" + comment.userId.image} alt=''/> : null}
  <span>{comment.userId.username}</span>
  <span>{comment.createdAt}</span>
- { comment.userId._id===userLocal.user._id ? <> <ModalEditComment commentId={comment._id}/> <button onClick={() => dispatch(deleteComment(comment._id))}>X</button> </>: null}
+ { comment.userId._id===userLocal.user._id ? <> <ModalEditComment commentId={comment._id}/>  <Popconfirm
+        placement="rightTop"
+        title="Seguro que quieres borrar este comentario?"
+        onConfirm={() => dispatch(deleteComment(comment._id))}
+        okText="Yes"
+        cancelText="No"
+      >
+        <button>X</button>
+      </Popconfirm> </>: null}
+
+
 
  </div>
  <div className="textC">
@@ -111,7 +126,7 @@ const Post = () => {
   return(<>
     <Pagination
       total={numberPosts}
-      current={current}
+      current={pageC}
       onChange={onChange}
       showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
       defaultPageSize={10}
@@ -120,7 +135,7 @@ const Post = () => {
   
    {post}
    <Pagination
-   current={current}
+   current={pageC}
       total={numberPosts}
       onChange={onChange}
       showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}

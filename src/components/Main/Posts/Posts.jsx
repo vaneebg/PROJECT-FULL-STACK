@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect,useState } from 'react';
 import Post from './Post/Post'
 import { notification } from "antd";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,9 +9,12 @@ import {  resetC } from "../../../features/comments/commentsSlice";
 const Posts = () => {
  const dispatch = useDispatch();
  const { comment } = useSelector((state) => state.comments);
+
+ const [current, setCurrent] = useState(1);
+
   const getPostsAndReset = async () => {
 
-    await dispatch(getAll()); 
+    await dispatch(getAll(current)); 
     dispatch(reset())
    };
 
@@ -37,7 +40,7 @@ const Posts = () => {
   return (
     <div>
         <h1>Posts</h1>
-        <Post/>
+        <Post pageC={current} functionPage={setCurrent}/>
     </div>
   )
 }
