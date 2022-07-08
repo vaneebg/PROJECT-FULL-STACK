@@ -13,8 +13,7 @@ import ModalEditUser from './ModalEditUser/ModalEditUser';
 import Followers from './Followers/Followers';
 import Following from './Following/Following';
 import FavPosts from './FavPosts/FavPosts';
-import { Tooltip,Tabs} from 'antd';
-import {  notification } from 'antd'
+import { Tooltip,Tabs,notification,Popconfirm} from 'antd';
 import { useNavigate } from "react-router-dom";
 
 const { TabPane } = Tabs;
@@ -26,7 +25,6 @@ const URL = process.env.REACT_APP_URL
 const ProfileDetail = () => {
   const { user} = useSelector((state) => state.auth);
 
-  const { messageDelete} = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
   const navigate = useNavigate()
@@ -64,7 +62,15 @@ const deleteUserAndRedirect =(_id)=>{
         <span>Número de following {user.Following}</span> <br />
       
         </Tooltip>
-<button onClick={()=> deleteUserAndRedirect((user.user._id))}>Eliminar cuenta</button>
+        <Popconfirm
+        placement="bottom"
+        title="Seguro que quieres borrar tu cuenta definitivamente?"
+        onConfirm={() => deleteUserAndRedirect((user.user._id))}
+        okText="Yes"
+        cancelText="No"
+      >
+        <button>Eliminar cuenta</button>
+      </Popconfirm>
 
         </div>
    <ModalEditUser/>
