@@ -64,7 +64,7 @@ const deleteUserAndRedirect =(_id)=>{
         <span>Número de following {user.Following}</span> <br />
       
         </Tooltip>
-<button onClick={() => deleteUserAndRedirect((user.user._id))}>Eliminar cuenta</button>
+<button onClick={()=> deleteUserAndRedirect((user.user._id))}>Eliminar cuenta</button>
 
         </div>
    <ModalEditUser/>
