@@ -45,7 +45,6 @@ const EditUser = () => {
         if (e.target.image.files[0]) formData.set('image', e.target.image.files[0]);
         formData.set('username', e.target.username.value)
         formData.set('password', e.target.password.value)
-    console.log('form enviado', formData)
       dispatch(editUser(formData));
     
   }; 

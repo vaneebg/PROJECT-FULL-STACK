@@ -20,12 +20,10 @@ const ModalEditPost = () => {
   };
 
   const handleOk = (e) => {
-    console.log(e);
     setVisible(false);
   };
 
   const handleCancel = (e) => {
-    console.log(e);
     setVisible(false);
   };
 

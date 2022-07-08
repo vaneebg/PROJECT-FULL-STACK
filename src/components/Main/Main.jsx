@@ -14,7 +14,6 @@ const Main = () => {
 const handleChange = (e) => {
 setText(e.target.value);
 if (e.key === "Enter") {
-  console.log(e)
   navigate('/search/titlePost/'+ text)
 
 }

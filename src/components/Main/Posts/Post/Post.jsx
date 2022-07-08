@@ -46,7 +46,17 @@ const Post = ({pageC, functionPage}) => {
   };
 
   const post= posts?.map(el=>{
+
+    const newDateMonthP=new Date(el.createdAt).toLocaleDateString()
+    const newDateMinuteP=new Date(el.createdAt).toLocaleTimeString()
+    const dateP=` ${newDateMinuteP} ${newDateMonthP} `
+
     const comments=el.commentsId?.map((comment,i)=>{
+
+      const newDateMonthC=new Date(comment.createdAt).toLocaleDateString()
+      const newDateMinuteC=new Date(comment.createdAt).toLocaleTimeString()
+      const dateC=` ${newDateMinuteC} ${newDateMonthC} `
+
       const isAlreadyLikedComment = comment.likes?.includes(user?.user._id);
       return(
       <div className="comments" key={i}>
@@ -66,7 +76,8 @@ const Post = ({pageC, functionPage}) => {
         <div className="userC">
       {comment.userId.image ? <img className='imgUserC'src={URL+"/images/users/" + comment.userId.image} alt=''/> : null}
  <span>{comment.userId.username}</span>
- <span>{comment.createdAt}</span>
+
+ <span>{dateC}</span>
  { comment.userId._id===userLocal.user._id ? <> <ModalEditComment commentId={comment._id}/>  <Popconfirm
         placement="rightTop"
         title="Seguro que quieres borrar este comentario?"
@@ -100,7 +111,8 @@ const Post = ({pageC, functionPage}) => {
       <div className="headerPost">
       {el.userId.image ? <img className='imgUser'src={URL+"/images/users/" + el.userId.image} alt=''/> : <img className='imgUser' src={URL+"/images/users/none.jpg"} alt=''/>}
       <span> {el.userId.username}</span>
-      <span>{el.createdAt}</span>
+      
+      <span>{dateP}</span>
       </div>
       {el.image ? <img className='imgPost' src={URL+"/images/posts/" + el.image} alt=''/> : <img className='imgPost' src={URL+"/images/posts/16.jpg"} alt=''/>}
       <div className="icons">

@@ -55,7 +55,6 @@ const Register = () => {
         formData.set('age', e.target.age.value)
         formData.set('email', e.target.email.value)
         formData.set('password', e.target.password.value)
-    console.log('form enviado', formData)
       dispatch(register(formData));
     }
   }; 

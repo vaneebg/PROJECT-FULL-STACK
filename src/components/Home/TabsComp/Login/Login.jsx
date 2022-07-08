@@ -24,7 +24,6 @@ const Login = () => {
   const { isError, isSuccess, isSuccessDelete,message, messageLogout,messageDelete} = useSelector((state) => state.auth);
 
   useEffect(() => {
-    console.log("entra aqui isSucessDelete",isSuccessDelete)
     if(messageLogout){
       notification.success({ message: "Éxito", description: messageLogout });
 
@@ -60,7 +59,6 @@ const Login = () => {
   };
   const onSubmit = (e) => {
     e.preventDefault()
-    console.log('login enviado',formDataLogin)
 
     dispatch(login(formDataLogin));
    
