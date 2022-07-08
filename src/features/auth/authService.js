@@ -93,6 +93,20 @@ const login = async(userData)=>{
       });
       return res.data;
     };
+    const deleteUser = async () => {
+
+      const user = JSON.parse(localStorage.getItem("user"));
+      const res = await axios.delete(URL + "/users/yourUserDelete", {
+        headers: {
+          authorization: user?.user.tokens[0],
+        },
+      });
+       if (res.data) {
+        localStorage.removeItem("user");
+      }
+      return res.data;
+    };
+
 const authService = {
   register,
   login,
@@ -103,7 +117,8 @@ const authService = {
   follow,
   unfollow,
   getUserById,
-  allConnects
+  allConnects,
+  deleteUser
   
 };
 

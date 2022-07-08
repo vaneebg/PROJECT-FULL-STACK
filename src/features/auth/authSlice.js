@@ -103,6 +103,15 @@ export const login = createAsyncThunk("auth/login", async (user,thunkAPI) => {
         console.error(error);
       }
     });
+    export const deleteUser = createAsyncThunk("auth/deleteUser", async (thunkAPI) => {
+      try {
+        return await authService.deleteUser();
+      } catch (error) {
+        console.error(error);
+          const message = error.response.data;
+      return thunkAPI.rejectWithValue(message);
+      }
+    });
 
 
 export const authSlice = createSlice({
@@ -203,6 +212,10 @@ export const authSlice = createSlice({
         .addCase(allConnects.fulfilled, (state, action) => {
           state.usersOnline = action.payload;
         })
+        .addCase(deleteUser.fulfilled, (state, action) => {
+          state.user=null;
+        })
+        
       
   },
 })
