@@ -6,30 +6,21 @@ import { getAll,reset } from "../../../../features/posts/postsSlice";
 import ModalAddComment from "../ModalAddComment/ModalAddComment";
 import ModalEditComment from "../ModalEditComment/ModalEditComment";
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
-import {message, Popconfirm, Pagination } from 'antd';
-import './Post.scss'
+import { Popconfirm} from 'antd';
 
 
 const URL = process.env.REACT_APP_URL
 
 
 
-const Post = ({pageC, functionPage}) => {
+const PostSearch = () => {
   
-  const { posts,numberPosts } = useSelector((state) => state.posts);
+  const { posts } = useSelector((state) => state.posts);
   const { user } = useSelector((state) => state.auth);
   const userLocal = JSON.parse(localStorage.getItem("user"));
 
   const dispatch = useDispatch();
 
-
- 
-
-  const onChange = (page) => {  
-    functionPage(page);
-    
-    dispatch(getAll(page))
-  };
   
   const { isLoading } = useSelector((state) => state.posts);
 
@@ -132,26 +123,12 @@ const Post = ({pageC, functionPage}) => {
     </div>
   )})
   return(<>
-    <Pagination
-      total={numberPosts}
-      current={pageC}
-      onChange={onChange}
-      showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
-      defaultPageSize={10}
-      defaultCurrent={1}
-    />
+  
   
    {post}
-   <Pagination
-   current={pageC}
-      total={numberPosts}
-      onChange={onChange}
-      showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
-      defaultPageSize={10}
-      defaultCurrent={1}
-    />
+  
    </>
   )
 };
 
-export default Post;
+export default PostSearch;

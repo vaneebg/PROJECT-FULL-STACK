@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch,useSelector } from 'react-redux'
 import { useNavigate,Link,useParams } from "react-router-dom";
 import { getPostByName,reset } from "../../../features/posts/postsSlice"
-import Post from "../Posts/Post/Post"
+import PostSearch from "../Posts/PostSearch/PostSearch"
 import { notification } from 'antd'
 
 
@@ -44,7 +44,7 @@ if(posts.length===0){
 
 return(
     <>
-    <Post/>
+    <PostSearch/>
     </>
 )
 };
