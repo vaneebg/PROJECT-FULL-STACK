@@ -165,7 +165,6 @@ export const postsSlice = createSlice({
       .addCase(deletePost.fulfilled, (state,action) => {
           state.isSuccess = true;
           state.message = action.payload.message;
-          state.post.post = action.payload.post
           })
       .addCase(deletePost.rejected, (state,action) => {
             state.isError = true;

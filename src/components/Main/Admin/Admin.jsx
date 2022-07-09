@@ -11,7 +11,7 @@ const Admin = () => {
 
     useEffect(() => {
         dispatch(allUsers()); 
-          }, [allUsers]);
+          }, []);
 
 const { isError, isSuccess,message} = useSelector((state) => state.auth);
 

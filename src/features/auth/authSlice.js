@@ -227,6 +227,7 @@ export const authSlice = createSlice({
         .addCase(deleteUserAdmin.fulfilled, (state, action) => {
           state.message=action.payload.message;
           state.isSuccess = true;
+          state.users=state.users.filter(user=>user._id!==action.payload.user._id)
 
         })
         .addCase(deleteUserAdmin.rejected, (state, action) => {

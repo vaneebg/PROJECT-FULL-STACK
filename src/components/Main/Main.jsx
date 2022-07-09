@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {  useSelector } from "react-redux";
 import Profile from './Profile/Profile'
 import Posts from './Posts/Posts'
 import ModalAddPost from './ModalAddPost/ModalAddPost'
@@ -10,6 +11,8 @@ import UsersOnline from "./UsersOnline/UsersOnline";
 const Main = () => {
   const navigate = useNavigate();
   const [text, setText] = useState("");
+  const {user } = useSelector((state) => state.auth);
+
 
 const handleChange = (e) => {
 setText(e.target.value);
@@ -27,7 +30,8 @@ if (e.key === "Enter") {
     <Posts/>
     <div className="right">
     <Profile/>
-    <AllUsers/>
+    {user.user.role!=="admin" ? <AllUsers/> : null}
+   
     </div>
    
     <ModalAddPost/>
