@@ -15,8 +15,6 @@ const User = () => {
     const dispatch = useDispatch();
 
 
-
-
 const user1=users.map((el,i)=>{
   if(el._id!==userLocal.user._id){
   const isAlreadyFollowing=el.followers?.includes(userLocal.user._id)
