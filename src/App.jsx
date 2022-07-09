@@ -9,6 +9,7 @@ import SearchPost from './components/Main/SearchPost/SearchPost';
 import PrivateZone from "./guards/PrivateZone";
 import NotFound from './components/NotFound/NotFound';
 import UserDetail from './components/Main/AllUsers/User/UserDetail/UserDetail';
+import Admin from "./components/Main/Admin/Admin";
 import "antd/dist/antd.css";
 import './App.css';
 
@@ -25,6 +26,7 @@ function App() {
 <Route path="/post/:_id" element={<PrivateZone><PostProfileDetail /></PrivateZone>} />
 <Route path="/user/:_id" element={<PrivateZone><UserDetail /></PrivateZone>} />
 <Route path="/search/titlePost/:postName" element={<PrivateZone><SearchPost/></PrivateZone>} />
+<Route path="/admin" element={<Admin />} />
 <Route path="*" element={<NotFound />} />
 </Routes>
 </BrowserRouter>

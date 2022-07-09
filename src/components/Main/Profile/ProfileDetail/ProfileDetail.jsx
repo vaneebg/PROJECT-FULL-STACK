@@ -74,8 +74,7 @@ const deleteUserAndRedirect =(_id)=>{
 
         </div>
    <ModalEditUser/>
-      
-        <Tabs defaultActiveKey="1" centered >
+      {user.user.role!=="admin" ?  <Tabs defaultActiveKey="1" centered >
     <TabPane tab="Posts" key="1">
     <PostsProfile/>
     </TabPane>
@@ -83,7 +82,8 @@ const deleteUserAndRedirect =(_id)=>{
       <FavPosts/>
     </TabPane>
    
-  </Tabs>
+  </Tabs> : null }
+       
      
    
            

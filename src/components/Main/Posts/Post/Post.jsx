@@ -48,7 +48,6 @@ const Post = ({pageC, functionPage}) => {
     const newDateMonthP=new Date(el.createdAt).toLocaleDateString()
     const newDateMinuteP=new Date(el.createdAt).toLocaleTimeString()
     const dateP=` ${newDateMinuteP} ${newDateMonthP} `
-
     const comments=el.commentsId?.map((comment,i)=>{
 
       const newDateMonthC=new Date(comment.createdAt).toLocaleDateString()

@@ -17,7 +17,7 @@ const UsersOnline = () => {
         }, [allConnects]);
 
 
-const userOnline=usersOnline.map((el,i)=>{
+const userOnline=usersOnline?.map((el,i)=>{
  
     if(el._id!==userLocal.user._id){
 

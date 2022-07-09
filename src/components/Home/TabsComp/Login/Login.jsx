@@ -21,7 +21,7 @@ const Login = () => {
   const dispatch = useDispatch();
 
   
-  const { isError, isSuccess, isSuccessDelete,message, messageLogout,messageDelete} = useSelector((state) => state.auth);
+  const { isError, isSuccess,message, messageLogout,messageDelete} = useSelector((state) => state.auth);
 
   useEffect(() => {
     if(messageLogout){
@@ -32,11 +32,6 @@ const Login = () => {
       notification.success({ message: "Éxito", description: messageDelete });
 
      }
-    //  if(isSuccessDelete){
-    //   notification.success({ message: "Éxito", description: messageDelete });
-    //     navigate("/");
-  
-    //  }
     if (isError) {
       notification.error({ message: "Error", description: message });
     }

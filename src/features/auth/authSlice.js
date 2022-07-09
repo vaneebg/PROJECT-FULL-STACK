@@ -112,6 +112,15 @@ export const login = createAsyncThunk("auth/login", async (user,thunkAPI) => {
       return thunkAPI.rejectWithValue(message);
       }
     });
+    export const deleteUserAdmin = createAsyncThunk("auth/deleteUserAdmin", async (_id,thunkAPI) => {
+      try {
+        return await authService.deleteUserAdmin(_id);
+      } catch (error) {
+        console.error(error);
+          const message = error.response.data;
+      return thunkAPI.rejectWithValue(message);
+      }
+    });
 
 
 export const authSlice = createSlice({
@@ -214,6 +223,16 @@ export const authSlice = createSlice({
         })
         .addCase(deleteUser.fulfilled, (state, action) => {
           state.user=null;
+        })
+        .addCase(deleteUserAdmin.fulfilled, (state, action) => {
+          state.message=action.payload.message;
+          state.isSuccess = true;
+
+        })
+        .addCase(deleteUserAdmin.rejected, (state, action) => {
+          state.message=action.payload.message;
+          state.isError = true;
+          
         })
         
       

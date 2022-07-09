@@ -106,6 +106,16 @@ const login = async(userData)=>{
       }
       return res.data;
     };
+    const deleteUserAdmin  = async (_id) => {
+
+      const user = JSON.parse(localStorage.getItem("user"));
+      const res = await axios.delete(URL + "/users/userId/"+_id, {
+        headers: {
+          authorization: user?.user.tokens[0],
+        },
+      });
+      return res.data;
+    };
 
 const authService = {
   register,
@@ -118,7 +128,8 @@ const authService = {
   unfollow,
   getUserById,
   allConnects,
-  deleteUser
+  deleteUser,
+  deleteUserAdmin
   
 };
 
