@@ -12,6 +12,7 @@ import UserDetail from './components/Main/AllUsers/User/UserDetail/UserDetail';
 import Admin from "./components/Main/Admin/Admin";
 import "antd/dist/antd.css";
 import './App.css';
+import AdminZone from './guards/AdminZone';
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
 <Route path="/post/:_id" element={<PrivateZone><PostProfileDetail /></PrivateZone>} />
 <Route path="/user/:_id" element={<PrivateZone><UserDetail /></PrivateZone>} />
 <Route path="/search/titlePost/:postName" element={<PrivateZone><SearchPost/></PrivateZone>} />
-<Route path="/admin" element={<Admin />} />
+<Route path="/admin" element={<AdminZone><Admin /></AdminZone>} />
 <Route path="*" element={<NotFound />} />
 </Routes>
 </BrowserRouter>
