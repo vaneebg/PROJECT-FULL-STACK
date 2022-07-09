@@ -1,20 +1,15 @@
-import React from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from 'react';
-
+import { Link,useNavigate } from 'react-router-dom'
 import { logout, reset } from "../../../../features/auth/authSlice";
-import { Link } from 'react-router-dom'
-import { PoweroffOutlined } from "@ant-design/icons";
-
 import { myInfo,deleteUser} from '../../../../features/auth/authSlice';
-
 import PostsProfile from './PostsProfile/PostsProfile'
 import ModalEditUser from './ModalEditUser/ModalEditUser';
 import Followers from './Followers/Followers';
 import Following from './Following/Following';
 import FavPosts from './FavPosts/FavPosts';
 import { Tooltip,Tabs,notification,Popconfirm} from 'antd';
-import { useNavigate } from "react-router-dom";
+import { PoweroffOutlined } from "@ant-design/icons";
 
 const { TabPane } = Tabs;
 
