@@ -12,15 +12,6 @@ import { Carousel } from 'antd';
 
 
 const Carrousel = () => {
-  // const contentStyle = {
-  //   height: '40em',
-  //   color: '#fff',
-  //   lineHeight: '160px',
-  //   textAlign: 'center',
-  //   background: '#364d79',
-  // };
-
-
 
   return (
     <div className='carrousel'>

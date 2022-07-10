@@ -1,4 +1,4 @@
-import { TwitterOutlined, GithubOutlined, LinkedinOutlined, SkypeOutlined } from "@ant-design/icons";
+import { GithubOutlined, LinkedinOutlined } from "@ant-design/icons";
 import './Footer.scss'
 
 
