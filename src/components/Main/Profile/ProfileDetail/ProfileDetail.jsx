@@ -20,18 +20,18 @@ const URL = process.env.REACT_APP_URL
 const ProfileDetail = () => {
   const { user} = useSelector((state) => state.auth);
 
-
+  
   const dispatch = useDispatch();
   const navigate = useNavigate()
-
-    const onLogout = () => {
-
-       dispatch(logout()); 
-    }
+  
+  const onLogout = () => {
+    
+    dispatch(logout()); 
+  }
   
   
-
-    useEffect(() => {
+  
+  useEffect(() => {
       dispatch(myInfo())
         }, []);
 
@@ -50,13 +50,23 @@ const deleteUserAndRedirect =(_id)=>{
 
         <span className='bold'>{user.user.username}</span>
         <span>Número de posts {user.Number_of_posts}</span> <br />
+        {(user.Followers!==0) ?  
         <Tooltip title={<Followers/>}color='purple' key='purple'> 
         <span>Número de followers {user.Followers}</span> <br /> 
-        </Tooltip>
-        <Tooltip title={<Following/>}color='blue' key='blue'> 
+        </Tooltip> 
+        : 
+        <Tooltip visible={false} title={<Followers/>}color='purple' key='purple'> 
+        <span>Número de followers {user.Followers}</span> <br /> 
+        </Tooltip> 
+        }
+       {(user.Following!==0)? <Tooltip title={<Following/>}color='blue' key='blue'> 
         <span>Número de following {user.Following}</span> <br />
       
-        </Tooltip>
+        </Tooltip> :<Tooltip visible={false} title={<Following/>}color='blue' key='blue'> 
+        <span>Número de following {user.Following}</span> <br />
+      
+        </Tooltip> }
+       
         <Popconfirm
         placement="bottom"
         title="Seguro que quieres borrar tu cuenta definitivamente?"

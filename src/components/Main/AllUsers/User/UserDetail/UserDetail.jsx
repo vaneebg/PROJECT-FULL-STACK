@@ -28,7 +28,6 @@ const UserDetail = () => {
     if (isLoading) {
         return <h1>Cargando posts..</h1>;
       }
-  
   return (
     <div className='profileDetail'>
         <div className="headerProfile">
@@ -36,12 +35,19 @@ const UserDetail = () => {
 
         <span className='bold'>{userProfile?.user.username}</span>
         <span>Número de posts {userProfile?.Number_of_posts}</span> <br />
-        <Tooltip title={<Followers/>}color='purple' key='purple'> 
+{userProfile?.Followers!==0 ? <Tooltip title={<Followers/>}color='purple' key='purple'> 
         <span>Número de followers {userProfile?.Followers}</span> <br /> 
-        </Tooltip>
-        <Tooltip title={<Following/>}color='blue' key='blue'> 
+        </Tooltip>: <Tooltip visible={false} title={<Followers/>}color='purple' key='purple'> 
+        <span>Número de followers {userProfile?.Followers}</span> <br /> 
+        </Tooltip>}
+
+        {userProfile?.Following!==0 ?   <Tooltip title={<Following/>}color='blue' key='blue'> 
         <span>Número de following {userProfile?.Following}</span> <br />
-        </Tooltip>
+        </Tooltip> : <Tooltip visible={false} title={<Following/>}color='blue' key='blue'> 
+        <span>Número de following {userProfile?.Following}</span> <br />
+        </Tooltip> }
+       
+      
 
 
         </div>
