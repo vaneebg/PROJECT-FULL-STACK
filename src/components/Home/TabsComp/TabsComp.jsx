@@ -8,7 +8,8 @@ const { TabPane } = Tabs;
 
 const TabsComp = () => {
   return (
-    <Tabs defaultActiveKey="2" tabBarGutter={50} destroyInactiveTabPane={true}>
+    <Tabs defaultActiveKey="2" 
+    tabBarGutter={50}  destroyInactiveTabPane={true}>
     <TabPane
       tab={
         <span className='contentHome'>

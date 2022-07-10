@@ -60,7 +60,7 @@ const Login = () => {
     }
 
 return (
-  <div className="centerLog">
+  <div className="centerLog login">
  
  <form className='formLog' onSubmit={onSubmit}>
  <label htmlFor="email">Correo:</label> 
