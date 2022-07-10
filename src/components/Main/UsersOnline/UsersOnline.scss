@@ -2,11 +2,14 @@
 
 .stories {
     display: flex;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: center;
     border-radius: 3px;
-    width: 1em;
     overflow: scroll;
     padding-top: 14px;
+    .imgUserConnect{
+        width:5em;
+    }
 }
 
 ::-webkit-scrollbar {

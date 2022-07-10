@@ -21,21 +21,19 @@ const userOnline=usersOnline?.map((el,i)=>{
  
     if(el._id!==userLocal.user._id){
 
-            return(
-            <div className='stories' key={i}>
-                   {el.image ? <img className='imgUserC'src={URL+"/images/users/" + el.image} alt=''/> : null}
-              </div>
+            return(<>
+                   {el.image ? <img className='imgUserConnect'src={URL+"/images/users/" + el.image} alt=''/> : null}
+                   </>
               )}})
             
 
 
-  return (<>
-    <span>Usuarios En linea:</span>
+  return (<div className="stories">
   
       
 {userOnline}
 
-</>
+</div>
   )
 }
 
