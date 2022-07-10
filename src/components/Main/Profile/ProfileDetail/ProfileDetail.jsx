@@ -10,7 +10,7 @@ import Following from './Following/Following';
 import FavPosts from './FavPosts/FavPosts';
 import { Tooltip,Tabs,notification,Popconfirm} from 'antd';
 import { PoweroffOutlined } from "@ant-design/icons";
-
+import './ProfileDetail.scss'
 const { TabPane } = Tabs;
 
 
@@ -80,10 +80,10 @@ const deleteUserAndRedirect =(_id)=>{
         </div>
    <ModalEditUser/>
       {user.user.role!=="admin" ?  <Tabs defaultActiveKey="1" centered >
-    <TabPane tab="Posts" key="1">
+    <TabPane className="black" tab="Posts" key="1">
     <PostsProfile/>
     </TabPane>
-    <TabPane tab="Posts con likes" key="2">
+    <TabPane className="black" tab="Posts con likes" key="2">
       <FavPosts/>
     </TabPane>
    

@@ -61,13 +61,13 @@ const Register = () => {
   return (
     <div className="centerReg register">
     <form className='formReg' onSubmit={onSubmit}>
-        <label htmlFor="username">Nombre de usuario:</label> 
+        <label className="labelR" htmlFor="username">Nombre de usuario:</label> 
       <Input prefix={<UserOutlined />} placeholder='pepito' type="text" name="username" value={username} onChange={onChange} required/> 
-      <label htmlFor="email">Correo: </label> 
+      <label className="labelR" htmlFor="email">Correo: </label> 
       <Input prefix={<MailOutlined/>} placeholder='pepito@gmail.com' type="email" name="email" value={email} onChange={onChange} required/> 
-      <label htmlFor="age">Edad:</label> 
+      <label className="labelR" htmlFor="age">Edad:</label> 
       <Input prefix={<ContactsOutlined />}type="number" min="16" name="age" value={age} onChange={onChange} required/> 
-<label htmlFor="password">Introduce tu contraseña:</label> 
+<label className="labelR" htmlFor="password">Introduce tu contraseña:</label> 
       <Input prefix={<LockOutlined/>}
         type="password"
         name="password"
@@ -75,7 +75,7 @@ const Register = () => {
         value={password}
         onChange={onChange} required
       /> 
-      <label htmlFor="password2">Introduce de nuevo tu contraseña:</label> 
+      <label className="labelR" htmlFor="password2">Introduce de nuevo tu contraseña:</label> 
 
       <Input prefix={<LockOutlined/>}
         type="password"

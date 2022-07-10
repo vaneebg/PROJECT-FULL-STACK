@@ -23,9 +23,13 @@ if (e.key === "Enter") {
 };
   return (<div className='main'>
     
-<UsersOnline/>
+<UsersOnline/> <br />
+<hr className="hrMain" /> <br />
     <div className="buttonspost">
-    <input onKeyUp={handleChange} placeholder="buscar post..." name="text" />
+      <div className="searchInput">
+      <label className="titleSearch" htmlFor="text">Búsqueda posts  </label>
+    <input className="searchPost" onKeyUp={handleChange} placeholder="titulo post..." name="text" />
+    </div>
     <ModalAddPost/>
     </div>
      <div className="contentMain"> 

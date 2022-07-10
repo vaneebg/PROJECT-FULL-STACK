@@ -22,17 +22,19 @@ const userOnline=usersOnline?.map((el,i)=>{
     if(el._id!==userLocal.user._id){
 
             return(<>
-                   {el.image ? <img className='imgUserConnect'src={URL+"/images/users/" + el.image} alt=''/> : null}
+                   {el.image ? <img className='imgUserOnline'src={URL+"/images/users/" + el.image} alt=''/> : null}
                    </>
               )}})
             
 
 
-  return (<div className="stories">
+  return (<div className="containerStories">
+  <div className="stories">
   
       
 {userOnline}
 
+</div>
 </div>
   )
 }

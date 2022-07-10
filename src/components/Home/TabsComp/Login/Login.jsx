@@ -63,9 +63,9 @@ return (
   <div className="centerLog login">
  
  <form className='formLog' onSubmit={onSubmit}>
- <label htmlFor="email">Correo:</label> 
+ <label className="labelR" htmlFor="email">Correo:</label> 
  <Input prefix={<MailOutlined/>} type="email" name="email" value={email} onChange={onChange}/>
- <label htmlFor="password">Contraseña:</label>
+ <label className="labelR" htmlFor="password">Contraseña:</label>
  <Input prefix={<LockOutlined/>} type="password" name="password" value={password} onChange={onChange}/>
  <button type="submit">Login</button>
  </form>

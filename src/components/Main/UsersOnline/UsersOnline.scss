@@ -1,12 +1,20 @@
+@import '../../../variables.scss';
 
+.containerStories{
+    display: flex;
+justify-content: center;   
+  
+}
 
 .stories {
     display: flex;
+    border:1px solid grey;
     flex-direction: row;
-    justify-content: center;
+    align-items: flex-start;
     border-radius: 3px;
     overflow: scroll;
-    padding-top: 14px;
+    margin-right:5em;
+    width:40%;
     .imgUserConnect{
         width:5em;
     }
@@ -14,4 +22,32 @@
 
 ::-webkit-scrollbar {
     display: none;
+}
+.imgUserOnline{
+    width:4.5em;
+    margin:1em;
+    padding:0.3em;
+    border:3px dashed $purple1;
+    border-radius: 50px;
+}
+.hrMain{
+   border:1px solid $purple4;
+}
+.buttonspost{
+    display: flex;
+    justify-content: space-around;
+}
+.searchInput{
+    display:flex;
+    flex-direction: row;
+    align-items:baseline;
+    .titleSearch{
+        font-size: 2em;
+        margin-right:1em;
+        }
+    .searchPost{
+    padding:0.5em;
+    border-radius: 30px;
+    border:2px solid $purple1;
+}
 }
