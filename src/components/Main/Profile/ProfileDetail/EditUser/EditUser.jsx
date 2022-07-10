@@ -46,6 +46,8 @@ const EditUser = () => {
         formData.set('username', e.target.username.value)
         formData.set('password', e.target.password.value)
       dispatch(editUser(formData));
+      setFormDataEditU(initialState)
+    
     
   }; 
   return (
