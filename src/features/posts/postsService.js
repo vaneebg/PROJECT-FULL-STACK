@@ -50,6 +50,7 @@ const addNewPost = async (postData) => {
       authorization: user?.user.tokens[0],
     },
   });
+  console.log(res.data)
   return res.data;
 };
 const editPost = async (data) => {

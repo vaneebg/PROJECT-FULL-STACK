@@ -139,7 +139,7 @@ export const postsSlice = createSlice({
         state.posts = posts;
       })
       .addCase(addNewPost.fulfilled, (state, action) => {
-        state.posts =[action.payload.post,...state.posts]
+        state.posts =[action.payload.postCreated[0],...state.posts]
         state.isSuccess = true;
         state.message = action.payload.message;
       })
