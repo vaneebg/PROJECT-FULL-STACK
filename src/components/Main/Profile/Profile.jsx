@@ -20,7 +20,7 @@ const Profile = () => {
     <div className='profileIcon'>
       {user.user.image ? <img className='imgUser'src={URL+"/images/users/" + user.user.image} alt=''/> : <img className='imgUser' src={URL+"/images/users/none.jpg"} alt=''/>}
      
-      <Link to="/profile"> <span> {user.user.username}</span></Link>
+      <Link to="/profile"> <span className="usernameProfile"> {user.user.username}</span></Link>
            
     </div>
   )
