@@ -1,4 +1,15 @@
 .main{
     display:flex;
+    flex-direction: column;
+}
+
+.contentMain{
+    display:flex;
+    flex-direction: row;
     justify-content: space-around;
+    
+}
+.right{
+    display:flex;
+    flex-direction: column;
 }

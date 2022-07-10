@@ -4,7 +4,7 @@ import './Footer.scss'
 
 
 const Footer = () => {
-  return (<><hr />
+  return (<> <br />  <hr />
   <div className='footer social'>
     
     <span>Vanesa B Julio 2022 © </span>

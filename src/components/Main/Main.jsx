@@ -22,19 +22,23 @@ if (e.key === "Enter") {
 }
 };
   return (<div className='main'>
-    <div className="buttonsheader">
+    
 <UsersOnline/>
+    <div className="buttonspost">
     <input onKeyUp={handleChange} placeholder="buscar post..." name="text" />
+    <ModalAddPost/>
     </div>
-       
+     <div className="contentMain"> 
+     <div className="empty">
+      
+    </div>
     <Posts/>
     <div className="right">
     <Profile/>
     {user.user.role!=="admin" ? <AllUsers/> : null}
-   
     </div>
+    </div> 
    
-    <ModalAddPost/>
     
     </div>
   )

@@ -11,6 +11,7 @@ const Header = () => {
       {user?.user.role === 'admin' ? <span><Link
 to="/admin">Admin</Link></span>:''}
 <hr />
+<br />
       </>
   );
 };
