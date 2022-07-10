@@ -1,0 +1,20 @@
+.footer{
+    background-color: grey;
+}
+
+
+.social {
+    display: flex;
+    justify-content: center;
+    a {
+        cursor:  pointer;
+        svg{
+            font-size: 3em;
+            padding: 8px;
+            color:white;
+        }
+        svg:hover{
+            color:red;
+        }
+    }
+}

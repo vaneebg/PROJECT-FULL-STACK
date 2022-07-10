@@ -2,9 +2,11 @@
 .carrousel{
     display:flex;
     flex-direction: column;
-    background-color: chocolate;
+    background-color: red;
+    
     img{
-        width:47em;
+        width:64em;
+        height:48em;
     }
-    width:50%;
+    width:60%;
 }

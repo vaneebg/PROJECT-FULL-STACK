@@ -21,8 +21,6 @@ const Post = ({pageC, functionPage}) => {
   const userLocal = JSON.parse(localStorage.getItem("user"));
 
   const dispatch = useDispatch();
-
-
  
 
   const onChange = (page) => {  
