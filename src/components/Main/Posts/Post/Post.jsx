@@ -6,7 +6,7 @@ import { getAll,reset } from "../../../../features/posts/postsSlice";
 import ModalAddComment from "../ModalAddComment/ModalAddComment";
 import ModalEditComment from "../ModalEditComment/ModalEditComment";
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
-import {message, Popconfirm, Pagination } from 'antd';
+import {message, Popconfirm, Pagination , notification} from 'antd';
 import './Post.scss'
 
 
