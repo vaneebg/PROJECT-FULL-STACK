@@ -40,7 +40,7 @@ const postFav=user.user.favList?.map((post,i)=>{
       </Tooltip>
       <div className="icons">
       {isAlreadyLiked ? (
-<HeartFilled onClick={ isAlreadyLiked ? () => dispatch(dislike(post._id)) : () => dispatch(like(post._id)) } />
+        <i className="fa-solid fa-heart fa-beat" onClick={ isAlreadyLiked ? () => dispatch(dislike(post._id)) : () => dispatch(like(post._id)) } ></i>
 ) : (
 <HeartOutlined onClick={ isAlreadyLiked ? () => dispatch(dislike(post._id)) : () => dispatch(like(post._id)) } />
 )}
