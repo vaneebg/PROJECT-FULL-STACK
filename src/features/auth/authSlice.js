@@ -202,8 +202,7 @@ export const authSlice = createSlice({
         state.users = users;
         state.isSuccess = true;
         state.message = action.payload.message;
-        state.isSuccess = true;
-        state.message = action.payload.message;
+       
       })
       .addCase(unfollow.rejected, (state, action) => {
         state.isError = true;

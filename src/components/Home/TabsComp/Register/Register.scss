@@ -1,9 +1,22 @@
-
+@import '../../../../variables.scss';
 
 .centerReg{
    display:flex;
    justify-content: center;
+   padding:2em;
+   margin:1em;
 }
 .formReg{
     width:50%;
+    
+
+}
+.register{
+    height:35em;
+    background-color: $purple3;
+    border-radius:30px;
+}
+.labelR{
+   font-family: $font-title-content;
+   color:white;
 }

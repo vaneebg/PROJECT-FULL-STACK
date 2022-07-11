@@ -2,6 +2,8 @@ import { useRef, useState } from 'react';
 import Draggable from 'react-draggable';
 import EditComment from '../Post/Comments/EditComment/EditComment';
 import { Button, Modal } from 'antd';
+import { HighlightOutlined  } from "@ant-design/icons";
+
 
 const ModalEditComment = ({commentId}) => {
   const [visible, setVisible] = useState(false);
@@ -44,7 +46,7 @@ const ModalEditComment = ({commentId}) => {
 
   return (
     <>
-      <Button onClick={showModal}>Cambiar comentario</Button>
+      <Button onClick={showModal}><i class="fa-solid fa-arrows-spin"></i></Button>
       <Modal
         title={
           <div

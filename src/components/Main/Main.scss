@@ -1,4 +1,29 @@
 .main{
     display:flex;
+    flex-direction: column;
+}
+
+.contentMain{
+    display:flex;
+    flex-direction: row;
     justify-content: space-around;
+    
+}
+.right{
+    display:flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0px;
+    height:20em;
+}
+.sticky{
+    position: relative;
+    bottom: 0;
+}
+.buttonspost{
+    display: flex;
+    flex-direction: row;
+   justify-content: space-around;
+   align-items: center;
+  padding:1em 0;
 }

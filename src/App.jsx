@@ -13,6 +13,7 @@ import Admin from "./components/Main/Admin/Admin";
 import "antd/dist/antd.css";
 import './App.css';
 import AdminZone from './guards/AdminZone';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
 <Route path="/admin" element={<AdminZone><Admin /></AdminZone>} />
 <Route path="*" element={<NotFound />} />
 </Routes>
+<Footer/>
 </BrowserRouter>
     </div>
   );

@@ -7,10 +7,11 @@ const Header = () => {
 
   return (
   <>
-      <div className='header'>header</div>
-      <i className="fa-solid fa-circle-plus fa-beat"></i>
+      <div className='header'>Red Anti-social VB</div>
       {user?.user.role === 'admin' ? <span><Link
 to="/admin">Admin</Link></span>:''}
+<hr />
+<br />
       </>
   );
 };

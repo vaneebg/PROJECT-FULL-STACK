@@ -51,9 +51,7 @@ const PostSearch = () => {
       <div className="comments" key={i}>
           <div className="icons">
       {isAlreadyLikedComment ? (
-<HeartFilled  style={{
-        color: '#6F0B8A',
-      }} onClick={ isAlreadyLikedComment ? () => dispatch(dislikeComment(comment._id)) : () => dispatch(likeComment(comment._id)) } />
+        <i className="fa-solid fa-heart fa-beat" onClick={ isAlreadyLikedComment ? () => dispatch(dislikeComment(comment._id)) : () => dispatch(likeComment(comment._id)) }></i>
 ) : (
 <HeartOutlined style={{
         color: '#6F0B8A',
@@ -106,7 +104,7 @@ const PostSearch = () => {
       {el.image ? <img className='imgPost' src={URL+"/images/posts/" + el.image} alt=''/> : <img className='imgPost' src={URL+"/images/posts/16.jpg"} alt=''/>}
       <div className="icons">
       {isAlreadyLiked ? (
-<HeartFilled onClick={ isAlreadyLiked ? () => dispatch(dislike(el._id)) : () => dispatch(like(el._id)) } />
+        <i className="fa-solid fa-heart fa-beat" onClick={ isAlreadyLiked ? () => dispatch(dislike(el._id)) : () => dispatch(like(el._id)) } ></i>
 ) : (
 <HeartOutlined onClick={ isAlreadyLiked ? () => dispatch(dislike(el._id)) : () => dispatch(like(el._id)) } />
 )}

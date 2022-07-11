@@ -10,7 +10,7 @@ import Following from './Following/Following';
 import FavPosts from './FavPosts/FavPosts';
 import { Tooltip,Tabs,notification,Popconfirm} from 'antd';
 import { PoweroffOutlined } from "@ant-design/icons";
-
+import './ProfileDetail.scss'
 const { TabPane } = Tabs;
 
 
@@ -20,18 +20,18 @@ const URL = process.env.REACT_APP_URL
 const ProfileDetail = () => {
   const { user} = useSelector((state) => state.auth);
 
-
+  
   const dispatch = useDispatch();
   const navigate = useNavigate()
-
-    const onLogout = () => {
-
-       dispatch(logout()); 
-    }
+  
+  const onLogout = () => {
+    
+    dispatch(logout()); 
+  }
   
   
-
-    useEffect(() => {
+  
+  useEffect(() => {
       dispatch(myInfo())
         }, []);
 
@@ -50,13 +50,23 @@ const deleteUserAndRedirect =(_id)=>{
 
         <span className='bold'>{user.user.username}</span>
         <span>Número de posts {user.Number_of_posts}</span> <br />
+        {(user.Followers!==0) ?  
         <Tooltip title={<Followers/>}color='purple' key='purple'> 
         <span>Número de followers {user.Followers}</span> <br /> 
-        </Tooltip>
-        <Tooltip title={<Following/>}color='blue' key='blue'> 
+        </Tooltip> 
+        : 
+        <Tooltip visible={false} title={<Followers/>}color='purple' key='purple'> 
+        <span>Número de followers {user.Followers}</span> <br /> 
+        </Tooltip> 
+        }
+       {(user.Following!==0)? <Tooltip title={<Following/>}color='blue' key='blue'> 
         <span>Número de following {user.Following}</span> <br />
       
-        </Tooltip>
+        </Tooltip> :<Tooltip visible={false} title={<Following/>}color='blue' key='blue'> 
+        <span>Número de following {user.Following}</span> <br />
+      
+        </Tooltip> }
+       
         <Popconfirm
         placement="bottom"
         title="Seguro que quieres borrar tu cuenta definitivamente?"
@@ -70,10 +80,10 @@ const deleteUserAndRedirect =(_id)=>{
         </div>
    <ModalEditUser/>
       {user.user.role!=="admin" ?  <Tabs defaultActiveKey="1" centered >
-    <TabPane tab="Posts" key="1">
+    <TabPane className="black" tab="Posts" key="1">
     <PostsProfile/>
     </TabPane>
-    <TabPane tab="Posts con likes" key="2">
+    <TabPane className="black" tab="Posts con likes" key="2">
       <FavPosts/>
     </TabPane>
    

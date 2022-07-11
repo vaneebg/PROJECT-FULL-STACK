@@ -1,0 +1,13 @@
+@import '../../../variables.scss';
+
+
+.whoFollow{
+    border:2px solid $purple1;
+    border-radius: 20px;
+    width:18em;
+    padding:1em;
+       overflow: scroll;
+}
+.WhoFollowName{
+    font-family: $font-title-content;
+}

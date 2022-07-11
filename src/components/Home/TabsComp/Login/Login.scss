@@ -1,8 +1,17 @@
+@import '../../../../variables.scss';
 
 .centerLog{
     display:flex;
     justify-content: center;
+    padding:2em;
+    margin:1em;
+ 
 }
 .formLog{
     width:50%;
+}
+.login{
+    background-color: $purple1;
+    height:35em;
+    border-radius:30px;
 }

@@ -1,0 +1,28 @@
+ @import '../../variables.scss';
+
+
+hr{
+    margin:0;
+    background-color: $purple3;
+    border: 2px solid $purple3;
+
+}
+
+
+.social {
+    display: flex;
+    padding:0.5em;
+    justify-content: space-between;
+    align-items: center;
+    a {
+        cursor:  pointer;
+        svg{
+            font-size: 3em;
+            padding: 8px;
+            color:$purple1;
+        }
+        svg:hover{
+            color:$purple4;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+@import '../../../variables.scss';
+
+
+.nameAndI{
+    display: flex;
+    align-items: center;
+}
+.profileIcon{
+    display: flex;
+    border:2px solid $purple1;
+    border-radius: 20px;
+    flex-direction: column;
+    font-family: $font-content;
+    font-size: 1.5em;
+    justify-content: space-between;
+    height:10em;
+    padding:10px;
+}
+.usernameProfile{
+    color:$purple1;
+}
+.usernameProfile:hover{
+    color:$purple4;
+}
