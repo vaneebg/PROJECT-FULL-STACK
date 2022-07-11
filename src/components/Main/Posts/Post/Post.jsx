@@ -78,7 +78,7 @@ const Post = ({pageC, functionPage}) => {
         okText="Yes"
         cancelText="No"
       >
-        <button><i class="fa-solid fa-bomb"></i></button>
+        <button className="btnModalC"><i class="fa-solid big fa-bomb"></i></button>
       </Popconfirm> </>: null}
 
 
