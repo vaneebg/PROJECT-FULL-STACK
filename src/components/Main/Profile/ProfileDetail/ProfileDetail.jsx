@@ -90,7 +90,8 @@ const deleteUserAndRedirect =(_id)=>{
 
 </div>
         </div>
-      {user.user.role!=="admin" ?  <Tabs defaultActiveKey="1" centered >
+        <br />
+      {user.user.role!=="admin" ?  <Tabs defaultActiveKey="1" centered > 
     <TabPane className="black" tab="Posts" key="1">
     <PostsProfile/>
     </TabPane>
