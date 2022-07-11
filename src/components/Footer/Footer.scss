@@ -33,3 +33,11 @@ hr{
     font-size: 1.3em;
     color:$purple1;
 }
+@media only screen and (max-width: 600px) {
+    .nameF{
+        font-size: 1em;
+    }
+    .social{
+        justify-content: center;
+    }
+}
