@@ -26,20 +26,22 @@ if (e.key === "Enter") {
 <UsersOnline/> <br />
 <hr className="hrMain" /> <br />
     <div className="buttonspost">
+     
       <div className="searchInput">
       <label className="titleSearch" htmlFor="text">Búsqueda posts  </label>
     <input className="searchPost" onKeyUp={handleChange} placeholder="titulo post..." name="text" />
     </div>
-    <ModalAddPost/>
     </div>
      <div className="contentMain"> 
      <div className="empty">
-      
+    <ModalAddPost/> <br />
+      <span className="WhoFollowName">Perfil de usuario:</span>
+     <Profile/>
     </div>
     <Posts/>
     <div className="sticky">
     <div className="right">
-    <Profile/>
+   
     {user.user.role!=="admin" ? <AllUsers/> : null}
     </div>
     </div>

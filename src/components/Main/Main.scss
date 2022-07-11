@@ -14,8 +14,16 @@
     flex-direction: column;
     position: sticky;
     top: 0px;
+    height:20em;
 }
 .sticky{
     position: relative;
-    bottom: 60px;
+    bottom: 0;
+}
+.buttonspost{
+    display: flex;
+    flex-direction: row;
+   justify-content: space-around;
+   align-items: center;
+  padding:1em 0;
 }
