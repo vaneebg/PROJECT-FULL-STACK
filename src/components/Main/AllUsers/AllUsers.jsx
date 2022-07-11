@@ -18,10 +18,12 @@ const AllUsers = () => {
 
         
 
-  return (
-    <div className="whoFollow">A quién seguir:
+  return (<>
+  <span className="WhoFollowName">A quién seguir</span>
+    <div className="whoFollow">
 <User/>
 </div>
+</>
   )
 }
 

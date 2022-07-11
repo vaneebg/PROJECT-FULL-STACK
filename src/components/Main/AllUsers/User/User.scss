@@ -3,3 +3,22 @@
 .fa-solid:active, .fa-solid:hover{
     cursor:pointer;
 }
+.connects{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding:5px;
+   
+    
+}
+.nameFollow{
+    font-family: $font-content;
+    font-size: 2em;
+}
+.icons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:5.5em;
+    
+}

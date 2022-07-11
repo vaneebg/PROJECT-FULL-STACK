@@ -32,23 +32,25 @@ const User = () => {
 const user1=users.map((el,i)=>{
   if(el._id!==userLocal.user._id){
   const isAlreadyFollowing=el.followers?.includes(userLocal.user._id)
+  if(el.username !=="ADMIN"){
   return(<div className='connects' key={i}>
          {el.image ? <img className='imgUserC'src={URL+"/images/users/" + el.image} alt=''/> : null}
-    {el.username}
+   <span className="nameFollow"> {el.username}</span>
+   <div className="icons">
     <Link to={"/user/" + el._id}><i class="fa-solid fa-eye"></i></Link>
 
-    {user.user.role!=="admin" ?   <div className="icons">
+    {user.user.role!=="admin" ?   <>
        {isAlreadyFollowing ? (
         <i class="fa-solid fa-people-group" onClick={ isAlreadyFollowing? () => dispatch(unfollow(el._id)) : () => dispatch(follow(el._id)) }></i>
         ) : (
           <i class="fa-solid fa-person-walking-arrow-right" onClick={ isAlreadyFollowing? () =>  dispatch(unfollow(el._id)) : () => dispatch(follow(el._id)) }></i>
           )}
         
-              </div>: null}
-  
+              </>: null}
+              </div>
               {user.user.role==="admin" ?  <button  onClick={() => dispatch(deleteUserAdmin((el._id)))}>Eliminar usuario</button> : null}
                  </div>
-    )}})
+    )}}})
   return (<>
    {user1}
    </>
