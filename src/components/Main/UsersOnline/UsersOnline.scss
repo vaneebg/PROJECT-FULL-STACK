@@ -2,13 +2,14 @@
 
 .containerStories{
     display: flex;
-justify-content: center;   
-  
+justify-content: center;  
+
 }
 
 .stories {
     display: flex;
-    border:1px solid grey;
+    border:1px solid $purple1;
+    background-color: $whitesemi;
     flex-direction: row;
     align-items: flex-start;
     border-radius: 3px;

@@ -3,12 +3,17 @@
 .main{
     display:flex;
     flex-direction: column;
+    background-image: url('../../assets/background.png');
+    background-size:cover;
+    background-attachment:fixed;
+   
 }
 
 .contentMain{
     display:flex;
     flex-direction: row;
     justify-content: space-around;
+   
     
 }
 .right{
@@ -27,6 +32,26 @@
     flex-direction: row;
    justify-content: space-around;
    align-items: center;
+   background-color: $whitesemi2;
   border-bottom:2px solid $purple1;
   padding:1em 0;
+}
+.titleSearch{
+    font-family: $font-title-content;
+    color:$purple4;
+}
+.searchC{
+    border:2px solid $purple1;
+    padding:0.6em;
+    background-color: $whitesemi;
+    border-radius: 20px;
+
+}
+.searchPost{
+    all:unset !important;
+    
+}
+.iconS{
+    color:$purple1;
+    font-size: 1.4em;
 }

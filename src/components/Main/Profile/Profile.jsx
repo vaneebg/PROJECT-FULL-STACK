@@ -18,10 +18,12 @@ const Profile = () => {
   }, []);
   return (
     <div className='profileIcon'>
+            <span className="WhoFollowNameP">Perfil de usuario:</span>
+
       <div className="nameAndI">
       {user.user.image ? <img className='imgUser'src={URL+"/images/users/" + user.user.image} alt=''/> : <img className='imgUser' src={URL+"/images/users/none.jpg"} alt=''/>}
      
-      <Link to="/profile"> <span className="usernameProfile WhoFollowName"> {user.user.username}</span></Link>
+      <Link to="/profile"> <span className=" usernameProfile "> {user.user.username}</span></Link>
       </div>
            <span>Email: {user.user.email}</span>
            <span>Edad: {user.user.age}</span>

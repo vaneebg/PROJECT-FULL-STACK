@@ -5,8 +5,10 @@
     flex-direction: column;
     border:2px solid $purple1;
     padding:10px;
-    margin:1em;
-    background-color: $semi;
+    border-radius: 10px;
+    box-shadow: 9px -10px rgba(172, 170, 170, 0.579);
+    margin:2em;
+    background-color: $whitesemi2;
 }
 .contentText{
     margin-left: 1em;

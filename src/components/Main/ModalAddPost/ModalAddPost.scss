@@ -1,13 +1,17 @@
 @import '../../../variables.scss';
 
 .fa-circle-plus{
-    color:$purple1;
+    color:white;
 }
 button {
+    color:white !important;
     font-family: $font-title-content !important;
+    border:2px solid $purple1 !important;
+    background-color: $semi !important;
+
+
 }
 button:hover{
-    color:$purple1 !important;
-    background-color: $semi !important;
+    background-color: $purple1 !important;
     border:2px solid $purple1 !important;
 }

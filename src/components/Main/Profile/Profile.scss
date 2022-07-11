@@ -7,6 +7,8 @@
 }
 .profileIcon{
     display: flex;
+    background-color: $whitesemi;
+
     border:2px solid $purple1;
     border-radius: 20px;
     flex-direction: column;
@@ -17,8 +19,13 @@
     padding:10px;
 }
 .usernameProfile{
+    font-family: $font-title-content;
     color:$purple1;
 }
 .usernameProfile:hover{
     color:$purple4;
+}
+.WhoFollowNameP{
+    font-family: $font-title-content;
+    color:$purple1;
 }

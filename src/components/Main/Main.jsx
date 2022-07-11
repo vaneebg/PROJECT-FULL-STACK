@@ -29,14 +29,16 @@ if (e.key === "Enter") {
      
       <div className="searchInput">
       <label className="titleSearch" htmlFor="text">Búsqueda posts  </label>
+      <div className="searchC">
     <input className="searchPost" onKeyUp={handleChange} placeholder="titulo post..." name="text" />
+    <i class="fa-solid fa-magnifying-glass-arrow-right iconS"></i>
+    </div>
     </div>
     </div>
      <div className="contentMain"> 
      <div className="sticky">
       <div className="right">
     <ModalAddPost/> <br />
-      <span className="WhoFollowName">Perfil de usuario:</span>
      <Profile/>
      </div>
     </div>
