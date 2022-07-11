@@ -45,7 +45,7 @@ const ModalEditComment = ({commentId}) => {
 
   return (
     <>
-      <Button className="btnModalC" onClick={showModal}><i class="fa-solid fa-arrows-spin big"></i></Button>
+      <Button className="btnModalC" onClick={showModal}><i class="fa-solid fa-paintbrush big"></i></Button>
       <Modal
         title={
           <div

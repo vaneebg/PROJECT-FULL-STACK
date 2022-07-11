@@ -6,13 +6,39 @@
 }
 .headerProfile{
     display:flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 .imgUserProfileB{
+    border-radius: 100px;
 width:10em;
+margin:1em;
 }
 .buttonsProfile{
     margin-left:2em;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.profileName{
+    font-family: $font-title-content;
+    font-size: 2em;
+}
+.textProfileD{
+    font-family: $font-content;
+    font-size: 2em;
+}
+.logoutP{
+    display: flex;
+    font-size: 3em;
+    align-items: center;
+    a{
+        color:$purple1 !important;
+    }
+    a:hover{
+        color:$purple5 !important;
+    }
+}
+.block{
+    display: flex;
+    align-items: center;
 }

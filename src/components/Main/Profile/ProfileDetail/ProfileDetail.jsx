@@ -45,29 +45,34 @@ const deleteUserAndRedirect =(_id)=>{
   return (
     <div className='profileDetail'>
         <div className="headerProfile">
+          <div className="empty">
+
+          </div>
+          <div className="block">
           <div className="img">
         {user.user.image ? <img className='imgUserProfileB'src={URL+"/images/users/" + user.user?.image} alt=''/> : <img className='imgUser' src={URL+"/images/users/none.jpg"} alt=''/>}
         </div>
         <div className="contentProfileT">
-        <span className='bold'>{user.user.username}</span>
-        <span>Número de posts {user.Number_of_posts}</span> <br />
+        <span className='bold profileName'>{user.user.username}</span> <br />
+        <span className="textProfileD">Número de posts {user.Number_of_posts}</span> <br />
         {(user.Followers!==0) ?  
         <Tooltip title={<Followers/>}color='purple' key='purple'> 
-        <span>Número de followers {user.Followers}</span> <br /> 
+        <span className="textProfileD">Número de followers {user.Followers}</span> <br /> 
         </Tooltip> 
         : 
         <Tooltip visible={false} title={<Followers/>}color='purple' key='purple'> 
-        <span>Número de followers {user.Followers}</span> <br /> 
+        <span className="textProfileD">Número de followers {user.Followers}</span> <br /> 
         </Tooltip> 
         }
        {(user.Following!==0)? <Tooltip title={<Following/>}color='blue' key='blue'> 
-        <span>Número de following {user.Following}</span> <br />
+        <span className="textProfileD">Número de following {user.Following}</span> <br />
       
         </Tooltip> :<Tooltip visible={false} title={<Following/>}color='blue' key='blue'> 
-        <span>Número de following {user.Following}</span> <br />
+        <span className="textProfileD">Número de following {user.Following}</span> <br />
       
         </Tooltip> }
         <div className="buttonsProfile">
+          <ModalEditUser/>
         <Popconfirm
         placement="bottom"
         title="Seguro que quieres borrar tu cuenta definitivamente?"
@@ -75,9 +80,9 @@ const deleteUserAndRedirect =(_id)=>{
         okText="Yes"
         cancelText="No"
       >
-        <button>Eliminar cuenta</button>
+       <i class="fa-solid fa-trash-can big"></i>
       </Popconfirm>
-   <ModalEditUser/>
+   </div>
    </div>
         </div>
 <div className="logoutP">

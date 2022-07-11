@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react';
 import Draggable from 'react-draggable';
 import EditUser from '../EditUser/EditUser';
-import { Button, Modal } from 'antd';
-
+import { Button, Modal, Tooltip } from 'antd';
+import './ModalEditUser.scss'
 const ModalEditUser = () => {
   const [visible, setVisible] = useState(false);
   const [disabled, setDisabled] = useState(false);
@@ -43,8 +43,10 @@ const ModalEditUser = () => {
   };
 
   return (
-    <>
-      <Button onClick={showModal}>Editar perfil</Button>
+    <>          <Tooltip title="Editar perfil">
+
+      <Button className="nobtn" onClick={showModal}><i class="fa-solid fa-brush big"></i></Button>
+      </Tooltip>
       <Modal
         title={
           <div

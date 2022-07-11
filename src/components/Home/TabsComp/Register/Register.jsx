@@ -56,6 +56,8 @@ const Register = () => {
         formData.set('email', e.target.email.value)
         formData.set('password', e.target.password.value)
       dispatch(register(formData));
+      setFormDataReg(initialState)
+
     }
   }; 
   return (
