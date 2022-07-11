@@ -45,9 +45,10 @@ const deleteUserAndRedirect =(_id)=>{
   return (
     <div className='profileDetail'>
         <div className="headerProfile">
-        <Link to="/" onClick={onLogout}><PoweroffOutlined /></Link>
-        {user.user.image ? <img className='imgUser'src={URL+"/images/users/" + user.user?.image} alt=''/> : <img className='imgUser' src={URL+"/images/users/none.jpg"} alt=''/>}
-
+          <div className="img">
+        {user.user.image ? <img className='imgUserProfileB'src={URL+"/images/users/" + user.user?.image} alt=''/> : <img className='imgUser' src={URL+"/images/users/none.jpg"} alt=''/>}
+        </div>
+        <div className="contentProfileT">
         <span className='bold'>{user.user.username}</span>
         <span>Número de posts {user.Number_of_posts}</span> <br />
         {(user.Followers!==0) ?  
@@ -66,7 +67,7 @@ const deleteUserAndRedirect =(_id)=>{
         <span>Número de following {user.Following}</span> <br />
       
         </Tooltip> }
-       
+        <div className="buttonsProfile">
         <Popconfirm
         placement="bottom"
         title="Seguro que quieres borrar tu cuenta definitivamente?"
@@ -76,9 +77,14 @@ const deleteUserAndRedirect =(_id)=>{
       >
         <button>Eliminar cuenta</button>
       </Popconfirm>
-
-        </div>
    <ModalEditUser/>
+   </div>
+        </div>
+<div className="logoutP">
+        <Link to="/" onClick={onLogout}><PoweroffOutlined /></Link>
+
+</div>
+        </div>
       {user.user.role!=="admin" ?  <Tabs defaultActiveKey="1" centered >
     <TabPane className="black" tab="Posts" key="1">
     <PostsProfile/>

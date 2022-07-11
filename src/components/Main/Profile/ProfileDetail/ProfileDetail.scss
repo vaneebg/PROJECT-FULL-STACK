@@ -1,4 +1,18 @@
 @import '../../../../variables.scss';
+
+
 .profileDetail{
     background-color: $purple4;
+}
+.headerProfile{
+    display:flex;
+    justify-content: center;
+}
+.imgUserProfileB{
+width:10em;
+}
+.buttonsProfile{
+    margin-left:2em;
+    display: flex;
+    flex-direction: column;
 }
