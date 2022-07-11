@@ -3,6 +3,9 @@
 .centerPost{
     display: flex;
     justify-content: center;
+    background-image: url('../../../../../../assets/background.png');
+    background-size:cover;
+    background-attachment:fixed;
 }
 .postProfileDetail{
     display:flex;
@@ -11,7 +14,7 @@
     border:2px solid $purple1;
     padding:10px;
     margin:1em;
-    background-color: $purple3;
+    background-color: white;
     width:40%;
     border-radius: 10px;
     box-shadow: 9px -10px rgba(172, 170, 170, 0.579);

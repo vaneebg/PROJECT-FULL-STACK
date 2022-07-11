@@ -7,7 +7,9 @@ hr{
     border: 2px solid $purple3;
 
 }
-
+.footer{
+    background-color: $whitesemi;
+}
 
 .social {
     display: flex;
@@ -25,4 +27,9 @@ hr{
             color:$purple4;
         }
     }
+}
+.nameF{
+    font-family: $font-title-content;
+    font-size: 1.3em;
+    color:$purple1;
 }

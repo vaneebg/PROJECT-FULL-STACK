@@ -2,7 +2,9 @@
 
 
 .profileDetail{
-    background-color: $purple4;
+    background-image: url('../../../../assets/background.png');
+    background-size:cover;
+    background-attachment:fixed;
 }
 .headerProfile{
     display:flex;
@@ -22,20 +24,22 @@ margin:1em;
 .profileName{
     font-family: $font-title-content;
     font-size: 2em;
+    color:white;
 }
 .textProfileD{
     font-family: $font-content;
     font-size: 2em;
+    color:white;
 }
 .logoutP{
     display: flex;
     font-size: 3em;
     align-items: center;
     a{
-        color:$purple1 !important;
+        color:white !important;
     }
     a:hover{
-        color:$purple5 !important;
+        color:$purple3 !important;
     }
 }
 .block{
