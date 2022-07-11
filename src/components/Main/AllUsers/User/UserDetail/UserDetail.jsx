@@ -41,13 +41,13 @@ const UserDetail = () => {
         <div className="contentProfileT">
         <span className='bold profileName'>{userProfile?.user.username}</span> <br />
         <span className="textProfileD">Número de posts {userProfile?.Number_of_posts}</span> <br />
-{userProfile?.Followers!==0 ? <Tooltip title={<Followers/>}color='purple' key='purple'> 
+{userProfile?.Followers!==0 ? <Tooltip placement="right" title={<Followers/>}color='purple' key='purple'> 
         <span className="textProfileD">Número de followers {userProfile?.Followers}</span> <br /> 
         </Tooltip>: <Tooltip visible={false} title={<Followers/>}color='purple' key='purple'> 
         <span className="textProfileD">Número de followers {userProfile?.Followers}</span> <br /> 
         </Tooltip>}
 
-        {userProfile?.Following!==0 ?   <Tooltip title={<Following/>}color='blue' key='blue'> 
+        {userProfile?.Following!==0 ?   <Tooltip placement="right" title={<Following/>}color='blue' key='blue'> 
         <span className="textProfileD">Número de following {userProfile?.Following}</span> <br />
         </Tooltip> : <Tooltip visible={false} title={<Following/>}color='blue' key='blue'> 
         <span className="textProfileD">Número de following {userProfile?.Following}</span> <br />

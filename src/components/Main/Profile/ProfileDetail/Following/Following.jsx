@@ -10,14 +10,14 @@ const Following = () => {
    {window.location.pathname.includes('profile') ?
       user?.user.following?.map((follow,i)=>{return(
         <div key={i}>
-          {follow.username}
           {follow.image ? <img className='imgUserC'src={URL+"/images/users/" + follow?.image} alt=''/> : null}
+          {follow.username}
         </div>)})
   :
       userProfile?.user.following?.map((follow,i)=>{return(
         <div key={i}>
-          {follow.username}
           {follow.image ? <img className='imgUserC'src={URL+"/images/users/" + follow?.image} alt=''/> : null}
+          {follow.username}
         </div>)})
   }
    </>

@@ -15,14 +15,14 @@ const Followers = () => {
     
        user?.user.followers?.map((follow,i)=>{return(
          <div key={i}>
-           {follow.username}
            {follow.image ? <img className='imgUserC'src={URL+"/images/users/" + follow?.image} alt=''/> : null}
+           {follow.username}
          </div>)})
    :
        userProfile?.user.followers?.map((follow,i)=>{return(
          <div key={i}>
-           {follow.username}
            {follow.image ? <img className='imgUserC'src={URL+"/images/users/" + follow?.image} alt=''/> : null}
+           {follow.username}
          </div>)})
    }
    </>

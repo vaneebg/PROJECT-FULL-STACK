@@ -56,7 +56,7 @@ const deleteUserAndRedirect =(_id)=>{
         <span className='bold profileName'>{user.user.username}</span> <br />
         <span className="textProfileD">Número de posts {user.Number_of_posts}</span> <br />
         {(user.Followers!==0) ?  
-        <Tooltip title={<Followers/>}color='purple' key='purple'> 
+        <Tooltip title={<Followers/>} placement="right" color='purple' key='purple'> 
         <span className="textProfileD">Número de followers {user.Followers}</span> <br /> 
         </Tooltip> 
         : 
@@ -64,7 +64,7 @@ const deleteUserAndRedirect =(_id)=>{
         <span className="textProfileD">Número de followers {user.Followers}</span> <br /> 
         </Tooltip> 
         }
-       {(user.Following!==0)? <Tooltip title={<Following/>}color='blue' key='blue'> 
+       {(user.Following!==0)? <Tooltip placement="right" title={<Following/>}color='blue' key='blue'> 
         <span className="textProfileD">Número de following {user.Following}</span> <br />
       
         </Tooltip> :<Tooltip visible={false} title={<Following/>}color='blue' key='blue'> 
