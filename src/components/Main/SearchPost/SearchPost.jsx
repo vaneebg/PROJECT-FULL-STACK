@@ -4,6 +4,7 @@ import { useNavigate,Link,useParams } from "react-router-dom";
 import { getPostByName,reset } from "../../../features/posts/postsSlice"
 import PostSearch from "../Posts/PostSearch/PostSearch"
 import { notification } from 'antd'
+import NotFoundPost from "./NotFoundPost/NotFoundPost";
 
 
 const SearchPost = () => {
@@ -35,11 +36,7 @@ useEffect(() => {
 
 
 if(posts.length===0){
-  return(
-    <> <h1>No se ha encontrado ningún post</h1>
-  <Link to="/main">Volver a principal</Link>
-  </>
-  )
+navigate('/search/notfound')
 }
 
 return(

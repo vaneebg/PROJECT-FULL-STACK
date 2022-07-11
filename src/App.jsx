@@ -14,6 +14,7 @@ import "antd/dist/antd.css";
 import './App.css';
 import AdminZone from './guards/AdminZone';
 import Footer from './components/Footer/Footer';
+import NotFoundPost from './components/Main/SearchPost/NotFoundPost/NotFoundPost';
 
 
 function App() {
@@ -28,6 +29,8 @@ function App() {
 <Route path="/post/:_id" element={<PrivateZone><PostProfileDetail /></PrivateZone>} />
 <Route path="/user/:_id" element={<PrivateZone><UserDetail /></PrivateZone>} />
 <Route path="/search/titlePost/:postName" element={<PrivateZone><SearchPost/></PrivateZone>} />
+<Route path="/search/notfound" element={<PrivateZone><NotFoundPost/></PrivateZone>} />
+
 <Route path="/admin" element={<AdminZone><Admin /></AdminZone>} />
 <Route path="*" element={<NotFound />} />
 </Routes>
