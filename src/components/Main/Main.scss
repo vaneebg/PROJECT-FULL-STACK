@@ -12,4 +12,10 @@
 .right{
     display:flex;
     flex-direction: column;
+    position: sticky;
+    top: 0px;
+}
+.sticky{
+    position: relative;
+    bottom: 60px;
 }

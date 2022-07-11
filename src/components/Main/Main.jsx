@@ -37,9 +37,11 @@ if (e.key === "Enter") {
       
     </div>
     <Posts/>
+    <div className="sticky">
     <div className="right">
     <Profile/>
     {user.user.role!=="admin" ? <AllUsers/> : null}
+    </div>
     </div>
     </div> 
    
