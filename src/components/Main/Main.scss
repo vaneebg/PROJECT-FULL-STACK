@@ -55,3 +55,13 @@
     color:$purple1;
     font-size: 1.4em;
 }
+
+@media only screen and (max-width: 600px) {
+    .sticky{
+        display: none;
+    }
+    .whoFollow{
+        display: none;
+    }
+   
+}

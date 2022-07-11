@@ -87,3 +87,27 @@ margin:1em;
 .fa-heart:hover{
     cursor:pointer;
 }
+
+@media only screen and (max-width: 600px) {
+    .imgPost{
+        width:20em;
+    }
+    .imgUser{
+        width:1.5em;
+    }
+    .gifComment{
+        width:4em;
+        height: 4em;
+    }
+    .nameUser, .textlike, .textC, .contentText{
+       font-size: 1em;
+    }
+    .date{
+       font-size: 0.5em;
+        
+    }
+    .imgUserC{
+        width:1.3em;
+        height:1.3em;
+    }
+}
