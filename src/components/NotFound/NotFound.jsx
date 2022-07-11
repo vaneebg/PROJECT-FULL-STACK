@@ -1,6 +1,9 @@
+import './NotFound.scss'
+
 const NotFound = () => {
-    return (
-    <div>404 Page not found</div>
+    return (<>
+       
+    </>
     )
     }
     export default NotFound
