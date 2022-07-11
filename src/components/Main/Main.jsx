@@ -24,7 +24,7 @@ if (e.key === "Enter") {
   return (<div className='main'>
     
 <UsersOnline/> <br />
-<hr className="hrMain" /> <br />
+<hr className="hrMain" />
     <div className="buttonspost">
      
       <div className="searchInput">
@@ -33,10 +33,12 @@ if (e.key === "Enter") {
     </div>
     </div>
      <div className="contentMain"> 
-     <div className="empty">
+     <div className="sticky">
+      <div className="right">
     <ModalAddPost/> <br />
       <span className="WhoFollowName">Perfil de usuario:</span>
      <Profile/>
+     </div>
     </div>
     <Posts/>
     <div className="sticky">

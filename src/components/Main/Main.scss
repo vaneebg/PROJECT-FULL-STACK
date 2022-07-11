@@ -1,3 +1,5 @@
+@import '../../variables.scss';
+
 .main{
     display:flex;
     flex-direction: column;
@@ -13,17 +15,18 @@
     display:flex;
     flex-direction: column;
     position: sticky;
-    top: 0px;
-    height:20em;
+    top: 23em;
+    height:25em;
 }
 .sticky{
     position: relative;
-    bottom: 0;
+    top: 0;
 }
 .buttonspost{
     display: flex;
     flex-direction: row;
    justify-content: space-around;
    align-items: center;
+  border-bottom:2px solid $purple1;
   padding:1em 0;
 }

@@ -4,4 +4,9 @@
 font-size:4em;
 color:$purple2;
     font-family: $font-title-vb;
+    position: sticky;
+    top:0;
+    background-color: $whitesemi;
+    border-bottom:2px solid $purple1;
+    z-index: 1;
 }

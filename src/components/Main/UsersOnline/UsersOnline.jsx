@@ -36,7 +36,8 @@ const userOnline=usersOnline?.map((el,i)=>{
             
 
 
-  return (<div className="containerStories">
+  return (<> <br />
+  <div className="containerStories">
   <div className="stories">
   
       
@@ -44,6 +45,7 @@ const userOnline=usersOnline?.map((el,i)=>{
 
 </div>
 </div>
+</>
   )
 }
 

@@ -39,7 +39,7 @@ const Posts = () => {
 
   return (
     <div>
-        <h1>Posts</h1>
+        <span className="h1">Posts</span>
         <Post pageC={current} functionPage={setCurrent}/>
     </div>
   )
