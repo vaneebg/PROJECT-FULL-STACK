@@ -3,8 +3,7 @@ import { useEffect } from 'react'
 import {  notification } from 'antd'
 import {  useSelector, useDispatch } from "react-redux";
 import { follow,unfollow,reset, deleteUserAdmin } from "../../../../features/auth/authSlice";
-import { HeartOutlined, HeartFilled } from "@ant-design/icons";
-
+import './User.scss'
 const URL = process.env.REACT_APP_URL
 
 
@@ -38,10 +37,10 @@ const user1=users.map((el,i)=>{
     {el.username}
     {user.user.role!=="admin" ?   <div className="icons">
        {isAlreadyFollowing ? (
-        <HeartFilled onClick={ isAlreadyFollowing? () => dispatch(unfollow(el._id)) : () => dispatch(follow(el._id)) }/>
+        <i class="fa-solid fa-people-group" onClick={ isAlreadyFollowing? () => dispatch(unfollow(el._id)) : () => dispatch(follow(el._id)) }></i>
         ) : (
-        <HeartOutlined onClick={ isAlreadyFollowing? () =>  dispatch(unfollow(el._id)) : () => dispatch(follow(el._id)) }/>
-        )}
+          <i class="fa-solid fa-person-walking-arrow-right" onClick={ isAlreadyFollowing? () =>  dispatch(unfollow(el._id)) : () => dispatch(follow(el._id)) }></i>
+          )}
         
               </div>: null}
   
