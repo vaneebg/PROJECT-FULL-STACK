@@ -35,6 +35,8 @@ const user1=users.map((el,i)=>{
   return(<div className='connects' key={i}>
          {el.image ? <img className='imgUserC'src={URL+"/images/users/" + el.image} alt=''/> : null}
     {el.username}
+    <Link to={"/user/" + el._id}><i class="fa-solid fa-eye"></i></Link>
+
     {user.user.role!=="admin" ?   <div className="icons">
        {isAlreadyFollowing ? (
         <i class="fa-solid fa-people-group" onClick={ isAlreadyFollowing? () => dispatch(unfollow(el._id)) : () => dispatch(follow(el._id)) }></i>
@@ -44,7 +46,6 @@ const user1=users.map((el,i)=>{
         
               </div>: null}
   
-              <Link to={"/user/" + el._id}>Ver perfil</Link>
               {user.user.role==="admin" ?  <button  onClick={() => dispatch(deleteUserAdmin((el._id)))}>Eliminar usuario</button> : null}
                  </div>
     )}})
