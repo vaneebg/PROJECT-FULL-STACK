@@ -22,7 +22,7 @@ const userOnline=usersOnline?.map((el,i)=>{
     if(el._id!==userLocal.user._id){
 
             return(<>
-                   {el.image ? <img className='imgUserOnline'src={URL+"/images/users/" + el.image} alt=''/> : null}
+                   {el.image ? <img className='imgUserOnline animate__animated animate__bounceInUp animate__delay-4s'src={URL+"/images/users/" + el.image} alt=''/> : null}
                    </>
               )}})
             
