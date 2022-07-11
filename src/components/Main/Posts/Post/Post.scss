@@ -52,7 +52,9 @@
 .comments{
     display:flex;
 flex-direction: column;
-border:1px solid black;
+border:2px dashed $purple1;
+border-radius: 20px;
+background-color: $semi;
 margin:1em;
 }
 
