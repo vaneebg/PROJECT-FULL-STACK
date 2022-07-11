@@ -3,10 +3,22 @@
 .fa-solid:active, .fa-solid:hover{
     cursor:pointer;
 }
+.fa-solid:hover{
+    color:$purple5;
+}
+.fa-people-group, .fa-person-walking-arrow-right{
+    font-size: 2em;
+}
+.fa-people-group{
+    color:$purple3;
+}
+.fa-person-walking-arrow-right{
+    color: $purple1;
+}
 .connects{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     padding:5px;
    
     
