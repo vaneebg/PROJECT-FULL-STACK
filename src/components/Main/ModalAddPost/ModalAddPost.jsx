@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import Draggable from 'react-draggable';
 import AddPost from '../Posts/Post/AddPost/AddPost';
 import { Button, Modal } from 'antd';
-
+import './ModalAddPost.scss'
 const ModalAddPost = () => {
   const [visible, setVisible] = useState(false);
   const [disabled, setDisabled] = useState(false);
@@ -44,7 +44,7 @@ const ModalAddPost = () => {
 
   return (
     <>
-      <Button onClick={showModal}>Añadir post</Button>
+      <Button onClick={showModal}>Añadir post &nbsp; <i class="fa-solid fa-circle-plus fa-beat"></i></Button>
       <Modal
         title={
           <div
