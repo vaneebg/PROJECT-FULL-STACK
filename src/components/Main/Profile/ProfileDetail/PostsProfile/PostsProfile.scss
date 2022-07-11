@@ -2,13 +2,17 @@
 .postsUser{
     display:flex;
     flex-direction: row;
+    flex-wrap: wrap;
    
 }
 .postsProfile{
-    width:30em;
-    height: 30em;
+    width:29em;
+    height: 27em;
+    border-radius: 20px;
 }
 .postContentProfile{
+
+  margin:1em;
   a{
     display:flex;
     flex-direction: column;

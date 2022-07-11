@@ -5,7 +5,7 @@ import { like,dislike } from "../../../../../features/posts/postsSlice";
 import { myInfo } from '../../../../../features/auth/authSlice';
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import { Tooltip } from 'antd';
-
+import './FavPosts.scss'
 
 const URL = process.env.REACT_APP_URL
 
@@ -38,14 +38,14 @@ const postFav=user.user.favList?.map((post,i)=>{
    {post.image ? <img className='postsProfile' src={URL+"/images/posts/" + post.image} alt=''/> : null}
       </Link>  
       </Tooltip>
-      <div className="icons">
+      <div className="iconsFavPost">
       {isAlreadyLiked ? (
         <i className="fa-solid fa-heart fa-beat" onClick={ isAlreadyLiked ? () => dispatch(dislike(post._id)) : () => dispatch(like(post._id)) } ></i>
 ) : (
 <HeartOutlined onClick={ isAlreadyLiked ? () => dispatch(dislike(post._id)) : () => dispatch(like(post._id)) } />
 )}
 
-       <span>{post.likes?.length} Likes</span> 
+       <span>&nbsp;{post.likes?.length} Likes</span> 
       </div>
    </div>
 )}
