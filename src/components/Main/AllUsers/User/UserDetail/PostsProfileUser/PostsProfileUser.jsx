@@ -17,7 +17,7 @@ const PostsProfileUser = () => {
       <Tooltip title={"Click para más info sobre: "+el.title}color='purple' key='purple'>
   <Link to={"/post/" + el._id}>
   
-     {el.image ? <img className='postsProfile' src={URL+"/images/posts/" + el.image} alt=''/> : null}
+     {el.image ? <img className='postsProfile animate__animated animate__fadeInLeft' src={URL+"/images/posts/" + el.image} alt=''/> : null}
         </Link>  
         </Tooltip>
      </div>
