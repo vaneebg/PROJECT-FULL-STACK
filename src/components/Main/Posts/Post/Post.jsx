@@ -100,7 +100,7 @@ const Post = ({pageC, functionPage}) => {
 
     
     return(
-    <div className="postContent animate__animated animate__fadeInUp animate__delay-5s" key={el._id}>
+    <div className="postContent animate__animated animate__fadeInUp animate__delay-1s" key={el._id}>
       <div className="headerPost">
       {el.userId.image ? <img className='imgUser'src={URL+"/images/users/" + el.userId.image} alt=''/> : <img className='imgUser' src={URL+"/images/users/none.jpg"} alt=''/>}
       <span className='nameUser'> {el.userId.username}</span>
