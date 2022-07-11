@@ -70,7 +70,7 @@ const Post = ({pageC, functionPage}) => {
       {comment.userId.image ? <img className='imgUserC'src={URL+"/images/users/" + comment.userId.image} alt=''/> : null}
  <span className='nameUser'>{comment.userId.username}</span>
 
- <span className='italid date'>{dateC}</span>
+ <span className='italic date'>{dateC}</span>
  { comment.userId._id===userLocal.user._id ? <> <ModalEditComment commentId={comment._id}/>  <Popconfirm
         placement="rightTop"
         title="Seguro que quieres borrar este comentario?"

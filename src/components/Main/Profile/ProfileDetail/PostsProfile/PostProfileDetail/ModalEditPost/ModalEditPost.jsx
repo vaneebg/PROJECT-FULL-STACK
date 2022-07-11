@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import Draggable from 'react-draggable';
 import EditPost from '../../../../../Posts/Post/EditPost/EditPost';
-import { Button, Modal } from 'antd';
+import { Button, Modal, Tooltip } from 'antd';
 
 
 const ModalEditPost = () => {
@@ -44,8 +44,9 @@ const ModalEditPost = () => {
   };
 
   return (
-    <>
-      <Button onClick={showModal}>Editar post</Button>
+    <> <Tooltip title="Editar post">
+      <Button className="nobtn" onClick={showModal}><i class="fa-solid fa-brush big"></i></Button>
+     </Tooltip>
       <Modal
         title={
           <div

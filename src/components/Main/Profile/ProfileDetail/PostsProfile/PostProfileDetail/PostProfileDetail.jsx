@@ -51,20 +51,20 @@ const PostProfileDetail = () => {
    
 
     return (
-      <div key={i} className="comments">
+      <div key={i} className="comments cProfile">
 
-        <div className="icons">
+        <div className="iconsPosts">
 
-          <span>{el.likes.length} Likes comentario</span>
+          <span className='textlike'>{el.likes.length} Likes comentario</span>
         </div>
         <div className="userC">
           {el.userId.image ? <img className='imgUserC' src={URL + "/images/users/" + el.userId.image} alt='' /> : null}
-          <span>{el.userId.username}</span>
-          <span>{dateC}</span>
+          <span className='nameUser'>{el.userId.username}</span>
+          <span className='italic date'>{dateC}</span>
         </div>
         <div className="textC">
-          <span className='bold'>{el.title}&nbsp;</span>
-          <span className='italic'>{el.body}</span> <br />
+          <span className='bold textC'>{el.title}&nbsp;</span>
+          <span className='italic textC'>{el.body}</span> <br />
           {el.image ? <img className='gifComment' src={URL + "/images/comments/" + el.image} alt='' /> : null}
         </div>
         <div className="userComment">
@@ -77,7 +77,16 @@ const PostProfileDetail = () => {
   const newDateMinuteP = new Date(post.createdAt).toLocaleTimeString()
   const dateP = ` ${newDateMinuteP} ${newDateMonthP} `
   return (
+    <div className="centerPost">
     <div className='postProfileDetail'>
+
+      <div className="contentText display">
+      <span className='bold size'>{post.title} &nbsp;</span>
+       <span className='italic'>{post.body}</span>
+       </div>
+
+      {post.image ? <img key={post._id} className='imageProfileDetail' src={URL + "/images/posts/" + post.image} alt='' /> : null}
+     <div className="btnModify">
       {post.userId === userLocal.user._id ? <><ModalEditPost /><Popconfirm
         placement="rightTop"
         title="Seguro que quieres borrar este post?"
@@ -85,20 +94,13 @@ const PostProfileDetail = () => {
         okText="Yes"
         cancelText="No"
       >
-        <button>X</button>
+         <i class="fa-solid fa-trash-can big"></i>
       </Popconfirm> </> : null}
-
-
-
-
-
-
-      {post.image ? <img key={post._id} className='imageProfileDetail' src={URL + "/images/posts/" + post.image} alt='' /> : null}
-      <span>Número de likes: {post.likes?.length}</span>
-      <h2>{post.title}</h2>
-      <p>{post.body}</p>
-      <span>{dateP}</span>
+      </div>
+      <span className='textlike'>Número de likes: {post.likes?.length}</span>
+      <span className='italic date'>{dateP}</span>
       {comments}
+    </div>
     </div>
   );
 };
