@@ -30,6 +30,9 @@ justify-content: center;
     border:3px dashed $purple1;
     border-radius: 50px;
 }
+.imgUserOnline:hover{
+    background-color: $purple3;
+}
 .hrMain{
    border:1px solid $purple4;
 }
