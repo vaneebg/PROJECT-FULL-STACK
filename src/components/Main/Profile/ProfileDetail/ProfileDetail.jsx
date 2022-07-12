@@ -11,6 +11,7 @@ import FavPosts from './FavPosts/FavPosts';
 import { Tooltip,Tabs,notification,Popconfirm} from 'antd';
 import { PoweroffOutlined,FastBackwardOutlined } from "@ant-design/icons";
 import './ProfileDetail.scss'
+import HelloAdmin from "../../Admin/HelloAdmin/HelloAdmin";
 const { TabPane } = Tabs;
 
 
@@ -104,7 +105,7 @@ const deleteUserAndRedirect =(_id)=>{
       <FavPosts/>
     </TabPane>
    
-  </Tabs> : null }
+  </Tabs> : <HelloAdmin/> }
        
      
    
