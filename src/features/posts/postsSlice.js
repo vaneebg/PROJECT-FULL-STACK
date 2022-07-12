@@ -168,7 +168,8 @@ export const postsSlice = createSlice({
           })
         
       .addCase(deletePost.fulfilled, (state,action) => {
-          state.isSuccess = true;
+        state.posts=state.posts.filter(post=>post._id!==action.payload.post._id)
+        state.isSuccess = true;
           state.message = action.payload.message;
           })
       .addCase(deletePost.rejected, (state,action) => {
