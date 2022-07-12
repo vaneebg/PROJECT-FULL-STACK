@@ -27,9 +27,8 @@ const PostsProfileUser = () => {
     )
     })
 
-    console.log(post.length)
   return (
-    post.length!==0 ? <div className="postsUser">
+    post?.length!==0 ? <div className="postsUser">
     {post}
     </div>: <NotPublicPost/>
    

@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { getPostById, deletePost, reset, resetPost, like, dislike } from "../../../../../../features/posts/postsSlice";
 import ModalEditPost from './ModalEditPost/ModalEditPost'
-import { Popconfirm, notification } from 'antd';
+import { Popconfirm, notification, Tooltip } from 'antd';
 import './PostProfileDetail.scss'
 import { likeComment,dislikeComment,deleteComment, resetC } from "../../../../../../features/comments/commentsSlice";
-import { HeartOutlined, HeartFilled } from "@ant-design/icons";
+import { HeartOutlined, FastBackwardOutlined } from "@ant-design/icons";
 import ModalAddComment from "../../../../Posts/ModalAddComment/ModalAddComment";
 import ModalEditComment from "../../../../Posts/ModalEditComment/ModalEditComment";
 
@@ -118,6 +118,14 @@ getPostAndReset()
 
   return (
     <div className="centerPost">
+       <div className="empty">
+            <Tooltip placement="bottom" title="Volver a principal">
+<Link to="/main"><FastBackwardOutlined  style={{
+   fontSize: '4em',
+        color: 'white',
+      }}/></Link>
+      </Tooltip>
+          </div>
     <div className='postProfileDetail'>
 
       <div className="contentText display">
@@ -155,6 +163,7 @@ getPostAndReset()
      comments}
       <ModalAddComment postId={post._id}/>
     </div>
+    <div className="empty"></div>
     </div>
   );
 };

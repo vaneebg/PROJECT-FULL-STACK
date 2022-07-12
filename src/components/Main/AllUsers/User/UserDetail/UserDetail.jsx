@@ -1,11 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
 import { useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 import Followers from '../../../Profile/ProfileDetail/Followers/Followers';
 import Following from '../../../Profile/ProfileDetail/Following/Following';
 import { getUserById } from '../../../../../features/auth/authSlice';
 import PostsProfileUser from "./PostsProfileUser/PostsProfileUser";
 import { Tooltip, Tabs} from 'antd';
+import {FastBackwardOutlined } from '@ant-design/icons';
+
 
 const { TabPane } = Tabs;
 const URL = process.env.REACT_APP_URL
@@ -32,7 +34,12 @@ const UserDetail = () => {
     <div className='profileDetail'>
         <div className="headerProfile">
           <div className="empty">
-
+          <Tooltip placement="bottom" title="Volver a principal">
+<Link to="/main"><FastBackwardOutlined  style={{
+   fontSize: '3.5em',
+        color: 'white',
+      }}/></Link>
+      </Tooltip>
           </div>
           <div className="block">
           <div className="img">
