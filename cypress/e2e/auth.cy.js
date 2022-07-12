@@ -20,11 +20,12 @@ describe('Probando ciclo de autenticación', () => {
      cy.get('input[name="age"]').click().type('31')
      cy.get('input[name="password"]').click().type('test')
      cy.get('input[name="password2"]').click().type('test')
-     cy.get('input[type="file"]').attachFile('1.png');
      cy.wait(3000)
+     cy.get('input[type="file"]').attachFile('1.png');
+     cy.wait(2000)
      cy.get('[type="submit"]').click()
      cy.get('body').click()
-     cy.wait(3000)
+     cy.wait(4000)
      cy.get('div > .ant-notification-notice > .ant-notification-notice-content > .ant-notification-notice-with-icon > .ant-notification-notice-description').should('have.text','Usuario registrado con éxito')  
   });
 
@@ -50,7 +51,8 @@ describe('Probando ciclo de autenticación', () => {
   });
 
   it("Testing logout",function(){
-    cy.get('.usernameProfile').click()
+    cy.wait(3000)
+    cy.get('.right > .profileIcon > .nameAndI > a > .usernameProfile').click()
     cy.wait(3000)
     cy.url().should('include', '/profile')
     cy.get('.anticon-poweroff').click()
@@ -63,10 +65,11 @@ describe('Probando ciclo de autenticación', () => {
   });
 
   it("Testing login admin y borrar user", function () {
+    cy.wait(3000)
     cy.get('input[name="email"]').click().type('admin@gmail.com')
     cy.get('input[name="password"]').click().type('test')
     cy.get('[type="submit"]').click()
-    cy.wait(3000)
+    cy.wait(4000)
     cy.get('.linkAdmin').click()
     cy.url().should('include', '/admin')
     cy.wait(3000)
