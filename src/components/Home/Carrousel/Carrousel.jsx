@@ -1,9 +1,9 @@
 
-import img1 from '../../../assets/carrousel1.webp'
-import img2 from '../../../assets/carrousel2.webp'
+import img1 from '../../../assets/carrousel1.jpg'
+import img2 from '../../../assets/carrousel2.jpg'
 import img3 from '../../../assets/carrousel3.jpg'
-import img4 from '../../../assets/carrousel4.webp'
-import img5 from '../../../assets/carrousel5.webp'
+import img4 from '../../../assets/carrousel4.jpg'
+import img5 from '../../../assets/carrousel5.jpg'
 
 import './Carrousel.scss'
 import { Carousel } from 'antd';
