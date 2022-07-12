@@ -24,6 +24,8 @@ text-shadow: 2px -1px black;
 @media  screen and (max-width: 600px) {
     .header{
         font-size: 1.5em;
+        text-shadow:none;
+
     }
 }
 .admin{
