@@ -10,6 +10,7 @@ import { likeComment,dislikeComment,deleteComment, resetC } from "../../../../..
 import { HeartOutlined, FastBackwardOutlined } from "@ant-design/icons";
 import ModalAddComment from "../../../../Posts/ModalAddComment/ModalAddComment";
 import ModalEditComment from "../../../../Posts/ModalEditComment/ModalEditComment";
+import { myInfo } from "../../../../../../features/auth/authSlice";
 
 
 const URL = process.env.REACT_APP_URL
@@ -43,8 +44,9 @@ const PostProfileDetail = () => {
 getPostAndReset()
   }, [comment]);
 
-  const deletePostAndNav =(_id)=>{
-    dispatch(deletePost(_id))
+  const deletePostAndNav =async(_id)=>{
+   await dispatch(deletePost(_id))
+   await dispatch(myInfo())
     navigate("/profile");
   }
 
