@@ -35,6 +35,7 @@ if (e.key === "Enter") {
     </div>
     <div className="hidden">
     <Profile/>
+    <ModalAddPost/>
 <AllUsers/>
     </div>
     </div>
