@@ -44,7 +44,7 @@ const ModalAddPost = () => {
 
   return (
     <>
-      <Button onClick={showModal}>Añadir post &nbsp; <i class="fa-solid fa-circle-plus fa-beat"></i></Button>
+      <Button onClick={showModal}>Añadir post &nbsp; <i className="fa-solid fa-circle-plus fa-beat"></i></Button>
       <Modal
         title={
           <div

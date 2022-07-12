@@ -15,3 +15,12 @@ button:hover{
     background-color: $purple1 !important;
     border:2px solid $purple1 !important;
 }
+.ant-modal-body{
+    font-family: $font-title-content;
+    font-size: 1.5em;
+}
+.ant-modal-title{
+    font-family: $font-title-vb;
+    color:$purple1 !important;
+    font-size: 2em !important;
+}

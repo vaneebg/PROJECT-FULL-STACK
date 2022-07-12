@@ -45,7 +45,7 @@ const ModalEditPost = () => {
 
   return (
     <> <Tooltip title="Editar post">
-      <Button className="nobtn" onClick={showModal}><i class="fa-solid fa-brush big"></i></Button>
+      <Button className="nobtn" onClick={showModal}><i className="fa-solid fa-brush big"></i></Button>
      </Tooltip>
       <Modal
         title={

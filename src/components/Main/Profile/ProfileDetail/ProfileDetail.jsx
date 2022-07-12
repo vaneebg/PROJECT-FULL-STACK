@@ -80,7 +80,7 @@ const deleteUserAndRedirect =(_id)=>{
         okText="Yes"
         cancelText="No"
       >
-       <i class="fa-solid fa-trash-can big2"></i>
+       <i className="fa-solid fa-trash-can big2"></i>
       </Popconfirm>
    </div>
    </div>

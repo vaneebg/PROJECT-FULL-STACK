@@ -94,7 +94,7 @@ const PostProfileDetail = () => {
         okText="Yes"
         cancelText="No"
       >
-         <i class="fa-solid fa-trash-can big"></i>
+         <i className="fa-solid fa-trash-can big"></i>
       </Popconfirm> </> : null}
       </div>
       <span className='textlike'>Número de likes: {post.likes?.length}</span>
