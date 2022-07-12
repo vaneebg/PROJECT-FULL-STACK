@@ -1,9 +1,12 @@
 .mobileDis{
-    display:none
+    display:none !important;
 }
 
 @media screen and (max-width: 600px) {
     .mobileDis{
-        display: flex;
+        display: flex !important;
+    }
+    .ant-modal{
+        margin:0 !important;
     }
 }
