@@ -89,7 +89,7 @@ const Register = () => {
       <input 
        onChange={onChange}
        type="file" value={image} name='image'/>
-      <input type="submit" />
+      <input  className="loginBt" type="submit" />
     </form>
     </div>
   );

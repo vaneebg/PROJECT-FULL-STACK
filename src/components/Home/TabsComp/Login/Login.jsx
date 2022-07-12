@@ -67,7 +67,7 @@ return (
  <Input prefix={<MailOutlined/>} type="email" name="email" value={email} onChange={onChange}/>
  <label className="labelR" htmlFor="password">Contraseña:</label>
  <Input prefix={<LockOutlined/>} type="password" name="password" value={password} onChange={onChange}/>
- <button type="submit">Login</button>
+ <button className="loginBt" type="submit">Login</button>
  </form>
   </div>
 )

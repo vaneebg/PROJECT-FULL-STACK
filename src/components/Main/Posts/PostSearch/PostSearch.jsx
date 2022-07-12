@@ -7,6 +7,8 @@ import ModalAddComment from "../ModalAddComment/ModalAddComment";
 import ModalEditComment from "../ModalEditComment/ModalEditComment";
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import { Popconfirm} from 'antd';
+import {  resetC } from "../../../../features/comments/commentsSlice";
+import { notification } from "antd";
 import './PostSearch.scss'
 
 const URL = process.env.REACT_APP_URL
@@ -31,7 +33,19 @@ const PostSearch = () => {
     }
     dispatch(reset());
   }, [isLoading]);
+  const { isError, isSuccess, message } = useSelector((state) => state.comments);
 
+   useEffect(() => {
+     if (isError) {
+       notification.error({ message: "Error", description: message });
+     }
+     if (isSuccess) {
+       notification.success({ message: "Éxito", description: message });
+  
+     }
+    
+     dispatch(resetC());
+   }, [isError, isSuccess, message]);
  
 
   const post= posts?.map(el=>{
@@ -115,9 +129,12 @@ const PostSearch = () => {
        <span className='bold'>{el.title} &nbsp;</span> 
        <span className='italic'>{el.body}</span>
       </div>
+      {el.commentsId?.length!==0 ?
       <div className="boxC">
      {comments}
      </div>
+     :
+     comments}
       <ModalAddComment postId={el._id}/>
     </div>
   )})
