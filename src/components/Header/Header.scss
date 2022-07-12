@@ -15,6 +15,9 @@ color:$purple2;
    a{
     color:white;
    } 
+   a:hover{
+    color:$purple1;
+   }
 }
 @media  screen and (max-width: 600px) {
     .header{
