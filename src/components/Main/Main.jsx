@@ -27,11 +27,15 @@ if (e.key === "Enter") {
 <hr className="hrMain" />
     <div className="buttonspost">
      
-      <div className="searchInput">
+      <div className="searchInput display">
       <label className="titleSearch" htmlFor="text">Búsqueda posts  </label>
       <div className="searchC">
     <input className="searchPost" onKeyUp={handleChange} placeholder="titulo post..." name="text" />
     <i className="fa-solid fa-magnifying-glass-arrow-right iconS"></i>
+    </div>
+    <div className="hidden">
+    <Profile/>
+<AllUsers/>
     </div>
     </div>
     </div>

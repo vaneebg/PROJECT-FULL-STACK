@@ -56,12 +56,23 @@
     font-size: 1.4em;
 }
 
+.searchInput display{
+    display: flex;
+}
+.hidden{
+    display: none;
+    margin-top:1em;
+}
 @media screen and (max-width: 600px) {
-    .sticky{
-        display: none;
+    .buttonspost{
+        background-color: $semi;
+        flex-direction: column;
     }
-    .whoFollow{
-        display: none;
+    .hidden{
+        display: flex;
+        flex-direction: column;
     }
+   
+   
    
 }

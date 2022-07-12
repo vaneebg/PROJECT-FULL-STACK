@@ -52,3 +52,17 @@ justify-content: center;
     border:2px solid $purple1;
 }
 }
+
+@media screen and (max-width: 600px) {
+
+.WhoFollowName{
+    color:white;
+}
+.whoFollow{
+    height:13em;
+}
+.containerStories{
+    width:60em;
+    justify-content: flex-start;
+}
+}
