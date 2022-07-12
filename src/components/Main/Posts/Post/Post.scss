@@ -88,6 +88,9 @@ margin:1em;
     cursor:pointer;
 }
 
+.ant-pagination-total-text, .ant-pagination-item{
+    font-family: $font-title-content !important;
+}
 @media  screen and (max-width: 600px) {
     .imgPost{
         width:20em;
@@ -110,7 +113,5 @@ margin:1em;
         width:1.3em;
         height:1.3em;
     }
-}
-.ant-pagination-total-text, .ant-pagination-item{
-    font-family: $font-title-content !important;
+  
 }

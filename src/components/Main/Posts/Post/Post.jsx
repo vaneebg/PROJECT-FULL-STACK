@@ -8,6 +8,7 @@ import ModalEditComment from "../ModalEditComment/ModalEditComment";
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import {message, Popconfirm, Pagination , notification} from 'antd';
 import './Post.scss'
+import ModalAddCommentNoDrag from '../ModalAddCommentNoDrag/ModalAddCommentNoDrag';
 
 
 const URL = process.env.REACT_APP_URL
@@ -131,6 +132,7 @@ const Post = ({pageC, functionPage}) => {
      :
      comments}
       <ModalAddComment postId={el._id}/>
+      <ModalAddCommentNoDrag postId={el._id}/>
     </div>
   )})
   return(<>

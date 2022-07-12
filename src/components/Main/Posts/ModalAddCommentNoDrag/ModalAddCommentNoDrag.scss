@@ -1,0 +1,9 @@
+.mobileDis{
+    display:none
+}
+
+@media screen and (max-width: 600px) {
+    .mobileDis{
+        display: flex;
+    }
+}

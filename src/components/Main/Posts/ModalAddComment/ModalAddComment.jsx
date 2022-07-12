@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import Draggable from 'react-draggable';
 import AddComment from '../Post/Comments/AddComment/AddComment';
 import { Button, Modal } from 'antd';
-
+import './ModalAddComment.scss'
 
 
 
@@ -47,7 +47,7 @@ const ModalAddComment = ({postId}) => {
 
   return (
     <>
-      <Button onClick={showModal}>Añadir comentario</Button>
+      <Button className="hiddenMobile" onClick={showModal}>Añadir comentario</Button>
       <Modal
         title={
           <div
