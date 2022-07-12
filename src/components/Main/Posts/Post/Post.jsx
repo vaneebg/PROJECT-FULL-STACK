@@ -124,8 +124,12 @@ const Post = ({pageC, functionPage}) => {
        <span className='bold'>{el.title} &nbsp;</span> 
        <span className='italic'>{el.body}</span>
       </div>
+      {el.commentsId?.length!==0 ?
+      <div className="boxC">
      {comments}
-
+     </div>
+     :
+     comments}
       <ModalAddComment postId={el._id}/>
     </div>
   )})

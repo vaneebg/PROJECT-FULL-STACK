@@ -1,0 +1,25 @@
+@import '../../../../variables.scss';
+
+
+.postContentB{
+    background-image: url('../../../../assets/background.jpg');
+    background-size:cover;
+    background-attachment:fixed;
+    display: flex;
+    justify-content: center;
+   
+}
+.postContentS{
+    display:flex;
+    flex-direction: column;
+    border:2px solid $purple1;
+    padding:10px;
+    border-radius: 10px;
+    box-shadow: 9px -10px rgba(172, 170, 170, 0.579);
+    margin:2em;
+    background-color: $whitesemi2;
+}
+.boxC{
+    overflow: scroll;
+    height:18em;
+}

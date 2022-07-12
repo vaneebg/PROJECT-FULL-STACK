@@ -7,7 +7,7 @@ import ModalAddComment from "../ModalAddComment/ModalAddComment";
 import ModalEditComment from "../ModalEditComment/ModalEditComment";
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import { Popconfirm} from 'antd';
-
+import './PostSearch.scss'
 
 const URL = process.env.REACT_APP_URL
 
@@ -49,7 +49,7 @@ const PostSearch = () => {
       const isAlreadyLikedComment = comment.likes?.includes(user?.user._id);
       return(
       <div className="comments" key={i}>
-          <div className="icons">
+          <div className="iconsPosts">
       {isAlreadyLikedComment ? (
         <i className="fa-solid fa-heart fa-beat" onClick={ isAlreadyLikedComment ? () => dispatch(dislikeComment(comment._id)) : () => dispatch(likeComment(comment._id)) }></i>
 ) : (
@@ -58,13 +58,13 @@ const PostSearch = () => {
       }}  onClick={ isAlreadyLikedComment ? () => dispatch(dislikeComment(comment._id)) : () => dispatch(likeComment(comment._id)) } />
 )}
 
-       <span>{comment.likes.length} Likes comentario</span> 
+       <span className='textlike'>&nbsp;{comment.likes.length} Likes comentario</span> 
       </div>
         <div className="userC">
       {comment.userId.image ? <img className='imgUserC'src={URL+"/images/users/" + comment.userId.image} alt=''/> : null}
- <span>{comment.userId.username}</span>
+ <span className='nameUser'>{comment.userId.username}</span>
 
- <span>{dateC}</span>
+ <span className='italic date'>{dateC}</span>
  { comment.userId._id===userLocal.user._id ? <> <ModalEditComment commentId={comment._id}/>  <Popconfirm
         placement="rightTop"
         title="Seguro que quieres borrar este comentario?"
@@ -72,15 +72,15 @@ const PostSearch = () => {
         okText="Yes"
         cancelText="No"
       >
-        <button>X</button>
+        <button className="btnModalC"><i class="fa-solid big fa-bomb"></i></button>
       </Popconfirm> </>: null}
 
 
 
  </div>
  <div className="textC">
-       <span className='bold'>{comment.title}&nbsp;</span>  
-       <span className='italic'>{comment.body}</span> <br />
+       <span className='bold textC'>{comment.title}&nbsp;</span>  
+       <span className='italic textC'>{comment.body}</span> <br />
        {comment.image ? <img className='gifComment'src={URL+"/images/comments/" + comment.image} alt=''/> : null}
        </div>
       </div>
@@ -94,38 +94,39 @@ const PostSearch = () => {
 
     
     return(
-    <div className="postContent" key={el._id}>
+    <div className="postContentS" key={el._id}>
       <div className="headerPost">
       {el.userId.image ? <img className='imgUser'src={URL+"/images/users/" + el.userId.image} alt=''/> : <img className='imgUser' src={URL+"/images/users/none.jpg"} alt=''/>}
-      <span> {el.userId.username}</span>
+      <span className='nameUser'> {el.userId.username}</span>
       
-      <span>{dateP}</span>
       </div>
       {el.image ? <img className='imgPost' src={URL+"/images/posts/" + el.image} alt=''/> : <img className='imgPost' src={URL+"/images/posts/16.jpg"} alt=''/>}
-      <div className="icons">
+      <span className='italic date'>{dateP}</span>
+      <div className="iconsPosts">
       {isAlreadyLiked ? (
         <i className="fa-solid fa-heart fa-beat" onClick={ isAlreadyLiked ? () => dispatch(dislike(el._id)) : () => dispatch(like(el._id)) } ></i>
 ) : (
 <HeartOutlined onClick={ isAlreadyLiked ? () => dispatch(dislike(el._id)) : () => dispatch(like(el._id)) } />
 )}
 
-       <span>{el.likes.length} Likes</span> 
+       <span className='textlike'>{el.likes.length} Likes</span> 
       </div>
       <div className="contentText">
        <span className='bold'>{el.title} &nbsp;</span> 
        <span className='italic'>{el.body}</span>
       </div>
+      <div className="boxC">
      {comments}
-
+     </div>
       <ModalAddComment postId={el._id}/>
     </div>
   )})
-  return(<>
+  return(<div className="postContentB">
   
   
    {post}
   
-   </>
+   </div>
   )
 };
 
