@@ -13,18 +13,6 @@ const Admin = () => {
         dispatch(allUsers()); 
           }, []);
 
-const { isError, isSuccess,message} = useSelector((state) => state.auth);
-
-useEffect(() => {
-            if (isError) {
-              notification.error({ message: "Error", description: message });
-            }
-            if (isSuccess) {
-              notification.success({ message: "Éxito", description: message });
-            }
-            dispatch(reset());
-          }, [isError, isSuccess, message]);
-
 
 
     return (

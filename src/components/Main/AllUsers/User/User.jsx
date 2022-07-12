@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
-import {  notification } from 'antd'
+import {  notification, Popconfirm, Button } from 'antd'
 import {  useSelector, useDispatch } from "react-redux";
 import { follow,unfollow,reset, deleteUserAdmin } from "../../../../features/auth/authSlice";
 import { RedditOutlined  } from '@ant-design/icons';
@@ -55,8 +55,13 @@ const user1=users.map((el,i)=>{
         
               </>: null}
               </div>
-              {user.user.role==="admin" ?  <button  onClick={() => dispatch(deleteUserAdmin((el._id)))}>Eliminar usuario</button> : null}
+              {user.user.role==="admin" ?  <Popconfirm title="Seguro que quieres borrar este usuario?" placement="rightTop" onConfirm={() => dispatch(deleteUserAdmin((el._id)))} okText="Yes" cancelText="No">
+ <Button>Eliminar usuario</Button>
+</Popconfirm> : null}
                  </div>
+ 
+
+
     )}}})
   return (<>
    {user1}
