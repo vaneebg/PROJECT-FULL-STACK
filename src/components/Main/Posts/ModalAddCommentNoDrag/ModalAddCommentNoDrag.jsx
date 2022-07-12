@@ -20,7 +20,7 @@ const ModalAddCommentNoDrag = ({postId}) => {
 
   return (
     <>
-      <Button type="primary mobileDis" placeholder="leftTop" onClick={showModal}>
+      <Button type="primary mobileDis" onClick={showModal}>
         Añadir nuevo comentario
       </Button>
       <Modal
