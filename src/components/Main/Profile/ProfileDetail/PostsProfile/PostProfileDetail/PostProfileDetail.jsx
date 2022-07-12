@@ -68,7 +68,7 @@ getPostAndReset()
 
 
     return (
-      <div key={i} className="comments cProfile">
+      <div key={i} className="comments">
 
         <div className="iconsPosts">
         {isAlreadyLikedComment ? (
@@ -78,7 +78,7 @@ getPostAndReset()
         color: '#6F0B8A',
       }}  onClick={ isAlreadyLikedComment ? () => dispatch(dislikeComment(el._id)) : () => dispatch(likeComment(el._id)) } />
 )}
-          <span className='textlike'>{el.likes.length} Likes comentario</span>
+          <span className='textlike'>&nbsp;{el.likes.length} Likes comentario</span>
         </div>
         <div className="userC">
           {el.userId.image ? <img className='imgUserC' src={URL + "/images/users/" + el.userId.image} alt='' /> : null}
