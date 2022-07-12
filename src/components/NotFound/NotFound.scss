@@ -337,7 +337,6 @@
          align-items: center;
          position: relative;
  
-         // Scene for the Parallax Effect
          .scene {
              position: absolute;
              width: 100vw;
@@ -345,7 +344,6 @@
              vertical-align: middle;
          }
  
-         // All elements' containers
          .one,
          .two,
          .three,
@@ -376,7 +374,6 @@
                      }
                  }
  
-                 // Pieces
                  .piece {
                      width: 200px;
                      height: 80px;
@@ -434,7 +431,6 @@
              }
          }
  
-         // Text and Button container
          .text {
              width: 60%;
              height: 40%;
@@ -508,7 +504,6 @@
              }
          }
  
-         // The 404 Number
          .p404 {
              font-size: 200px;
              font-weight: 700;
@@ -544,7 +539,6 @@
  
          }
  
-         // Bigger Circle
          .circle {
              position: absolute;
  
@@ -576,11 +570,9 @@
              }
          }
  
-         // Container 1
          .one {
              .content {
  
-                 // Smaller Circle
                  &:before {
                      content: '';
                      position: absolute;
@@ -633,7 +625,6 @@
              }
          }
  
-         // Container 2
          .two {
              .content {
                  .piece {
@@ -670,7 +661,6 @@
              }
          }
  
-         // Container 3
          .three {
              .content {
                  .piece {
