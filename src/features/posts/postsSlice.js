@@ -127,7 +127,10 @@ export const postsSlice = createSlice({
           return post;
         });
         state.posts = posts;
+        const post = action.payload;
+        state.post = post;
       })
+      
 
       .addCase(dislike.fulfilled, (state, action) => {
         const posts = state.posts.map((post) => {
@@ -137,6 +140,8 @@ export const postsSlice = createSlice({
           return post;
         });
         state.posts = posts;
+        const post = action.payload;
+        state.post = post;
       })
       .addCase(addNewPost.fulfilled, (state, action) => {
         state.posts =[action.payload.postCreated[0],...state.posts]
