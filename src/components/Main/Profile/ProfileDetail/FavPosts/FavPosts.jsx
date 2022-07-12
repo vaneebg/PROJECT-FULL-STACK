@@ -6,6 +6,8 @@ import { myInfo } from '../../../../../features/auth/authSlice';
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import { Tooltip } from 'antd';
 import './FavPosts.scss'
+import NotPublicPost from '../../../NotPublicPost/NotPublicPost';
+import NotFav from './NotFav/NotFav';
 
 const URL = process.env.REACT_APP_URL
 
@@ -51,10 +53,10 @@ const postFav=user.user.favList?.map((post,i)=>{
 )}
   )
   return(
-    <div className='postsUser'>
+    postFav.length!==0 ? <div className="postsUser">
     {postFav}
-    
-    </div>
+    </div>: <NotFav/>
+   
   )
 }
 

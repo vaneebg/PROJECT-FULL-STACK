@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { Link } from 'react-router-dom'
 import { Tooltip } from 'antd';
 import './PostsProfile.scss'
+import NotPublicPost from "../../../NotPublicPost/NotPublicPost";
 
 const URL = process.env.REACT_APP_URL
 
@@ -27,9 +28,10 @@ const PostsProfile = () => {
     })
 
   return (
-    <div className="postsUser">
-        {post}
-        </div>
+    post.length!==0 ? <div className="postsUser">
+    {post}
+    </div>: <NotPublicPost/>
+  
   )
 }
 
