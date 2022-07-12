@@ -9,7 +9,7 @@ import Followers from './Followers/Followers';
 import Following from './Following/Following';
 import FavPosts from './FavPosts/FavPosts';
 import { Tooltip,Tabs,notification,Popconfirm} from 'antd';
-import { PoweroffOutlined } from "@ant-design/icons";
+import { PoweroffOutlined,FastBackwardOutlined } from "@ant-design/icons";
 import './ProfileDetail.scss'
 const { TabPane } = Tabs;
 
@@ -46,7 +46,12 @@ const deleteUserAndRedirect =(_id)=>{
     <div className='profileDetail'>
         <div className="headerProfile">
           <div className="empty">
-
+            <Tooltip placement="bottom" title="Volver a principal">
+<Link to="/main"><FastBackwardOutlined  style={{
+   fontSize: '3.5em',
+        color: 'white',
+      }}/></Link>
+      </Tooltip>
           </div>
           <div className="block">
           <div className="img">

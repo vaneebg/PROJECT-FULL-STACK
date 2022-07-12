@@ -8,12 +8,16 @@
 }
 .headerProfile{
     display:flex;
+    align-items: center;
     justify-content: space-around;
 }
 .imgUserProfileB{
     border-radius: 100px;
 width:10em;
 margin:1em;
+}
+svg:hover{
+    color:$purple5;
 }
 .buttonsProfile{
     margin-left:2em;
