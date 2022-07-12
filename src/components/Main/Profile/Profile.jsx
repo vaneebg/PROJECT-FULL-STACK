@@ -28,6 +28,7 @@ const Profile = () => {
            <span>Email: {user.user.email}</span>
            <span>Edad: {user.user.age}</span>
     </div>
+    
   )
 }
 

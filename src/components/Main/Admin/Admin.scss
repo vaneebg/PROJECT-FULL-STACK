@@ -1,0 +1,26 @@
+@import '../../../variables.scss';
+
+.delete{
+    font-family: $font-title-content;
+    font-size: 3em;
+    text-decoration: underline;
+}
+.centerD{
+    display: flex;
+    justify-content: center;
+   
+}
+.usersDelete{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:40%;
+    border: 2px  solid $purple1;
+    background-color: $whitesemi;
+    margin:1em;
+}
+.backg{
+    background-image: url('../../../assets/background.jpg');
+    background-size:cover;
+    background-attachment:fixed;
+}

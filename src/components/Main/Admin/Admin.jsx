@@ -3,7 +3,7 @@ import User from "../AllUsers/User/User";
 import { useDispatch,useSelector} from "react-redux";
 import { useEffect } from 'react';
 import {notification} from 'antd';
-
+import './Admin.scss'
 
 
 const Admin = () => {
@@ -28,12 +28,13 @@ useEffect(() => {
 
 
     return (
-    <div>Admin
-
-    <div>Usuarios:
+   <div className="backg">
+      <span className="delete">Borrar usuarios:</span>
+<div className="centerD">
+  <div className="usersDelete">
 <User/>
 </div>
-  
+</div>
     </div>
     )
     }

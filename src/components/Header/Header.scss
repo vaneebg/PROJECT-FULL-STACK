@@ -10,9 +10,20 @@ color:$purple2;
     border-bottom:2px solid $purple1;
     z-index: 1;
 }
-
+.admin{
+    background-color: $semi;
+   a{
+    color:white;
+   } 
+}
 @media  screen and (max-width: 600px) {
     .header{
         font-size: 1.5em;
+    }
+}
+.admin{
+    a{
+        font-family: $font-title-content;
+        font-size: 2em;
     }
 }

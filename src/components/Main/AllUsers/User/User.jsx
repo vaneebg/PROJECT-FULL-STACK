@@ -40,9 +40,11 @@ const user1=users.map((el,i)=>{
   if(el.username !=="ADMIN"){
   return(<div className='connects' key={i}>
          {el.image ? <img className='imgUserC'src={URL+"/images/users/" + el.image} alt=''/> : null}
+   <div className="usernameEye">
    <span className="nameFollow"> {el.username}</span>
-   <div className="icons">
     <Link to={"/user/" + el._id}><i className="fa-solid fa-eye"></i></Link>
+   </div>
+   <div className="icons">
 
     {user.user.role!=="admin" ?   <>
        {isAlreadyFollowing ? (
