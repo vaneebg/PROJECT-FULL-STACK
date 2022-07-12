@@ -86,7 +86,7 @@ const PostSearch = () => {
         okText="Yes"
         cancelText="No"
       >
-        <button className="btnModalC"><i class="fa-solid big fa-bomb"></i></button>
+        <button className="btnModalC"><i className="fa-solid big fa-bomb"></i></button>
       </Popconfirm> </>: null}
 
 

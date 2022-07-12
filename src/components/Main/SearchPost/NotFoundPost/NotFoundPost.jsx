@@ -3,7 +3,7 @@ import './NotFoundPost.scss'
 
 const NotFoundPost = () => {
   return (
-  <div className="body"><div class="scene">
+  <div className="body"><div className="scene">
   <div className="box">
     <div className="box__face front">4</div>
     <div className="box__face back">0</div>

@@ -96,7 +96,7 @@ getPostAndReset()
         okText="Yes"
         cancelText="No"
       >
-        <button className="btnModalC"><i class="fa-solid big fa-bomb"></i></button>
+        <button className="btnModalC"><i className="fa-solid big fa-bomb"></i></button>
       </Popconfirm> </>: null}
 
         </div>
@@ -116,7 +116,6 @@ getPostAndReset()
   const dateP = ` ${newDateMinuteP} ${newDateMonthP} `
   const isAlreadyLiked = post.likes?.includes(user?.user._id);
 
-  {console.log(post)}
   return (
     <div className="centerPost">
     <div className='postProfileDetail'>

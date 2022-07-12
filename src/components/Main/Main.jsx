@@ -31,7 +31,7 @@ if (e.key === "Enter") {
       <label className="titleSearch" htmlFor="text">Búsqueda posts  </label>
       <div className="searchC">
     <input className="searchPost" onKeyUp={handleChange} placeholder="titulo post..." name="text" />
-    <i class="fa-solid fa-magnifying-glass-arrow-right iconS"></i>
+    <i className="fa-solid fa-magnifying-glass-arrow-right iconS"></i>
     </div>
     </div>
     </div>
