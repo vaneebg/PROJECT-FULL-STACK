@@ -7,6 +7,7 @@ import ModalAddPost from './ModalAddPost/ModalAddPost'
 import AllUsers from './AllUsers/AllUsers'
 import './Main.scss'
 import UsersOnline from "./UsersOnline/UsersOnline";
+import AddPostNoDrag from "./Posts/Post/AddPostNoDrag/AddPostNoDrag";
 
 const Main = () => {
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ if (e.key === "Enter") {
     </div>
     <div className="hidden">
     <Profile/>
-    <ModalAddPost/>
+    <AddPostNoDrag/>
 <AllUsers/>
     </div>
     </div>
@@ -44,6 +45,7 @@ if (e.key === "Enter") {
      <div className="sticky">
       <div className="right">
     <ModalAddPost/> <br />
+   
      <Profile/>
      </div>
     </div>
