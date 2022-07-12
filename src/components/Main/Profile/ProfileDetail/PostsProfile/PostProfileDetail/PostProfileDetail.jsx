@@ -43,6 +43,11 @@ const PostProfileDetail = () => {
 getPostAndReset()
   }, [comment]);
 
+  const deletePostAndNav =(_id)=>{
+    dispatch(deletePost(_id))
+    navigate("/profile");
+  }
+
   const { isError, isSuccess, message } = useSelector((state) => state.comments);
 
   useEffect(() => {
@@ -126,7 +131,7 @@ getPostAndReset()
       {post.userId === userLocal.user._id ? <><ModalEditPost /><Popconfirm
         placement="rightTop"
         title="Seguro que quieres borrar este post?"
-        onConfirm={() => dispatch(deletePost(post._id))}
+        onConfirm={() => dispatch(deletePostAndNav(post._id))}
         okText="Yes"
         cancelText="No"
       >
