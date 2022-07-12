@@ -21,8 +21,7 @@ const PostsProfile = () => {
         </Link>  
         </Tooltip>
      </div>
-      
-
+ 
         
     )
     })

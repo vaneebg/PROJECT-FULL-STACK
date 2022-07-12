@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { Link } from 'react-router-dom'
 import { Tooltip } from 'antd';
+import NotPublicPost from "../../../../NotPublicPost/NotPublicPost";
 
 const URL = process.env.REACT_APP_URL
 
@@ -11,7 +12,6 @@ const PostsProfileUser = () => {
   if (isLoading) {
     return <h1>Cargando posts..</h1>;
   }
-
       const post =userProfile?.user.postsId.map((el,i)=>{
     return(  <div key={i}  className="postContentProfile">
       <Tooltip title={"Click para más info sobre: "+el.title}color='purple' key='purple'>
@@ -27,10 +27,12 @@ const PostsProfileUser = () => {
     )
     })
 
+    console.log(post.length)
   return (
-    <div className="postsUser">
-        {post}
-        </div>
+    post.length!==0 ? <div className="postsUser">
+    {post}
+    </div>: <NotPublicPost/>
+   
   )
 }
 

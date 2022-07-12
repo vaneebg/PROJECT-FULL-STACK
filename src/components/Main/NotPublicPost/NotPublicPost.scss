@@ -1,0 +1,15 @@
+@import '../../../variables.scss';
+
+.noPosts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.noPost{
+    font-family: $font-title-vb;
+    font-size: 3em;
+}
+.gifno{
+    width:20em;
+}
