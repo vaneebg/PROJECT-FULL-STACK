@@ -72,10 +72,14 @@
         display: flex;
         flex-direction: column;
     }
-    .right{
-        display: none;
+   
+    .contentMain{
+        flex-direction: column;  
+        align-items: center;
+        justify-content: center;
     }
-   
-   
+    .item-2{
+        order:-2;
+           }
    
 }
