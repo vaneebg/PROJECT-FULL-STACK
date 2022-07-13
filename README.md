@@ -428,7 +428,7 @@ Principal problema sobre todo en el desarrollo responsive. Pese a que en formato
 A una gran amiga por la idea del diseño principal, a [Xavi](https://github.com/franpd8) por su super ayuda con la páginación.
 A [Fran](https://github.com/franpd8) también por esos medio días de catarsis tan necesaria cuando tenemos tanto estrés.
 
-Al profe [Ger] en especial (https://github.com/GeerDev) por tantos y tantos bugs solucionados con su ayuda.
+Al profe [Ger](https://github.com/GeerDev) en especial por tantos y tantos bugs solucionados con su ayuda.
 
 ----------------
 
