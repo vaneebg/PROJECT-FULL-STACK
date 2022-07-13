@@ -248,7 +248,10 @@ Dos de ellos se encuentran fijados para aparecer siempre independientemente del 
 - **Footer:** consta del nombre del autor junto con el año de creación. A mano derecha hay una serie de links dispuestos como iconos que redireccionan a las diferentes redes sociales.
 
 
+
 Resto de componentes se ha organizado de forma que cada uno se especialice lo máximo posible en una única función. Por ejemplo, User se encarga de mapear los usuarios y mostrarlos en AllUsers, al igual que Post mapea todos los posts que hay y los muestra en el componente padre Posts.
+
+
 -------
 
 ## 3. Redux
