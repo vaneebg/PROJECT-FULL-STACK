@@ -6,7 +6,8 @@ import './ModalAddComment.scss'
 
 
 
-const ModalAddComment = ({postId}) => {
+const ModalAddComment = ({ postId }) => {
+  
   const [visible, setVisible] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [bounds, setBounds] = useState({
@@ -62,11 +63,11 @@ const ModalAddComment = ({postId}) => {
             }}
             onMouseOut={() => {
               setDisabled(true);
-            }} 
-            onFocus={() => {}}
-            onBlur={() => {}} 
+            }}
+            onFocus={() => { }}
+            onBlur={() => { }}
           >
-           Añadir nuevo comentario
+            Añadir nuevo comentario
           </div>
         }
         visible={visible}
@@ -87,7 +88,7 @@ const ModalAddComment = ({postId}) => {
           </Draggable>
         )}
       >
-       <AddComment postId={postId}/>
+        <AddComment postId={postId} />
       </Modal>
     </>
   );

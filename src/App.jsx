@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter,Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Main from './components/Main/Main'
@@ -10,32 +10,31 @@ import PrivateZone from "./guards/PrivateZone";
 import NotFound from './components/NotFound/NotFound';
 import UserDetail from './components/Main/AllUsers/User/UserDetail/UserDetail';
 import Admin from "./components/Main/Admin/Admin";
-import "antd/dist/antd.css";
-import './App.css';
 import AdminZone from './guards/AdminZone';
 import Footer from './components/Footer/Footer';
 import NotFoundPost from './components/Main/SearchPost/NotFoundPost/NotFoundPost';
+import "antd/dist/antd.css";
+import './App.css';
 
 
 function App() {
   return (
     <div className="App">
-    <BrowserRouter>
-    <Header/>
-<Routes>
-  <Route path="/" element={<Home/>}/>
-<Route path="/main" element={<PrivateZone><Main/></PrivateZone>}/>
-<Route path="/profile" element={<PrivateZone><ProfileDetail/></PrivateZone>}/>
-<Route path="/post/:_id" element={<PrivateZone><PostProfileDetail /></PrivateZone>} />
-<Route path="/user/:_id" element={<PrivateZone><UserDetail /></PrivateZone>} />
-<Route path="/search/titlePost/:postName" element={<PrivateZone><SearchPost/></PrivateZone>} />
-<Route path="/search/notfound" element={<PrivateZone><NotFoundPost/></PrivateZone>} />
-
-<Route path="/admin" element={<AdminZone><Admin /></AdminZone>} />
-<Route path="*" element={<NotFound />} />
-</Routes>
-<Footer/>
-</BrowserRouter>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/main" element={<PrivateZone><Main /></PrivateZone>} />
+          <Route path="/profile" element={<PrivateZone><ProfileDetail /></PrivateZone>} />
+          <Route path="/post/:_id" element={<PrivateZone><PostProfileDetail /></PrivateZone>} />
+          <Route path="/user/:_id" element={<PrivateZone><UserDetail /></PrivateZone>} />
+          <Route path="/search/titlePost/:postName" element={<PrivateZone><SearchPost /></PrivateZone>} />
+          <Route path="/search/notfound" element={<PrivateZone><NotFoundPost /></PrivateZone>} />
+          <Route path="/admin" element={<AdminZone><Admin /></AdminZone>} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }

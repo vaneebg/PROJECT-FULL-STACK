@@ -3,6 +3,8 @@ import Draggable from 'react-draggable';
 import AddPost from '../Posts/Post/AddPost/AddPost';
 import { Button, Modal } from 'antd';
 import './ModalAddPost.scss'
+
+
 const ModalAddPost = () => {
   const [visible, setVisible] = useState(false);
   const [disabled, setDisabled] = useState(false);
@@ -12,6 +14,7 @@ const ModalAddPost = () => {
     bottom: 0,
     right: 0,
   });
+  
   const draggleRef = useRef(null);
 
   const showModal = () => {
@@ -59,11 +62,11 @@ const ModalAddPost = () => {
             }}
             onMouseOut={() => {
               setDisabled(true);
-            }} 
-            onFocus={() => {}}
-            onBlur={() => {}} 
+            }}
+            onFocus={() => { }}
+            onBlur={() => { }}
           >
-           Añadir nuevo post
+            Añadir nuevo post
           </div>
         }
         visible={visible}
@@ -84,7 +87,7 @@ const ModalAddPost = () => {
           </Draggable>
         )}
       >
-       <AddPost />
+        <AddPost />
       </Modal>
     </>
   );

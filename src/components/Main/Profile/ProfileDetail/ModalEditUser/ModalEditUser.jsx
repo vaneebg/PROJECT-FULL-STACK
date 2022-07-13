@@ -3,6 +3,8 @@ import Draggable from 'react-draggable';
 import EditUser from '../EditUser/EditUser';
 import { Button, Modal, Tooltip } from 'antd';
 import './ModalEditUser.scss'
+
+
 const ModalEditUser = () => {
   const [visible, setVisible] = useState(false);
   const [disabled, setDisabled] = useState(false);
@@ -33,7 +35,6 @@ const ModalEditUser = () => {
     if (!targetRect) {
       return;
     }
-
     setBounds({
       left: -targetRect.left + uiData.x,
       right: clientWidth - (targetRect.right - uiData.x),
@@ -43,10 +44,10 @@ const ModalEditUser = () => {
   };
 
   return (
-    <>          <Tooltip title="Editar perfil">
-
+    <>          
+    <Tooltip title="Editar perfil">
       <Button className="nobtn" onClick={showModal}><i className="fa-solid fa-brush big2"></i></Button>
-      </Tooltip>
+    </Tooltip>
       <Modal
         title={
           <div
@@ -61,11 +62,11 @@ const ModalEditUser = () => {
             }}
             onMouseOut={() => {
               setDisabled(true);
-            }} 
-            onFocus={() => {}}
-            onBlur={() => {}} 
+            }}
+            onFocus={() => { }}
+            onBlur={() => { }}
           >
-           Subir cambios
+            Subir cambios
           </div>
         }
         visible={visible}
@@ -86,7 +87,7 @@ const ModalEditUser = () => {
           </Draggable>
         )}
       >
-       <EditUser/>
+        <EditUser />
       </Modal>
     </>
   );

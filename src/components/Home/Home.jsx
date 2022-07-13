@@ -6,10 +6,9 @@ import './Home.scss'
 const Home = () => {
   return (
     <div className='home'>
-        
-    <Carrousel/>
-<TabsComp/>
-</div>
+      <Carrousel />
+      <TabsComp />
+    </div>
   )
 }
 

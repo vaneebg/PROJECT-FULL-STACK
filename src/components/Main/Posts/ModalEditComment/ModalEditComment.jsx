@@ -4,7 +4,8 @@ import EditComment from '../Post/Comments/EditComment/EditComment';
 import { Button, Modal } from 'antd';
 import './ModalEditComment.scss'
 
-const ModalEditComment = ({commentId}) => {
+const ModalEditComment = ({ commentId }) => {
+  
   const [visible, setVisible] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [bounds, setBounds] = useState({
@@ -60,11 +61,11 @@ const ModalEditComment = ({commentId}) => {
             }}
             onMouseOut={() => {
               setDisabled(true);
-            }} 
-            onFocus={() => {}}
-            onBlur={() => {}} 
+            }}
+            onFocus={() => { }}
+            onBlur={() => { }}
           >
-          Modificar comentario
+            Modificar comentario
           </div>
         }
         visible={visible}
@@ -85,7 +86,7 @@ const ModalEditComment = ({commentId}) => {
           </Draggable>
         )}
       >
-       <EditComment commentId={commentId}/>
+        <EditComment commentId={commentId} />
       </Modal>
     </>
   );

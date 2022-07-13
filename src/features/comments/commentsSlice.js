@@ -2,17 +2,15 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import commentsService from "./commentsService";
 
 const initialState = {
-  comment:{},
+  comment: {},
   isLoading: false,
   isError: false,
   isSuccess: false,
   message: "",
-  page:1,
+  page: 1,
 };
 
-
-
-export const addNewComment = createAsyncThunk("comments/addNewComment", async(comment,thunkAPI)=>{
+export const addNewComment = createAsyncThunk("comments/addNewComment", async (comment, thunkAPI) => {
   try {
     return await commentsService.addNewComment(comment)
   } catch (error) {
@@ -20,24 +18,26 @@ export const addNewComment = createAsyncThunk("comments/addNewComment", async(co
     const message = error.response.data;
     return thunkAPI.rejectWithValue(message);
   }
-})
+});
+
 export const likeComment = createAsyncThunk("comments/likeComment", async (_id) => {
   try {
     return await commentsService.likeComment(_id);
   } catch (error) {
     console.error(error);
- 
+
   }
 });
+
 export const dislikeComment = createAsyncThunk("comments/dislikeComment", async (_id) => {
   try {
     return await commentsService.dislikeComment(_id);
   } catch (error) {
     console.error(error);
- 
   }
 });
-export const editComment = createAsyncThunk("comments/editComment", async(comment,thunkAPI)=>{
+
+export const editComment = createAsyncThunk("comments/editComment", async (comment, thunkAPI) => {
   try {
     return await commentsService.editComment(comment)
   } catch (error) {
@@ -46,7 +46,8 @@ export const editComment = createAsyncThunk("comments/editComment", async(commen
     return thunkAPI.rejectWithValue(message);
   }
 });
-export const deleteComment = createAsyncThunk("comments/deleteComment", async(_id,thunkAPI)=>{
+
+export const deleteComment = createAsyncThunk("comments/deleteComment", async (_id, thunkAPI) => {
   try {
     return await commentsService.deleteComment(_id)
   } catch (error) {
@@ -54,7 +55,8 @@ export const deleteComment = createAsyncThunk("comments/deleteComment", async(_i
     const message = error.response.data;
     return thunkAPI.rejectWithValue(message);
   }
-})
+});
+
 export const commentsSlice = createSlice({
   name: "comments",
   initialState,
@@ -64,21 +66,17 @@ export const commentsSlice = createSlice({
       state.isLoading = false;
       state.isSuccess = false;
       state.message = "";
-
     },
     choosePage: (state) => {
-      state.page= false;
-     
-
+      state.page = false;
     },
   },
   extraReducers: (builder) => {
-        builder.addCase(addNewComment.fulfilled, (state, action) => {
-        state.comment  = action.payload.comment;
-        state.isSuccess = true;
-        state.message = action.payload.message;
-  
-      })
+    builder.addCase(addNewComment.fulfilled, (state, action) => {
+      state.comment = action.payload.comment;
+      state.isSuccess = true;
+      state.message = action.payload.message;
+    })
       .addCase(addNewComment.rejected, (state, action) => {
         state.isError = true;
         state.message = action.payload.message;
@@ -89,11 +87,10 @@ export const commentsSlice = createSlice({
       .addCase(dislikeComment.fulfilled, (state, action) => {
         state.comment = action.payload;
       })
-      .addCase(editComment.fulfilled,(state,action)=>{
-        state.comment  = action.payload.comment;
+      .addCase(editComment.fulfilled, (state, action) => {
+        state.comment = action.payload.comment;
         state.isSuccess = true;
         state.message = action.payload.message;
-
       })
       .addCase(editComment.rejected, (state, action) => {
         state.isError = true;
@@ -101,7 +98,7 @@ export const commentsSlice = createSlice({
       })
       .addCase(deleteComment.fulfilled, (state, action) => {
         state.isSuccess = true;
-        state.comment  = action.payload.comment;
+        state.comment = action.payload.comment;
         state.message = action.payload.message;
       })
       .addCase(deleteComment.rejected, (state, action) => {

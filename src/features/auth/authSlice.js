@@ -8,15 +8,15 @@ const initialState = {
   userProfile: null,
   isError: false,
   isSuccess: false,
-  messageLogout:"",
+  messageLogout: "",
   isLoading: false,
   message: "",
-  users:[],
-  usersOnline:[]
+  users: [],
+  usersOnline: []
 };
 
 
-export const register = createAsyncThunk("auth/register", async (userReg,thunkAPI) => {
+export const register = createAsyncThunk("auth/register", async (userReg, thunkAPI) => {
   try {
     return await authService.register(userReg);
   } catch (error) {
@@ -25,102 +25,110 @@ export const register = createAsyncThunk("auth/register", async (userReg,thunkAP
     return thunkAPI.rejectWithValue(message);
   }
 });
-export const login = createAsyncThunk("auth/login", async (user,thunkAPI) => {
+
+export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
   try {
-  return await authService.login(user);
+    return await authService.login(user);
   } catch (error) {
     console.error(error);
     const message = error.response.data;
-  return thunkAPI.rejectWithValue(message);
+    return thunkAPI.rejectWithValue(message);
   }
-  });
-  export const logout = createAsyncThunk("auth/logout", async (thunkAPI) => {
-    try {
-      return await authService.logout();
-    } catch (error) {
-      console.error(error);
-      const message = error.response.data;
-      return thunkAPI.rejectWithValue(message);
-    }
-  });
-  export const myInfo = createAsyncThunk("auth/miInfo", async (thunkAPI) => {
+});
 
-    try {
-      return await authService.myInfo(user);
-    } catch (error) {
-      console.error(error);
-      const message = error.response.data.message;
-      return thunkAPI.rejectWithValue(message);
-    }
-  });
-  export const allUsers = createAsyncThunk("auth/allUsers", async () => {
-    try {
-      return await authService.allUsers();
-    } catch (error) {
-      console.error(error);
-    }
-  });
-  export const editUser = createAsyncThunk("auth/editUser", async (userDataEdit,thunkAPI) => {
-    try {
-      return await authService.editUser(userDataEdit);
-    } catch (error) {
-      console.error(error);
-      const message = error.response.data;
-      return thunkAPI.rejectWithValue(message);
-    }
-  });
-  export const follow=createAsyncThunk("auth/follow", async(_id,thunkAPI)=>{
-    try {
-      return await authService.follow(_id);
-    } catch (error) {
-      console.error(error);
-      const message = error.response.data;
-      return thunkAPI.rejectWithValue(message);
-    }
-  });
-  export const unfollow=createAsyncThunk("auth/unfollow", async(_id,thunkAPI)=>{
-    try {
-      return await authService.unfollow(_id);
-    } catch (error) {
-      console.error(error);
-      const message = error.response.data;
-      return thunkAPI.rejectWithValue(message);
-    }
-  });
-  export const getUserById = createAsyncThunk("auth/getUserById", async (_id) => {
-    try {
-    return await authService.getUserById(_id);
-    } catch (error) {
+export const logout = createAsyncThunk("auth/logout", async (thunkAPI) => {
+  try {
+    return await authService.logout();
+  } catch (error) {
     console.error(error);
-   
-  
-    }
-    });
-    export const allConnects = createAsyncThunk("auth/allConnects", async () => {
-      try {
-        return await authService.allConnects();
-      } catch (error) {
-        console.error(error);
-      }
-    });
-    export const deleteUser = createAsyncThunk("auth/deleteUser", async (thunkAPI) => {
-      try {
-        return await authService.deleteUser();
-      } catch (error) {
-        console.error(error);
-          const message = error.response.data;
-      return thunkAPI.rejectWithValue(message);
-      }
-    });
-    export const deleteUserAdmin = createAsyncThunk("auth/deleteUserAdmin", async (_id,thunkAPI) => {
-      try {
-        return await authService.deleteUserAdmin(_id);
-      } catch (error) {
-        console.error(error);
-          const message = error.response.data;
-      return thunkAPI.rejectWithValue(message);
-      }
-    });
+    const message = error.response.data;
+    return thunkAPI.rejectWithValue(message);
+  }
+});
+
+export const myInfo = createAsyncThunk("auth/miInfo", async (thunkAPI) => {
+  try {
+    return await authService.myInfo(user);
+  } catch (error) {
+    console.error(error);
+    const message = error.response.data.message;
+    return thunkAPI.rejectWithValue(message);
+  }
+});
+
+export const allUsers = createAsyncThunk("auth/allUsers", async () => {
+  try {
+    return await authService.allUsers();
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+export const editUser = createAsyncThunk("auth/editUser", async (userDataEdit, thunkAPI) => {
+  try {
+    return await authService.editUser(userDataEdit);
+  } catch (error) {
+    console.error(error);
+    const message = error.response.data;
+    return thunkAPI.rejectWithValue(message);
+  }
+});
+
+export const follow = createAsyncThunk("auth/follow", async (_id, thunkAPI) => {
+  try {
+    return await authService.follow(_id);
+  } catch (error) {
+    console.error(error);
+    const message = error.response.data;
+    return thunkAPI.rejectWithValue(message);
+  }
+});
+
+export const unfollow = createAsyncThunk("auth/unfollow", async (_id, thunkAPI) => {
+  try {
+    return await authService.unfollow(_id);
+  } catch (error) {
+    console.error(error);
+    const message = error.response.data;
+    return thunkAPI.rejectWithValue(message);
+  }
+});
+
+export const getUserById = createAsyncThunk("auth/getUserById", async (_id) => {
+  try {
+    return await authService.getUserById(_id);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+export const allConnects = createAsyncThunk("auth/allConnects", async () => {
+  try {
+    return await authService.allConnects();
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+export const deleteUser = createAsyncThunk("auth/deleteUser", async (thunkAPI) => {
+  try {
+    return await authService.deleteUser();
+  } catch (error) {
+    console.error(error);
+    const message = error.response.data;
+    return thunkAPI.rejectWithValue(message);
+  }
+});
+
+export const deleteUserAdmin = createAsyncThunk("auth/deleteUserAdmin", async (_id, thunkAPI) => {
+  try {
+    return await authService.deleteUserAdmin(_id);
+  } catch (error) {
+    console.error(error);
+    const message = error.response.data;
+    return thunkAPI.rejectWithValue(message);
+  }
+});
 
 
 export const authSlice = createSlice({
@@ -129,13 +137,13 @@ export const authSlice = createSlice({
   reducers: {
     reset: (state) => {
       state.isError = false;
-      state.messageLogout="";
+      state.messageLogout = "";
       state.isSuccess = false;
-      state.isSuccessLogout=false;
+      state.isSuccessLogout = false;
       state.message = "";
     },
-   
-   },
+  },
+  
   extraReducers: (builder) => {
     builder
       .addCase(login.fulfilled, (state, action) => {
@@ -147,9 +155,9 @@ export const authSlice = createSlice({
         state.isError = true;
         state.message = action.payload;
       })
-      .addCase(logout.fulfilled, (state,action) => {
+      .addCase(logout.fulfilled, (state, action) => {
         state.user = null;
-        state.messageLogout =action.payload.message;
+        state.messageLogout = action.payload.message;
       })
       .addCase(register.fulfilled, (state, action) => {
         state.isSuccess = true;
@@ -161,7 +169,7 @@ export const authSlice = createSlice({
       })
       .addCase(myInfo.fulfilled, (state, action) => {
         state.user = action.payload;
-        state.isLoading=false;
+        state.isLoading = false;
       })
       .addCase(myInfo.pending, (state) => {
         state.isLoading = true;
@@ -170,11 +178,10 @@ export const authSlice = createSlice({
         state.users = action.payload;
       })
       .addCase(editUser.fulfilled, (state, action) => {
-        state.user=action.payload;
+        state.user = action.payload;
         state.isSuccess = true;
         state.message = action.payload.message;
       })
-      
       .addCase(follow.fulfilled, (state, action) => {
         const users = state.users.map((user) => {
           if (user._id === action.payload.user._id) {
@@ -185,12 +192,10 @@ export const authSlice = createSlice({
         state.users = users;
         state.isSuccess = true;
         state.message = action.payload.message;
-
       })
       .addCase(follow.rejected, (state, action) => {
         state.isError = true;
         state.message = action.payload.message;
-
       })
       .addCase(unfollow.fulfilled, (state, action) => {
         const users = state.users.map((user) => {
@@ -202,46 +207,36 @@ export const authSlice = createSlice({
         state.users = users;
         state.isSuccess = true;
         state.message = action.payload.message;
-       
       })
       .addCase(unfollow.rejected, (state, action) => {
         state.isError = true;
         state.message = action.payload.message;
-
       })
       .addCase(getUserById.fulfilled, (state, action) => {
         state.userProfile = action.payload;
-        state.isLoading=false;
-
-        })
-        .addCase(getUserById.pending, (state) => {
-          state.isLoading = true;
-        })
-        .addCase(allConnects.fulfilled, (state, action) => {
-          state.usersOnline = action.payload;
-        })
-        .addCase(deleteUser.fulfilled, (state, action) => {
-          state.user=null;
-        })
-        .addCase(deleteUserAdmin.fulfilled, (state, action) => {
-          state.message=action.payload.message;
-          state.isSuccess = true;
-          state.users=state.users.filter(user=>user._id!==action.payload.user._id)
-
-        })
-        .addCase(deleteUserAdmin.rejected, (state, action) => {
-          state.message=action.payload.message;
-          state.isError = true;
-          
-        })
-        
-      
+        state.isLoading = false;
+      })
+      .addCase(getUserById.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(allConnects.fulfilled, (state, action) => {
+        state.usersOnline = action.payload;
+      })
+      .addCase(deleteUser.fulfilled, (state, action) => {
+        state.user = null;
+      })
+      .addCase(deleteUserAdmin.fulfilled, (state, action) => {
+        state.message = action.payload.message;
+        state.isSuccess = true;
+        state.users = state.users.filter(user => user._id !== action.payload.user._id)
+      })
+      .addCase(deleteUserAdmin.rejected, (state, action) => {
+        state.message = action.payload.message;
+        state.isError = true;
+      })
   },
 })
 
- 
 export const { reset } = authSlice.actions;
-
-
 
 export default authSlice.reducer;

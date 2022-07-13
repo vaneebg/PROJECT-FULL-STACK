@@ -20,15 +20,15 @@ const AddPostNoDrag = () => {
   return (
     <>
       <Button type="primary" onClick={showModal}>
-        Añadir nuevo post 
+        Añadir nuevo post
       </Button>
       <Modal
-       footer={[
-        <Button key="back" onClick={handleCancel}>
-          Volver
-        </Button>
-      ]} title="Añadir post" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-       <AddPost/>
+        footer={[
+          <Button key="back" onClick={handleCancel}>
+            Volver
+          </Button>
+        ]} title="Añadir post" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+        <AddPost />
       </Modal>
     </>
   );

@@ -1,18 +1,17 @@
-import { useState,useEffect } from 'react'
-import { useDispatch,useSelector } from 'react-redux'
-import { login,reset } from '../../../../features/auth/authSlice'
-import {  Input, notification } from 'antd'
-import { MailOutlined, LockOutlined } from '@ant-design/icons';
+import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom";
-
+import { login, reset } from '../../../../features/auth/authSlice'
+import { Input, notification } from 'antd'
+import { MailOutlined, LockOutlined } from '@ant-design/icons';
 import './Login.scss'
 
 const Login = () => {
   const initialState = {
     email: "",
     password: "",
-   
   };
+
   const navigate = useNavigate()
 
   const [formDataLogin, setFormDataLogin] = useState(initialState);
@@ -20,18 +19,16 @@ const Login = () => {
 
   const dispatch = useDispatch();
 
-  
-  const { isError, isSuccess,message, messageLogout,messageDelete} = useSelector((state) => state.auth);
+
+  const { isError, isSuccess, message, messageLogout, messageDelete } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    if(messageLogout){
+    if (messageLogout) {
       notification.success({ message: "Éxito", description: messageLogout });
-
     }
-    if(messageDelete){
+    if (messageDelete) {
       notification.success({ message: "Éxito", description: messageDelete });
-
-     }
+    }
     if (isError) {
       notification.error({ message: "Error", description: message });
     }
@@ -54,22 +51,19 @@ const Login = () => {
   };
   const onSubmit = (e) => {
     e.preventDefault()
-
     dispatch(login(formDataLogin));
-   
-    }
+  }
 
-return (
-  <div className="centerLog login">
- 
- <form className='formLog' onSubmit={onSubmit}>
- <label className="labelR" htmlFor="email">Correo:</label> 
- <Input prefix={<MailOutlined/>} type="email" name="email" value={email} onChange={onChange}/>
- <label className="labelR" htmlFor="password">Contraseña:</label>
- <Input prefix={<LockOutlined/>} type="password" name="password" value={password} onChange={onChange}/>
- <button className="loginBt" type="submit">Login</button>
- </form>
-  </div>
-)
+  return (
+    <div className="centerLog login">
+      <form className='formLog' onSubmit={onSubmit}>
+        <label className="labelR" htmlFor="email">Correo:</label>
+        <Input prefix={<MailOutlined />} type="email" name="email" value={email} onChange={onChange} />
+        <label className="labelR" htmlFor="password">Contraseña:</label>
+        <Input prefix={<LockOutlined />} type="password" name="password" value={password} onChange={onChange} />
+        <button className="loginBt" type="submit">Login</button>
+      </form>
+    </div>
+  )
 }
 export default Login

@@ -8,27 +8,24 @@ const URL = process.env.REACT_APP_URL
 
 
 const Profile = () => {
-
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
-
   useEffect(() => {
-    dispatch(myInfo()); 
+    dispatch(myInfo());
   }, []);
+
   return (
     <div className='profileIcon'>
-            <span className="WhoFollowNameP">Perfil de usuario:</span>
-
+      <span className="WhoFollowNameP">Perfil de usuario:</span>
       <div className="nameAndI">
-      {user.user.image ? <img className='imgUser'src={URL+"/images/users/" + user.user.image} alt=''/> : <img className='imgUser' src={URL+"/images/users/none.jpg"} alt=''/>}
-     
-      <Link to="/profile"> <span className="usernameProfile Test"> {user.user.username}</span></Link>
+        {user.user.image ? <img className='imgUser' src={URL + "/images/users/" + user.user.image} alt='' /> : <img className='imgUser' src={URL + "/images/users/none.jpg"} alt='' />}
+        <Link to="/profile"> <span className="usernameProfile Test"> {user.user.username}</span></Link>
       </div>
-           <span>Email: {user.user.email}</span>
-           <span>Edad: {user.user.age}</span>
+      <span>Email: {user.user.email}</span>
+      <span>Edad: {user.user.age}</span>
     </div>
-    
+
   )
 }
 

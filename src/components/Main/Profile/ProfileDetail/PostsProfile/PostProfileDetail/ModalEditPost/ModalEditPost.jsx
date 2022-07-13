@@ -46,7 +46,7 @@ const ModalEditPost = () => {
   return (
     <> <Tooltip title="Editar post">
       <Button className="nobtn" onClick={showModal}><i className="fa-solid fa-brush big"></i></Button>
-     </Tooltip>
+    </Tooltip>
       <Modal
         title={
           <div
@@ -61,11 +61,11 @@ const ModalEditPost = () => {
             }}
             onMouseOut={() => {
               setDisabled(true);
-            }} 
-            onFocus={() => {}}
-            onBlur={() => {}} 
+            }}
+            onFocus={() => { }}
+            onBlur={() => { }}
           >
-           Subir post editado
+            Subir post editado
           </div>
         }
         visible={visible}
@@ -86,7 +86,7 @@ const ModalEditPost = () => {
           </Draggable>
         )}
       >
-       <EditPost/>
+        <EditPost />
       </Modal>
     </>
   );
