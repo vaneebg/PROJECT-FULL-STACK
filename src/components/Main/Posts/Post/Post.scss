@@ -85,6 +85,8 @@ margin:1em;
     color:$purple1;
 }
 .fa-heart:hover{
+    cursor:url('../../../../assets/click.png'),pointer;
+
     cursor:pointer;
 }
 

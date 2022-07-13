@@ -12,6 +12,8 @@ button {
 
 }
 button:hover{
+    cursor:url('../../../assets/click.png'),pointer;
+
     background-color: $purple1 !important;
     border:2px solid $purple1 !important;
 }

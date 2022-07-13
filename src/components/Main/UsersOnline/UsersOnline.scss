@@ -32,6 +32,8 @@ justify-content: center;
     border-radius: 50px;
 }
 .imgUserOnline:hover{
+    cursor:url('../../../assets/click.png'),pointer;
+
     background-color: $purple3;
 }
 .hrMain{

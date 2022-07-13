@@ -24,6 +24,7 @@ hr{
             color:$purple1;
         }
         svg:hover{
+            cursor:url('../../assets/click.png'),pointer;
             color:$purple4;
         }
     }

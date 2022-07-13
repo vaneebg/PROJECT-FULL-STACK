@@ -2,5 +2,7 @@
     all:unset !important;
 }
 .nobtn:hover{
+    cursor:url('../../../../../assets/click.png'),pointer;
+
     all:unset !important
 }

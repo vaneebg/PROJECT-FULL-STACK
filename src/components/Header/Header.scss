@@ -18,6 +18,7 @@ text-shadow: 2px -1px black;
     color:white;
    } 
    a:hover{
+    cursor:url('../../assets/click.png'),pointer;
     color:$purple1;
    }
 }

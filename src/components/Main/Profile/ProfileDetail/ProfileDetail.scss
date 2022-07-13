@@ -17,6 +17,8 @@ width:10em;
 margin:1em;
 }
 svg:hover{
+    cursor:url('../../../../assets/click.png'),pointer;
+
     color:$purple5;
 }
 .buttonsProfile{
@@ -43,6 +45,8 @@ svg:hover{
         color:white !important;
     }
     a:hover{
+        cursor:url('../../../../assets/click.png'),pointer;
+
         color:$purple3 !important;
     }
 }

@@ -7,9 +7,13 @@
     color: white!important;
 }
 .ant-tabs-tab.ant-tabs-tab-active:hover .ant-tabs-tab-btn:hover {
+    cursor:url('../../../assets/click.png'),pointer;
+
     color:white !important;
 }
 .ant-tabs-tab:hover{
+    cursor:url('../../../assets/click.png'),pointer;
+
     color:white !important;
 }
 .ant-tabs-ink-bar {

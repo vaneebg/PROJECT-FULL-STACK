@@ -36,8 +36,9 @@
     color:$purple1 !important;
 }
 .loginBt:hover{
+    cursor:url('../../../../assets/click.png'),pointer;
+
     background-color: $purple1 !important;
     border:1px solid $purple5 !important;
     color:white!important;
-    cursor:pointer;
 }

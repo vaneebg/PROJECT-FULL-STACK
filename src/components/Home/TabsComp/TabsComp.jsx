@@ -1,8 +1,8 @@
 import Login from '../TabsComp/Login/Login';
 import Register from '../TabsComp/Register/Register'
 import { Tabs } from 'antd';
-const { TabPane } = Tabs;
 import './TabsComp.scss'
+const { TabPane } = Tabs;
 
 
 const TabsComp = () => {

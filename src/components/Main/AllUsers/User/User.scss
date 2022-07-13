@@ -4,6 +4,8 @@
     cursor:pointer;
 }
 .fa-solid:hover{
+    cursor:url('../../../../assets/click.png'),pointer;
+
     color:$purple5;
 }
 .fa-people-group, .fa-person-walking-arrow-right{
@@ -19,6 +21,8 @@
     color:$purple5;
 }
 .fa-eye:hover{
+    cursor:url('../../../../assets/click.png'),pointer;
+
     color:$purple1;
 }
 .connects{
