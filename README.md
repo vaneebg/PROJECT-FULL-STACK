@@ -1,4 +1,4 @@
-#  <center> :video_game: :space_invader: Proyecto FullStack: Read Anti-social VB :video_game: :space_invader: </center> 
+#  <center> :smiling_imp: Proyecto FullStack: Red Anti-social VB :smiling_imp: </center> 
 
  ## :clipboard: Índice :clipboard:
 
@@ -24,37 +24,39 @@
 
     - [React router](#4-react-router)
 
+    - [Guards](#5-guards)
+
 
 - [Retos presentados](#dart-retos-presentados-dart)
 
-    - [UseEffect](#vista-admin)
+    - [UseEffect](#useeffect)
 
-    - [Extra-reducers]
+    - [Extra-reducers](#extra-reducers)
 
-    - [User y UserProfile]()
+    - [User y UserProfile](#user-y-userprofile)
 
-    - [CRUD de comentarios]()
+    - [CRUD de comentarios](#crud-de-comentarios)
 
-    - [Paginación]()
+    - [Paginación](#paginación)
 
-    - [Despliegues]
+    - [Despliegues](#despliegues)
 
-    - [Cypress]
+    - [Cypress](#cypress)
 
-    -[Populate]
+    -[Populate](#populate)
 
-    - [Subir imágenes]()
+    - [Subir imágenes](#subir-imágenes)
 
-    -[Permitir likes y comentarios cuando entras en perfil de otro usuario]()
+    -[Permitir likes y comentarios cuando entras en perfil de otro usuario](#permitir-likes-y-comentarios-cuando-entras-en-perfil-de-otro-usuario)
 
-    - [Modales draggables]()
+    - [Modales draggables](#modales-draggables)
 
 
 - [Agradecimientos](#agradecimientos)
 
 - [Futuras implementaciones](#blacknib-futuras-implementaciones-blacknib)
 
-- [Autor](#raisedhands-autores-raisedhands)
+- [Autor](#raisedhands-autor-raisedhands)
 
 ------------------
 
@@ -87,7 +89,7 @@ npm start
 
 Automáticamente se te abrirá una nueva ventana del navegador con la página web.
 
-Ambos repositorios están desplegados, el backend en Heroku y el frontend en Aamazon Web Service. En caso de querer acceder al proyecto desplegado, la página web es la siguiente:
+Ambos repositorios están desplegados, el backend en Heroku y el frontend en Amazon Web Service. En caso de querer acceder al proyecto desplegado, la página web es la siguiente:
 https://main.d15f54lyfj7w5t.amplifyapp.com/
 
 
@@ -235,6 +237,7 @@ La API a la que realizamos las llamadas es la que contruí en un proyecto anteri
 https://github.com/vaneebg/BACKEND_MONGODB_RED_SOCIAL
 ````
 En el Readme se explican todos los endpoints y el funcionamiento en general de la misma.
+
 ----------
 
 ## 2. Componentes
@@ -249,7 +252,9 @@ Dos de ellos se encuentran fijados para aparecer siempre independientemente del 
 
 
 
-Resto de componentes se ha organizado de forma que cada uno se especialice lo máximo posible en una única función. Por ejemplo, User se encarga de mapear los usuarios y mostrarlos en AllUsers, al igual que Post mapea todos los posts que hay y los muestra en el componente padre Posts.
+Resto de componentes se ha organizado de forma que cada uno se especialice lo máximo posible en una única función. Por ejemplo, User se encarga de mapear los usuarios y mostrarlos en AllUsers, al igual que Post mapea todos los posts que hay y los muestra en el componente padre Posts. Entre ellos destacar el subcomponente de Main:
+  - **Profile**: Que incluye diversos subcomponentes para el perfil con tus posts y finalmente el detalle de cada post en concreto.
+  - **Posts**: Componente sobre el que gira gran parte del proyecto. Este a su vez tiene el componente Post que se encarga de mapearlos, además de los componentes de añadir comentario, editarlo dentro de todos los post y también dentro de un slo componente post cuando lo buscas por id.
 
 
 -------
@@ -403,7 +408,11 @@ Al profe [Ger] en especial (https://github.com/GeerDev) por tantos y tantos bugs
 
 
 # :black_nib: Futuras implementaciones :black_nib:
-¿????????????
+- [ ] Implementar notificaciones cuando le comentan algo o le dan like a tu post
+- [ ] Filtrar posts para solo ver aquellos a quienes sigues
+- [ ] Implementación de mensajes privados
+- [ ] Implementación de un chaten vivo
+- [ ] Añadirle más funcionalidad al responsive.
 
 ----------------------
 
