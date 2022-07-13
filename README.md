@@ -254,6 +254,10 @@ Prácticamente toda la página web tiene diseñadas unas notificaciones que avis
 ![foto](./toReadme/notificacion.png)
 
 
+Al igual que si buscas un post que no existe sale un 404, tal como cuando pones algo en la url que no existe:
+![foto](./toReadme/notfound.gif)
+
+
 ----------
 # :green_book: Descripción del proyecto :green_book:
 
