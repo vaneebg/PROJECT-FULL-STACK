@@ -30,7 +30,7 @@ describe('Probando ciclo de autenticación', () => {
   });
 
   it("Testing login", function () {
-    cy.request('get','http://localhost:8080/users/confirmTesting')
+    cy.request('get','https://red-social-vaneebg.herokuapp.com/users/confirmTesting')
     cy.wait(3000)
     cy.contains('Login').click()
     cy.get('input[name="email"]').click().type('german@gmail.com')

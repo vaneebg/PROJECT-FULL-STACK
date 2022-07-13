@@ -32,6 +32,9 @@ const Main = () => {
             <input className="searchPost" onKeyUp={handleChange} placeholder="titulo post..." name="text" />
             <i className="fa-solid fa-magnifying-glass-arrow-right iconS"></i>
           </div>
+          <div className="hidden">
+            <AddPostNoDrag />
+          </div>
         </div>
       </div>
       <div className="contentMain">
@@ -42,7 +45,7 @@ const Main = () => {
           </div>
         </div>
         <Posts />
-        <div className="sticky  item-2">
+        <div className="sticky">
           <div className="right">
             {user.user.role !== "admin" ? <AllUsers /> : null}
           </div>
