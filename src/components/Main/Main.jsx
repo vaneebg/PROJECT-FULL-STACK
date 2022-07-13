@@ -45,7 +45,7 @@ const Main = () => {
           </div>
         </div>
         <Posts />
-        <div className="sticky">
+        <div className="sticky item-2">
           <div className="right">
             {user.user.role !== "admin" ? <AllUsers /> : null}
           </div>
