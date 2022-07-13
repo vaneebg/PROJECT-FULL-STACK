@@ -94,7 +94,7 @@ https://main.d15f54lyfj7w5t.amplifyapp.com/
 
 
 ---------
-## :wrench: Tecnologias/packages utilizados 
+## :wrench: Tecnologías/packages utilizados 
 - Javascript
 - React
 - SASS
@@ -125,7 +125,7 @@ Es el proyecto final de fullstack de la academia The Brigde para asentar todos l
 Se ha trabajado en diversas ramas de Git para continuar con el proceso de aprendizaje de esta herramienta y fomentar las buenas prácticas. Primeramente se ha creado la rama develop y,a pesar de que trata de un trabajo individual, se hanido creando subramas con el nombre de la funcionalidad que se iba a implementar. Después se mergeaba develop primero en la subrama, y una vez comprobado que todo seguía en funcionamiento, se mergeaba a develop. Finalmente, una vez asegurado que todo el proyecto está en funcionamiento, se mergea a main.
 
 
-Para la organización he hecho uso principalmente de Trello, dividiendo cada tarjeta por tareas, objetivos mínmos del proyecto, bugs y comprobaciones, así como nuevas ideas:
+Para la organización he hecho uso principalmente de Trello, dividiendo cada tarjeta por tareas, objetivos mínimos del proyecto, bugs y comprobaciones, así como nuevas ideas:
 ![foto](./toReadme/trello.png)
 
 ------
@@ -197,36 +197,62 @@ Requisitos imprescindibles del proyecto:
 La idea principal con la que he construido este proyecto es intentar darle esa pincelada de toque personal. Para ello, se me ocurrió la idea de desmarcarme un poco de lo que conocemos normalmente como red social, siendo la misma subir tus mejores vacaciones o tus fotos de viajes y amigos. Al final, una red social no es más quee una herramienta de conexión entre las personas, y creo que si hay algo que una más que lo que nos encanta, es también lo que nos disgusta. De ahí su nombre, Red Anti-social. Me he dedicado sobre todo a enmarcar la idea de subir posts sobre aquellas cosas que te fastidia en tu vida cotidiana, desde madrugar, hasta coger transporte público. Siempre desde el humor,por eso son en forma de memes, ya que entre mis principios de vida, tener humor ha estado siempre entre los principales. 
 
 Ya que setrata de una red anti-social, he pensado en un diseño se adapte a estas características, sobre todo al humor. Y qué mejor color que los tonos morados/rosas, como inspiración a esa vida de "color de rosa". Para ello, he utilizado una paleta de colores y tres tipos de fuentes principales que he puesto en el archivo variables.scss:
-![foto](./toReadme/paleta.jpg)
+![foto](./toReadme/paleta.png)
+
+
 
 Para el fondo general de la página, he escogido una imagen con especial mención a un familiar muy querido, del mismo estilo con un attachment "fixed" para no tener los cortes de imagen y así ponerla estable en todo el fondo:
 
+
+
 ![foto](./src/assets/background.jpg)
 
+
+
 En Home hay una animación general en forma de Carrousel:
+
+
 ![foto](./toReadme/home.gif)
+
+
 
 En cuanto al diseño en general, está basado en tarjetas que están levemente pintadas con transparencia, además de cursores personalizados haciendo especia mención al personaje más "asocial" de Marvel:
 
+
 ![foto](./toReadme/main.gif)
 
+
 Vista perfil y vista perfil de otro usuario:
+
+
 ![foto](./toReadme/visitprofile.gif)
 
+
+
 Vista modales draggables y scroll comentarios:
+
+
 ![foto](./toReadme/dragable.gif)
 
 
+
 En lo referente a la vista Admin, tiene un panel de administración donde se borran los usuarios:
+
+
 ![foto](./toReadme/borrarusers.png)
 
 
 Para finalizar, siguiendo con la temática, he añadido gifs en caso de que no hayas posteado nada aún ni tengas post guardados en tus favoritos, aquí también se muestra el pop-up de seguridad enc aso de querer borrar un post:
+
+
 ![foto](./toReadme/gifnopost.gif)
 
 
 Prácticamente toda la página web tiene diseñadas unas notificaciones que avisan al usuario de que ha hecho Login bien, ha añadido un comentario/post con éxito, entre otros:
+
+
 ![foto](./toReadme/notificacion.png)
+
 
 ----------
 # :green_book: Descripción del proyecto :green_book:
@@ -278,7 +304,7 @@ const initialState = {
 };
 ````
 
--**Posts**: en lo referente al componente de features de posts, el estado inicial de posts en plural es un array vacío que espera llenarse con los objetos (los diferentes post). Por otro lado, post en singular está destinado a obtener el post por Id, que puedes conseguirlo al hacer click sobre tu propio post en tu perfil, o bien en el perfil de otro usuario.
+- **Posts**: en lo referente al componente de features de posts, el estado inicial de posts en plural es un array vacío que espera llenarse con los objetos (los diferentes post). Por otro lado, post en singular está destinado a obtener el post por Id, que puedes conseguirlo al hacer click sobre tu propio post en tu perfil, o bien en el perfil de otro usuario.
 
 
 ````
@@ -391,7 +417,7 @@ Otra tarea de investigación sobre new formData para que los formularios pudiese
 Al principio resultó bastante lioso ya que el mapeo y los datos necesarios eran algo diferentes a cuando simplemente se muestran todos los posts en inicio. Sin embargo al final gracias a esto aprendes mucho mejor el funcionamiento de estos componentes.
 
 
-## Modales draggables:
+## - Modales draggables:
 
 Principal problema sobre todo en el desarrollo responsive. Pese a que en formato web resultan bastante útiles para moverloso y ver la información que consideres necesaria mientras escribes, en el móvil se vuelven inservibles ya que no permite dar click a los input. La solución a esto fue crear un modal no draggable que solo se muestre en la vista móvil. Con ello, en vista web tendremos el modal draggable, mientras que en formato móvil este modal se sustituye por el otro que sí es funcional.
 
