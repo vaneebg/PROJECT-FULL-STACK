@@ -20,7 +20,7 @@ const User = () => {
   useEffect(() => {
     if (isSuccess) {
       notification.success({
-        message: "Éxito", description: message, placement: "topRight", icon: (
+        message: "Éxitoa", description: message, icon: (
           <RedditOutlined
             style={{
               color: '#4b0081',
@@ -28,9 +28,9 @@ const User = () => {
         ),
       });
     }
-
     dispatch(reset());
   }, [isSuccess]);
+
 
 
   const user1 = users.map((el, i) => {
